@@ -1,0 +1,17 @@
+Name of auto gallery : khan
+Address :  hakim nezami
+manger : emad borjegani
+telephone : (031)32290576
+---------------------
+
+Name of auto gallery : rashdi
+Address :  mazandaran_sari_rashidi
+manger : karimi
+telephone : (056)2288644
+---------------------
+
+Name of auto gallery : bugati
+Address :  mardavij
+manger : ehsan ahmadi
+telephone : (031)6845787
+---------------------

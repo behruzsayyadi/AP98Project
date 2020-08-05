@@ -1,0 +1,78 @@
+
+name : ali panahi 
+pride kharide 
+range mashin : sefid 
+shomare pelak mashin : 12j782iran12 
+range dakhele mashin : sefid
+shomare shasi mashin : 87455412
+gheymat kharid mashin 35.000000
+kode melli : 1284566251
+shomare mobile : 09132254786
+tarikh: 28/5/2020
+name forooshande : emad borjegani
+moshakhasate mashin : bedoone rang
+sale tolid : 1385 
+sahebe sanad : emad borjegani
+..................................................
+
+name : ali panahi 
+pride kharide 
+range mashin : meshki 
+shomare pelak mashin : 12j785iran15 
+range dakhele mashin : meshki
+shomare shasi mashin : 785412
+gheymat kharid mashin 60
+kode melli : 1287456987
+shomare mobile : 09154478521
+tarikh: 1/6/2020
+name forooshande : Hamid Reza Borjegani
+moshakhasate mashin : bedoone rang
+sale tolid : 1395 
+sahebe sanad : ali panahi
+..................................................
+
+name : ali panahi 
+pride kharide 
+range mashin : meshki 
+shomare pelak mashin : 78j785iran45 
+range dakhele mashin : meshki
+shomare shasi mashin : 785412
+gheymat kharid mashin 45.000000
+kode melli : 21875412
+shomare mobile : 09132547851
+tarikh: 1/6/2020
+name forooshande : ali eshghi
+moshakhasate mashin : bedoone rang
+sale tolid : 1391 
+sahebe sanad : ali eshghi
+..................................................
+name : ali panahi 
+azara forookhte 
+range mashin : meshki 
+shomare pelak mashin : 12j785iran14
+range dakhele mashin : meshki 
+shomare shasi mashin : 785412
+gheymat foroosh mashin 700
+moshakhasat : bedoone rang
+sale tolid : 2017
+sahebe sanad : ali panahikode melli : 1287456987
+shomare mobile : 09132547856
+tarikh:15/6/2020
+name kharidar : Hamid Reza Borjegani
+..................................................
+
+name : ali panahi 
+sonata kharide 
+range mashin : mehski 
+shomare pelak mashin : 5445 
+range dakhele mashin : mehski
+shomare shasi mashin : 45
+gheymat kharid mashin 700
+kode melli : 1287456987
+shomare mobile : 784521
+tarikh: 15/6/2020
+name forooshande : Hamid Reza Borjegani
+moshakhasate mashin : bdoone rang
+sale tolid : 2017 
+sahebe sanad : ali panahi
+..................................................

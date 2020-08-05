@@ -1,0 +1,32 @@
+
+name : asal borjegani 
+BMW kharide 
+range mashin : sabz 
+shomare pelak mashin : 12l458iran11 
+range dakhele mashin : sabz
+shomare shasi mashin : 14785
+gheymat kharid mashin 2000.000000
+kode melli : 128546987
+shomare mobile : 09021185478
+tarikh: 27/5/2020
+name forooshande : emad borjegnai
+moshakhasate mashin : bedoone rang
+sale tolid : 2018 
+sahebe sanad : emad borjegani
+..................................................
+
+name : asal borjegani 
+azara kharide 
+range mashin : meshki 
+shomare pelak mashin : 14r487iran13 
+range dakhele mashin : meshki
+shomare shasi mashin : 874521
+gheymat kharid mashin 1000.000000
+kode melli : 12734657122
+shomare mobile : 09021157122
+tarikh: 28/5/2020
+name forooshande : emad borjegani
+moshakhasate mashin : bedoone rang
+sale tolid : 2020 
+sahebe sanad : emad borjegani
+..................................................

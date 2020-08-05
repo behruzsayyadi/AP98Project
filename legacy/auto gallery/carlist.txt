@@ -1,0 +1,8 @@
+name : sonata hybrid         color : meshki       model : 2021
+
+name : bmw series 7         color : khakestari       model : 2015
+
+name : azara         color : sefid       model : 2021
+
+name : azara         color : ghermez       model : 2015
+

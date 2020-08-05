@@ -1,0 +1,16 @@
+
+name : ali nazari 
+54 kharide 
+range mashin : 45 
+shomare pelak mashin : 45 
+range dakhele mashin : 45
+shomare shasi mashin : 54
+gheymat kharid mashin 45
+kode melli : 124145
+shomare mobile : 5454
+tarikh: 15/6/2020
+name forooshande : Hamid Reza Borjegani
+moshakhasate mashin : 45
+sale tolid : 45 
+sahebe sanad : 45
+..................................................
