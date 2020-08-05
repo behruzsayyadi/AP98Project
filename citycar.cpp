@@ -1,6 +1,6 @@
 #include "citycar.h"
 
-CityCar::CityCar()
+CityCar::CityCar() : Car{}
 {
 
 }
