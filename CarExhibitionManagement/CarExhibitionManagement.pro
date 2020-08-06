@@ -18,13 +18,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     Car.cpp \
     CityCar.cpp \
+    SUV.cpp \
+    SportCar.cpp \
     main.cpp \
     MainWindow.cpp
 
 HEADERS += \
     Car.h \
     CityCar.h \
-    MainWindow.h
+    MainWindow.h \
+    SUV.h \
+    SportCar.h
 
 FORMS += \
     MainWindow.ui
