@@ -21,6 +21,7 @@ Car::Car( QString brand,
     motor{ motor},
     number_of_cylinders{ number_of_cylinders}
 {}
+
 QString Car::getNumberOfCylindersInQString() const
 {
     switch (number_of_cylinders)
