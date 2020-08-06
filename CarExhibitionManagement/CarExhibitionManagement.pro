@@ -16,22 +16,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-<<<<<<< HEAD:CarExhibitionManagement.pro
-    car.cpp \
-    citycar.cpp \
-    human.cpp \
-    main.cpp \
-    mainwindow.cpp
-
-HEADERS += \
-    car.h \
-    citycar.h \
-    human.h \
-    mainwindow.h
-
-FORMS += \
-    mainwindow.ui
-=======
     main.cpp \
     MainWindow.cpp
 
@@ -40,7 +24,6 @@ HEADERS += \
 
 FORMS += \
     MainWindow.ui
->>>>>>> master:CarExhibitionManagement/CarExhibitionManagement.pro
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
