@@ -1,2 +1,2 @@
-#car exhibition management panel
-
+Car exhibition management panel
+A small GUI application written in C++ and Qt.
