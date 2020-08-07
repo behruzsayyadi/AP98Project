@@ -12,35 +12,44 @@ private:
     QString family;
     QString birth_date;
     QString code_melli;
+    QString shomare_shenasname;
     QString phone_number;
-    QString address;
+    QString job;
+    QString job_phone;
 public:
-    Human(QString name,QString family,QString birth_date,QString code_melli,QString phone_number,QString address);
+    Human(QString name,QString family,QString birth_date,QString code_melli,QString shomare_shenasname,QString phone_number,QString job,QString job_phone);
 
 
     void setName(QString name);
-    QString getName();
+    QString getName() const;
 
 
     void setFamily(QString family);
-    QString getFamily();
+    QString getFamily() const;
 
 
     void setBirthDate(QString birth_date);
-    QString getBirthDate();
+    QString getBirthDate() const;
 
 
     void setCodeMelli(QString code_melli);
-    QString getCodeMelli();
+    QString getCodeMelli() const;
+
+
+    void setShShenasname(QString shomare_shenasname);
+    QString getShShenasname() const;
 
 
     void setPhoneNum(QString phone_number);
-    QString getPhoneNum();
+    QString getPhoneNum() const;
 
 
-    void setAddress(QString address);
-    QString getAddress();
+    void setJob(QString job);
+    QString getJob() const;
 
+
+    void setJobPhone(QString job_phone);
+    QString getJobPhone() const;
 
 };
 

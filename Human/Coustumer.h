@@ -9,7 +9,7 @@ private:
     QString username;
     QString password;
 public:
-    Coustumer(QString name,QString family,QString birth_date,QString code_melli,QString phone_number,QString address);
+    Coustumer(QString name,QString family,QString birth_date,QString code_melli,QString shomare_shenasname,QString phone_number,QString job,QString job_phone);
 };
 
 #endif // COUSTUMER_H
