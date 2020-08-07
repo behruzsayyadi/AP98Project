@@ -17,14 +17,16 @@ public:
            QString phone_number,
            QObject *parent = nullptr );
 
-    QString getFirstName() const;
-    QString getLastName() const;
-    QString getId() const;
-    QString getAddress() const;
-    QDate getDateOfBirth() const;
-    void setFirstName();
-    void setLastName();
-    void setAddress(QString);
+    QString getFirstName() const { return first_name; }
+    QString getLastName() const { return last_name; }
+    QString getId() const { return id; }
+    QString getAddress() const { return address; }
+    QDate getDateOfBirth() const { return date_of_birth; }
+
+    void setFirstName(const QString &value) { first_name = value; }
+    void setLastName(const QString &value) { last_name = value; }
+    void setPhoneNumber(const QString &value) { phone_number = value; }
+
 private:
     QString first_name;
     QString last_name;

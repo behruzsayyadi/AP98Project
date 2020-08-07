@@ -14,6 +14,12 @@ Human::Human( QString first_name,
     address{ address },
     date_of_birth{ date_of_birth },
     phone_number{ phone_number }
-{
+{}
 
-}
+
+
+
+
+
+
+
