@@ -1,6 +1,9 @@
 #include "MainWindow.h"
+#include "LogInDialog.h"
 
 #include <QApplication>
+#include <QObject>
+#include <QDebug>
 
 #include "Exhibition.h"
 #include "Human.h"
@@ -15,11 +18,18 @@
 #include "Memorandum.h"
 #include "Cheque.h"
 
+
+
+
+
+
 int main(int argc, char *argv[])
 {
+
     QApplication a(argc, argv);
-    Human("ali"," ","dsfa","adf",*new QDate,"sdaf");
-    MainWindow w;
-    w.show();
+    MainWindow m;
+    m.show();
+
+
     return a.exec();
 }
