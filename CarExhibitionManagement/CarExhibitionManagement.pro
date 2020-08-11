@@ -21,14 +21,11 @@ SOURCES += \
     Cheque.cpp \
     CityCar.cpp \
     Customer.cpp \
-    DataManager.cpp \
     Document.cpp \
     Exhibition.cpp \
     Human.cpp \
-    LogInDialog.cpp \
     Manager.cpp \
     Memorandum.cpp \
-    RegisterDialog.cpp \
     SUV.cpp \
     Seller.cpp \
     SportCar.cpp \
@@ -40,23 +37,18 @@ HEADERS += \
     Cheque.h \
     CityCar.h \
     Customer.h \
-    DataManager.h \
     Document.h \
     Exhibition.h \
     Human.h \
-    LogInDialog.h \
     MainWindow.h \
     Manager.h \
     Memorandum.h \
-    RegisterDialog.h \
     SUV.h \
     Seller.h \
     SportCar.h
 
 FORMS += \
-    LogInDialog.ui \
-    MainWindow.ui \
-    RegisterDialog.ui
+    MainWindow.ui
 
 
 
