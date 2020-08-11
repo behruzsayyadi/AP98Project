@@ -1,11 +1,14 @@
 release/Car.o
 release/Cheque.o
 release/CityCar.o
+release/Customer.o
 release/Document.o
 release/Exhibition.o
 release/Human.o
+release/Manager.o
 release/Memorandum.o
 release/SUV.o
+release/Seller.o
 release/SportCar.o
 release/main.o
 release/MainWindow.o

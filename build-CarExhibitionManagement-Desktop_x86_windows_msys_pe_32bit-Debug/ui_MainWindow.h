@@ -11,6 +11,9 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFormLayout>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
@@ -22,6 +25,10 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
+    QWidget *formLayoutWidget;
+    QFormLayout *formLayout;
+    QLabel *label;
+    QLineEdit *lineEdit;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -32,13 +39,33 @@ public:
         MainWindow->resize(800, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        formLayoutWidget = new QWidget(centralwidget);
+        formLayoutWidget->setObjectName(QString::fromUtf8("formLayoutWidget"));
+        formLayoutWidget->setGeometry(QRect(190, 120, 160, 80));
+        formLayout = new QFormLayout(formLayoutWidget);
+        formLayout->setObjectName(QString::fromUtf8("formLayout"));
+        formLayout->setContentsMargins(0, 0, 0, 0);
+        label = new QLabel(formLayoutWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        formLayout->setWidget(0, QFormLayout::LabelRole, label);
+
+        lineEdit = new QLineEdit(formLayoutWidget);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+
+        formLayout->setWidget(0, QFormLayout::FieldRole, lineEdit);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
+        menubar->setGeometry(QRect(0, 0, 800, 20));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
+#if QT_CONFIG(shortcut)
+        label->setBuddy(lineEdit);
+#endif // QT_CONFIG(shortcut)
 
         retranslateUi(MainWindow);
 
@@ -48,6 +75,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "sadfsadfasdf", nullptr));
     } // retranslateUi
 
 };

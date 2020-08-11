@@ -1,11 +1,14 @@
 debug/Car.o
 debug/Cheque.o
 debug/CityCar.o
+debug/Customer.o
 debug/Document.o
 debug/Exhibition.o
 debug/Human.o
+debug/Manager.o
 debug/Memorandum.o
 debug/SUV.o
+debug/Seller.o
 debug/SportCar.o
 debug/main.o
 debug/MainWindow.o
