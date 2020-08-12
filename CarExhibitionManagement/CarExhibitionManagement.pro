@@ -29,11 +29,9 @@ SOURCES += \
     Classes/SUV.cpp \
     Classes/Seller.cpp \
     Classes/SportCar.cpp \
-    UI/Form_login.cpp \
-    UI/Form_register.cpp \
     UI/MainWindow.cpp \
-    UI/StackedWidget.cpp \
-    UI/TabWidget_login_register.cpp \
+    UI/Widget_signin.cpp \
+    UI/Widget_signup.cpp \
     main.cpp
 
 HEADERS += \
@@ -49,18 +47,14 @@ HEADERS += \
     Classes/SUV.h \
     Classes/Seller.h \
     Classes/SportCar.h \
-    UI/Form_login.h \
-    UI/Form_register.h \
     UI/MainWindow.h \
-    UI/StackedWidget.h \
-    UI/TabWidget_login_register.h
+    UI/Widget_signin.h \
+    UI/Widget_signup.h
 
 FORMS += \
-    UI/Form_login.ui \
-    UI/Form_register.ui \
     UI/MainWindow.ui \
-    UI/StackedWidget.ui \
-    UI/TabWidget_login_register.ui
+    UI/Widget_signin.ui \
+    UI/Widget_signup.ui
 
 
 
