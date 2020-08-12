@@ -17,18 +17,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-    Car.cpp \
-    Cheque.cpp \
-    CityCar.cpp \
-    Customer.cpp \
-    Document.cpp \
-    Exhibition.cpp \
-    Human.cpp \
-    Manager.cpp \
-    Memorandum.cpp \
-    SUV.cpp \
-    Seller.cpp \
-    SportCar.cpp \
+    Classes/Car.cpp \
+    Classes/Cheque.cpp \
+    Classes/CityCar.cpp \
+    Classes/Customer.cpp \
+    Classes/Document.cpp \
+    Classes/Exhibition.cpp \
+    Classes/Human.cpp \
+    Classes/Manager.cpp \
+    Classes/Memorandum.cpp \
+    Classes/SUV.cpp \
+    Classes/Seller.cpp \
+    Classes/SportCar.cpp \
     UI/Form_login.cpp \
     UI/Form_register.cpp \
     UI/MainWindow.cpp \
@@ -37,18 +37,18 @@ SOURCES += \
     main.cpp
 
 HEADERS += \
-    Car.h \
-    Cheque.h \
-    CityCar.h \
-    Customer.h \
-    Document.h \
-    Exhibition.h \
-    Human.h \
-    Manager.h \
-    Memorandum.h \
-    SUV.h \
-    Seller.h \
-    SportCar.h \
+    Classes/Car.h \
+    Classes/Cheque.h \
+    Classes/CityCar.h \
+    Classes/Customer.h \
+    Classes/Document.h \
+    Classes/Exhibition.h \
+    Classes/Human.h \
+    Classes/Manager.h \
+    Classes/Memorandum.h \
+    Classes/SUV.h \
+    Classes/Seller.h \
+    Classes/SportCar.h \
     UI/Form_login.h \
     UI/Form_register.h \
     UI/MainWindow.h \
