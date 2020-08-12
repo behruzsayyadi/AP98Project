@@ -60,13 +60,6 @@ MainWindow::MainWindow(QWidget *parent)
     formLayout_register->addRow(label_register_password, lineEdit_register_password);
     formLayout_register->addRow(label_register_dateOfBirth, dateEdit_register_dateOfBirth);
 
-
-    //test {
-    QPushButton * b = new QPushButton(widget_login);
-    formLayout_login->addRow(b);
-    connect( b, &QPushButton::clicked,
-             this, &MainWindow::change );
-    // }
     widget_login->setLayout(formLayout_login);
     widget_register->setLayout(formLayout_register);
 
