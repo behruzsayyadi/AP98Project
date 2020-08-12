@@ -29,8 +29,12 @@ SOURCES += \
     SUV.cpp \
     Seller.cpp \
     SportCar.cpp \
-    main.cpp \
-    MainWindow.cpp
+    UI/Form_login.cpp \
+    UI/Form_register.cpp \
+    UI/MainWindow.cpp \
+    UI/StackedWidget.cpp \
+    UI/TabWidget_login_register.cpp \
+    main.cpp
 
 HEADERS += \
     Car.h \
@@ -40,15 +44,23 @@ HEADERS += \
     Document.h \
     Exhibition.h \
     Human.h \
-    MainWindow.h \
     Manager.h \
     Memorandum.h \
     SUV.h \
     Seller.h \
-    SportCar.h
+    SportCar.h \
+    UI/Form_login.h \
+    UI/Form_register.h \
+    UI/MainWindow.h \
+    UI/StackedWidget.h \
+    UI/TabWidget_login_register.h
 
 FORMS += \
-    MainWindow.ui
+    UI/Form_login.ui \
+    UI/Form_register.ui \
+    UI/MainWindow.ui \
+    UI/StackedWidget.ui \
+    UI/TabWidget_login_register.ui
 
 
 
