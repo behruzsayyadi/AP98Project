@@ -9,6 +9,7 @@
 #include <QLabel>
 #include <QDateEdit>
 #include <QPushButton>
+#include <QTabWidget>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -26,6 +27,7 @@ private:
     Ui::MainWindow * ui;
 
     QStackedWidget * stackedWidget;
+    QTabWidget * tabWidget_login_and_register;
     QWidget * widget_login;
     QWidget * widget_register;
     QFormLayout * formLayout_login;

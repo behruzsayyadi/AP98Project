@@ -8,6 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     stackedWidget = new QStackedWidget(this);
 
+    tabWidget_login_and_register = new QTabWidget(stackedWidget);
+
     widget_login = new QWidget(stackedWidget);
     widget_register = new QWidget(stackedWidget);
 
@@ -68,8 +70,10 @@ MainWindow::MainWindow(QWidget *parent)
     widget_login->setLayout(formLayout_login);
     widget_register->setLayout(formLayout_register);
 
-    stackedWidget->addWidget(widget_login);
-    stackedWidget->addWidget(widget_register);
+    tabWidget_login_and_register->addTab(widget_login, tr("ورود"));
+    tabWidget_login_and_register->addTab(widget_register, tr("ثبت نام"));
+
+    stackedWidget->addWidget(tabWidget_login_and_register);
 
     setCentralWidget(stackedWidget);
 
