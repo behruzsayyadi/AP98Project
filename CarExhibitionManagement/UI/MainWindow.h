@@ -4,12 +4,7 @@
 #include <QMainWindow>
 
 #include <QStackedWidget>
-#include <QFormLayout>
-#include <QLineEdit>
-#include <QLabel>
-#include <QDateEdit>
-#include <QPushButton>
-#include <QTabWidget>
+#include <QStackedLayout>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,39 +19,10 @@ public:
     ~MainWindow();
 
 private:
+    bool registered;
+    bool loggedIn;
     Ui::MainWindow * ui;
-
     QStackedWidget * stackedWidget;
-    QTabWidget * tabWidget_login_and_register;
-    QWidget * widget_login;
-    QWidget * widget_register;
-    QFormLayout * formLayout_login;
-    QFormLayout * formLayout_register;
-    QLabel * label_login_username;
-    QLabel * label_login_password;
-    QLabel * label_register_firstName;
-    QLabel * label_register_lastName;
-    QLabel * label_register_id;
-    QLabel * label_register_phoneNumber;
-    QLabel * label_register_address;
-    QLabel * label_register_dateOfBirth;
-    QLabel * label_register_username;
-    QLabel * label_register_password;
-    QLineEdit * lineEdit_login_username;
-    QLineEdit * lineEdit_login_password;
-    QLineEdit * lineEdit_register_username;
-    QLineEdit * lineEdit_register_password;
-    QLineEdit * lineEdit_register_firstName;
-    QLineEdit * lineEdit_register_lastName;
-    QLineEdit * lineEdit_register_address;
-    QLineEdit * lineEdit_register_phoneNumber;
-    QLineEdit * lineEdit_register_id;
-    QDateEdit * dateEdit_register_dateOfBirth;
-
-    //test:
-private slots:
-    void change(){
-        stackedWidget->setCurrentIndex(1);
-    }
+    //QStackedLayout * stackedLayout;
 };
 #endif // MAINWINDOW_H
