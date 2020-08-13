@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="2">
+   <item row="0" column="0" colspan="3">
     <spacer name="verticalSpacer_top">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -27,40 +27,7 @@
      </property>
     </spacer>
    </item>
-   <item row="1" column="3">
-    <widget class="QLabel" name="label_username">
-     <property name="text">
-      <string>نام کاربری</string>
-     </property>
-     <property name="buddy">
-      <cstring>lineEdi_username</cstring>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0" rowspan="2">
-    <spacer name="horizontalSpacer_left">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>99</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="2" column="3">
-    <widget class="QLabel" name="label_password">
-     <property name="text">
-      <string>رمز عبور</string>
-     </property>
-     <property name="buddy">
-      <cstring>lineEdit_password</cstring>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="4">
+   <item row="1" column="0">
     <spacer name="horizontalSpacer_right">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -73,7 +40,57 @@
      </property>
     </spacer>
    </item>
-   <item row="5" column="1" colspan="2">
+   <item row="1" column="1">
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLineEdit" name="lineEdi_username"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_username">
+       <property name="text">
+        <string>نام کاربری</string>
+       </property>
+       <property name="buddy">
+        <cstring>lineEdi_username</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLineEdit" name="lineEdit_password"/>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="label_password">
+       <property name="text">
+        <string>رمز عبور</string>
+       </property>
+       <property name="buddy">
+        <cstring>lineEdit_password</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" colspan="2">
+      <widget class="QPushButton" name="pushButton_signin">
+       <property name="text">
+        <string>ورود</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="2">
+    <spacer name="horizontalSpacer_left">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>99</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="0" colspan="3">
     <spacer name="verticalSpacer_bottom">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -85,19 +102,6 @@
       </size>
      </property>
     </spacer>
-   </item>
-   <item row="1" column="2">
-    <widget class="QLineEdit" name="lineEdi_username"/>
-   </item>
-   <item row="2" column="2">
-    <widget class="QLineEdit" name="lineEdit_password"/>
-   </item>
-   <item row="3" column="2" colspan="2">
-    <widget class="QPushButton" name="pushButton_signin">
-     <property name="text">
-      <string>ورود</string>
-     </property>
-    </widget>
    </item>
   </layout>
  </widget>

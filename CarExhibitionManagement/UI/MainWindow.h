@@ -3,8 +3,6 @@
 
 #include <QMainWindow>
 
-#include <QStackedWidget>
-#include <QStackedLayout>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,10 +17,19 @@ public:
     ~MainWindow();
 
 private:
-    bool registered;
-    bool loggedIn;
     Ui::MainWindow * ui;
-    QStackedWidget * stackedWidget;
-    //QStackedLayout * stackedLayout;
+
+    enum {
+        notSignedup,
+        signedup,
+        signedin
+        
+    } signinState;
+
+    bool hasSignedUp;
+    bool loggedIn;
+    void signin();
+    void signup();
+
 };
 #endif // MAINWINDOW_H

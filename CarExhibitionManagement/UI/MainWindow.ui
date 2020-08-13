@@ -14,29 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="1">
-     <widget class="QListView" name="listView">
-      <property name="maximumSize">
-       <size>
-        <width>100</width>
-        <height>16777215</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QStackedWidget" name="stackedWidget">
-      <property name="currentIndex">
-       <number>3</number>
-      </property>
-      <widget class="QWidget" name="welcome"/>
-      <widget class="Widget_signin" name="signin"/>
-      <widget class="Widget_signup" name="signup"/>
-      <widget class="QWidget" name="home"/>
-     </widget>
-    </item>
-   </layout>
+   <layout class="QGridLayout" name="gridLayout"/>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -50,20 +28,6 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>Widget_signin</class>
-   <extends>QWidget</extends>
-   <header>UI/Widget_signin.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>Widget_signup</class>
-   <extends>QWidget</extends>
-   <header>UI/Widget_signup.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
