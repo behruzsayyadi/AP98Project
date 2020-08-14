@@ -30,6 +30,8 @@ SOURCES += \
     Classes/Seller.cpp \
     Classes/SportCar.cpp \
     UI/MainWindow.cpp \
+    UI/Page_Cars.cpp \
+    UI/Page_Finance.cpp \
     UI/Widget_signin.cpp \
     UI/Widget_signup.cpp \
     main.cpp
@@ -48,11 +50,15 @@ HEADERS += \
     Classes/Seller.h \
     Classes/SportCar.h \
     UI/MainWindow.h \
+    UI/Page_Cars.h \
+    UI/Page_Finance.h \
     UI/Widget_signin.h \
     UI/Widget_signup.h
 
 FORMS += \
     UI/MainWindow.ui \
+    UI/Page_Cars.ui \
+    UI/Page_Finance.ui \
     UI/Widget_signin.ui \
     UI/Widget_signup.ui
 

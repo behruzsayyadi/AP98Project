@@ -4,33 +4,48 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , backPageIndex{ 0 }
 {
     ui->setupUi(this);
-    QTabWidget * temp = ui->tabWidget;
-    temp->setTabText(0, "نمایشگاه");
-    temp->setTabText(1, "ثبت نام");
-    temp->setTabText(2, "ورود");
-    temp->setTabText(3, "خانه");
-    temp->setCurrentIndex(0);
+    ui->centralwidget->layout()->setContentsMargins(0,0,0,0);
+    ui->centralwidget->layout()->setMargin(0);
 
-    switch (signinState) {
-    case notSignedup:;
-    case signedup:;
-    case signedin:;
+    connect(ui->pushButton_back, &QPushButton::clicked,
+            [this]{ui->stackedWidget->setCurrentIndex(backPageIndex);});
+
+    if(managerExisgts())
+    {
+        connect(ui->pushButton_signin, &QPushButton::clicked,
+                [ this ]{ ui->stackedWidget->setCurrentIndex(2); });
     }
-    Widget_signin a;
-    a.show();
+    else
+    {
+        ui->pushButton_signin->setText("ثبت نام");
+        connect(ui->pushButton_signin, &QPushButton::clicked,
+                [ this ]{ ui->stackedWidget->setCurrentIndex(1); });
 
+    }
+    //connect signupSuccessful to signinSuccessgul to a lambda that
+    //switches to home page
 
-//  stackedLayout = new QStackedLayout(this);
-//    ui->centralwidget->setLayout(stackedLayout);
+    connect(ui->page_signup, &Widget_signup::signupSuccessful,
+            ui->page_signin, &Widget_signin::signinSuccessful);
 
-//  stackedWidget = new QStackedWidget(this);
-//  setCentralWidget(stackedWidget);
+    connect(ui->page_signin, &Widget_signin::signinSuccessful,
+            [ this ]{
+                        ui->stackedWidget->setCurrentIndex(3);
+                        setBackPageIndex(3);
+                    });
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+bool MainWindow::managerExisgts()
+{
+    return true;
 }
 

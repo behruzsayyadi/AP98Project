@@ -17,6 +17,10 @@ public:
 
 private:
     Ui::Widget_signup *ui;
+    bool signup(QString username, QString password);
+    int validateSignupInfo(QString username, QString password);
+signals:
+    void signupSuccessful();
 };
 
 #endif // WIDGET_SIGNUP_H

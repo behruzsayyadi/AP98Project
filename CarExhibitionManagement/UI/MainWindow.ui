@@ -14,7 +14,50 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout"/>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0" colspan="2">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <widget class="QWidget" name="page_welcome">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="pushButton_signin">
+          <property name="text">
+           <string>ورود</string>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="Widget_signup" name="page_signup"/>
+      <widget class="Widget_signin" name="page_signin"/>
+      <widget class="Page_Cars" name="page_cars"/>
+      <widget class="Page_Finance" name="page_finance"/>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="pushButton_back">
+      <property name="text">
+       <string>بازگشت</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -28,6 +71,32 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Widget_signup</class>
+   <extends>QWidget</extends>
+   <header>UI/Widget_signup.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Widget_signin</class>
+   <extends>QWidget</extends>
+   <header>UI/Widget_signin.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Page_Cars</class>
+   <extends>QWidget</extends>
+   <header>UI/Page_Cars.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Page_Finance</class>
+   <extends>QWidget</extends>
+   <header>UI/Page_Finance.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

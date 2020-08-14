@@ -19,17 +19,10 @@ public:
 private:
     Ui::MainWindow * ui;
 
-    enum {
-        notSignedup,
-        signedup,
-        signedin
-        
-    } signinState;
-
-    bool hasSignedUp;
-    bool loggedIn;
-    void signin();
-    void signup();
+    bool managerExisgts();
+    int backPageIndex;
+    void setBackPageIndex(int value){ backPageIndex = value; }
+private slots:
 
 };
 #endif // MAINWINDOW_H

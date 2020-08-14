@@ -43,7 +43,7 @@
    <item row="1" column="1">
     <layout class="QFormLayout" name="formLayout">
      <item row="0" column="0">
-      <widget class="QLineEdit" name="lineEdi_username"/>
+      <widget class="QLineEdit" name="lineEdit_username"/>
      </item>
      <item row="0" column="1">
       <widget class="QLabel" name="label_username">
@@ -51,7 +51,7 @@
         <string>نام کاربری</string>
        </property>
        <property name="buddy">
-        <cstring>lineEdi_username</cstring>
+        <cstring>lineEdit_username</cstring>
        </property>
       </widget>
      </item>
