@@ -16,9 +16,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    CheckInfo.cpp \
     Customer.cpp \
     Dialog_ManagerLogin.cpp \
-    Dialog_Manager_Panel.cpp \
     Dialog_managerSingIn.cpp \
     Human.cpp \
     Manager.cpp \
@@ -27,9 +27,9 @@ SOURCES += \
     MainWindow.cpp
 
 HEADERS += \
+    CheckInfo.h \
     Customer.h \
     Dialog_ManagerLogin.h \
-    Dialog_Manager_Panel.h \
     Dialog_managerSingIn.h \
     Human.h \
     MainWindow.h \
@@ -38,7 +38,6 @@ HEADERS += \
 
 FORMS += \
     Dialog_ManagerLogin.ui \
-    Dialog_Manager_Panel.ui \
     Dialog_managerSingIn.ui \
     MainWindow.ui
 

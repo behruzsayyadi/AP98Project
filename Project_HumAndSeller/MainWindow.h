@@ -19,10 +19,11 @@ public:
 public slots:
     void mySlot();
 private slots:
-    void on_actionLogin_triggered();
 
 
-    void on_actionSignIn_triggered();
+
+
+    void on_pushButton_SignLog_in_clicked();
 
 private:
 

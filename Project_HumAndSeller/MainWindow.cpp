@@ -2,7 +2,7 @@
 #include "ui_MainWindow.h"
 #include "Dialog_ManagerLogin.h"
 #include "Dialog_managerSingIn.h"
-#include "Dialog_Manager_Panel.h"
+
 #include <QFile>
 #include <QDebug>
 #include <QObject>
@@ -44,65 +44,64 @@ void MainWindow::mySlot()
     ui->label_myClock->setText(time_text);
 }
 
-
-void MainWindow::on_actionLogin_triggered()
+void MainWindow::on_pushButton_SignLog_in_clicked()
 {
     int result;
     QFile mngr_open("Documents/Managers.json");
-    if(mngr_open.open(QIODevice::ReadOnly) == false)
-    {
-     QMessageBox msg_box_noManager(this);
-
-     msg_box_noManager.warning(this,"WARNING","No Manager Signed In!");
-     msg_box_noManager.show();
-     mngr_open.close();
-     return;
-
-    }
-    mngr_open.close();
-    Dialog_ManagerLogin *mngr_dlg = new Dialog_ManagerLogin(this);
-    mngr_dlg->setWindowTitle("ورود مدیر");
-
-    result = mngr_dlg->exec();
-
-    if(result == Dialog_ManagerLogin::Accepted)
-    {
-        this->manager->setName(loadManager().getUsername());
-        this->manager->setFamily(loadManager().getFamily());
-        this->manager->setID(loadManager().getID());
-        this->manager->setJob(loadManager().getJob());
-        this->manager->setJobPhone(loadManager().getJobPhone());
-        this->manager->setBirthDate(loadManager().getBirthDate());
-        this->manager->setShShenasname(loadManager().getShShenasname());
-        this->manager->setPhoneNum(loadManager().getPhoneNum());
-        this->manager->setUsername(loadManager().getUsername());
-        this->manager->setPassword(loadManager().getPassword());
-        QMessageBox msg_box_logIn_succesfully(this);
-
-        msg_box_logIn_succesfully.information(this,"Logged In","Logged in succesfully");
-        msg_box_logIn_succesfully.show();
-    }
-//    qDebug() << this->manager->getUsername();
-
-
-}
-
-void MainWindow::on_actionSignIn_triggered()
-{
-    QFile mngr_open("Documents/Managers.json");
     if(mngr_open.open(QIODevice::ReadOnly) == true)
     {
-     QMessageBox msg_box_noManager(this);
+        mngr_open.close();
+        Dialog_ManagerLogin *mngr_dlg = new Dialog_ManagerLogin(this);
+        mngr_dlg->setWindowTitle("ورود مدیر");
 
-     msg_box_noManager.warning(this,"WARNING","A Mangar Already Exits!");
-     msg_box_noManager.show();
-     mngr_open.close();
-     return;
+        result = mngr_dlg->exec();
+        if(result == Dialog_ManagerLogin::Accepted)
+        {
+            this->manager->setName(loadManager().getUsername());
+            this->manager->setFamily(loadManager().getFamily());
+            this->manager->setID(loadManager().getID());
+            this->manager->setJob(loadManager().getJob());
+            this->manager->setJobPhone(loadManager().getJobPhone());
+            this->manager->setBirthDate(loadManager().getBirthDate());
+            this->manager->setShShenasname(loadManager().getShShenasname());
+            this->manager->setPhoneNum(loadManager().getPhoneNum());
+            this->manager->setUsername(loadManager().getUsername());
+            this->manager->setPassword(loadManager().getPassword());
+            QMessageBox msg_box_logIn_succesfully(this);
+            msg_box_logIn_succesfully.information(this,"Logged In","Logged in succesfully");
+            msg_box_logIn_succesfully.show();
+        }
+        else
+        {
+            QMessageBox msg_box_logIn_faild(this);
+
+            msg_box_logIn_faild.warning(this,"WARNING","Log in Unsuccesfull");
+            msg_box_logIn_faild.show();
+        }
 
     }
-    mngr_open.close();
-    Dialog_managerSingIn * mngr_sign_dlg = new Dialog_managerSingIn(this);
-    mngr_sign_dlg->setWindowTitle("ثبت نام مدیر");
-    mngr_sign_dlg->show();
+    else
+    {
+        mngr_open.close();
+        Dialog_managerSingIn * mngr_sign_dlg = new Dialog_managerSingIn(this);
+        mngr_sign_dlg->setWindowTitle("ثبت نام مدیر");
+        result = mngr_sign_dlg->exec();
+        if(result == Dialog_managerSingIn::Accepted)
+        {
+            this->manager->setName(loadManager().getUsername());
+            this->manager->setFamily(loadManager().getFamily());
+            this->manager->setID(loadManager().getID());
+            this->manager->setJob(loadManager().getJob());
+            this->manager->setJobPhone(loadManager().getJobPhone());
+            this->manager->setBirthDate(loadManager().getBirthDate());
+            this->manager->setShShenasname(loadManager().getShShenasname());
+            this->manager->setPhoneNum(loadManager().getPhoneNum());
+            this->manager->setUsername(loadManager().getUsername());
+            this->manager->setPassword(loadManager().getPassword());
+        }
+        else
+        {
 
+        }
+    }
 }
