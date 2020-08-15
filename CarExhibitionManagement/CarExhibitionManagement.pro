@@ -17,35 +17,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-    Car.cpp \
-    Cheque.cpp \
-    CityCar.cpp \
-    Customer.cpp \
-    Document.cpp \
-    Exhibition.cpp \
-    Human.cpp \
-    Manager.cpp \
-    Memorandum.cpp \
-    SUV.cpp \
-    Seller.cpp \
-    SportCar.cpp \
-    main.cpp \
-    MainWindow.cpp
+    MainWindow.cpp \
+    main.cpp
 
 HEADERS += \
-    Car.h \
-    Cheque.h \
-    CityCar.h \
-    Customer.h \
-    Document.h \
-    Exhibition.h \
-    Human.h \
-    MainWindow.h \
-    Manager.h \
-    Memorandum.h \
-    SUV.h \
-    Seller.h \
-    SportCar.h
+    MainWindow.h
 
 FORMS += \
     MainWindow.ui
