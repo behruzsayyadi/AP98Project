@@ -27,7 +27,7 @@ protected:
     double poorsant;
 public:
     Car();
-    void setname(QString name);
+    void setName(QString name);
     void setrang(QString rang);
     void setInrang(QString rang_dakhel);
     void setshasi(QString shasi);
@@ -37,7 +37,7 @@ public:
     void setsal(QString sal);
     void setpoorsant(double poorsant);//?
 
-    QString getname();
+    QString getName();
     QString getrang();
     QString getInrang();
     QString getshasi();
