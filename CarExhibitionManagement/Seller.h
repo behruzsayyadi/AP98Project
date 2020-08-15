@@ -1,32 +1,65 @@
 #ifndef SELLER_H
 #define SELLER_H
-
-#include <QString>
-#include <QDate>
-
 #include "Human.h"
 
 class Seller : public Human
 {
-public:
-    Seller( QString first_name,
-            QString last_name,
-            QString id,
-            QString address,
-            QDate date_of_birth,
-            QString phone_number,
-            QString wealth,
-            QString username,
-            QString password,
-            QObject *parent = nullptr );
-    QString getUsername() const { return username; }
-    void setUsername(const QString &value) { username = value; }
-
-protected:
 private:
-    QString wealth;
-    QString username;
-    QString password;
-};
+    QDate birth_date;
+    QString ID;
+    QString shomare_shenasname;
+    QString phone_number;
+    QString job;
+    QString job_phone;
 
+public:
+    Seller(QString name,
+           QString family,
+           QDate birth_date,
+           QString ID,
+           QString shomare_shenasname,
+           QString phone_number,
+           QString job,
+           QString job_phone);
+    Seller()
+        : birth_date(QDate(0,0,0))
+        ,ID("")
+        ,shomare_shenasname("")
+        ,job("")
+        ,job_phone("")
+    {}
+
+
+    Seller (Seller& a);
+    Seller (Seller&& a);
+
+    void setBirthDate(QDate birth_date);
+    QDate getBirthDate() const;
+
+
+    void setID(QString ID);
+    QString getID() const;
+
+
+    void setShShenasname(QString shomare_shenasname);
+    QString getShShenasname() const;
+
+
+    void setPhoneNum(QString phone_number);
+    QString getPhoneNum() const;
+
+
+    void setJob(QString job);
+    QString getJob() const;
+
+
+    void setJobPhone(QString job_phone);
+    QString getJobPhone() const;
+
+    void addSeller(QString sellersFileAddress = "Documents/Sellers.json");
+
+
+
+};
+Seller findSeller(QString ID,QString sellersFileAddress = "Documents/Sellers.json");
 #endif // SELLER_H

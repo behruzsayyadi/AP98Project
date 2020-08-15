@@ -1,66 +1,56 @@
 #ifndef CAR_H
 #define CAR_H
 
+#include <QMainWindow>
 #include <QObject>
-#include <QDate>
-#include <QString>
+#include <QWidget>
 
-class Car : public QObject
+#include <QJsonValue>
+#include <QFile>
+#include <QDebug>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
+
+
+class Car
 {
-    Q_OBJECT
-
-public:
-    enum NumberOfCylinders {
-        two = 2,
-        four = 4,
-    };
-    Car( QString brand,
-         QString model,
-         bool is_new,
-         QDate year,
-         short max_speed,
-         QString price,
-         QString color,
-         QString motor,
-         NumberOfCylinders number_of_cylinders,
-         QObject *parent = nullptr );
-    /**
-     * getters
-     * all getters return the same type as the field they get ecxept for getNumberOfCylinders wich returns a QString specifying numver of Cylinders
-    */
-    QString getBrand() const { return brand; }
-    QString getModel() const { return model; };
-    bool isNew() const { return is_new; }
-    QDate getYear() const { return year; }
-    short getMaxSpeed() const { return max_speed; }
-    QString getPrice() const {return price; }
-    QString getColor() const { return color; }
-    QString getMotor() const { return motor; }
-    NumberOfCylinders getNumberOfCylinders() const { return number_of_cylinders; }
-    QString getNumberOfCylindersInQString() const;
-    /**
-     * setters
-     * setters for non-const fields
-    */
-
-    void setColor( QString color ) { this->color = color; }
-    void setPrice( QString price) { this->price = price; }
-    void setMotor( QString motor ) { this->motor= motor; }
-
 protected:
+    QString name;
+    QString rang;
+    QString range_dakhel;
+    QString shasi;
+    QString sanad;
+    QString brand;
+    QString gheymat;
+    QString sale_tolid;
+    double poorsant;
+public:
+    Car();
+    void setname(QString name);
+    void setrang(QString rang);
+    void setInrang(QString rang_dakhel);
+    void setshasi(QString shasi);
+    void setsanad(QString sanad);
+    void setbrand(QString brand);
+    void setgheymat(QString gheymat);
+    void setsal(QString sal);
+    void setpoorsant(double poorsant);//?
 
-private:
-    const QString brand;
-    const QString model;
-    const bool is_new;
-    const QDate year;
-    const short max_speed;
-    QString price;
-    QString color;
-    QString motor;
-    const NumberOfCylinders number_of_cylinders;
-signals:
+    QString getname();
+    QString getrang();
+    QString getInrang();
+    QString getshasi();
+    QString getsanad();
+    QString getbrand();
+    QString getgheymat();
+    QString getsal();
+    double getpoorsant();
 
+    void addCar(QString availableCarsAddress = "Documents/Cars_Available.json");
 };
-
+QJsonArray loadAvailableCars_jsonArray(QString availableCarsAddress = "Documents/Cars_Available.json");
+QJsonArray loadSoldCars_jsonArray(QString availableCarsAddress = "Documents/Cars_Sold.json");
+QJsonArray loadBoughtCars_jsonArray(QString availableCarsAddress = "Documents/Cars_Bought.json");
+Car findCar(QString sanad, QString availableCarsAddress = "Documents/Cars_Available.json");
 #endif // CAR_H
