@@ -17,13 +17,31 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
+    Car.cpp \
+    CheckInfo.cpp \
+    Customer.cpp \
+    Dialog_ManagerLogin.cpp \
+    Dialog_managerSingIn.cpp \
+    Human.cpp \
     MainWindow.cpp \
+    Manager.cpp \
+    Seller.cpp \
     main.cpp
 
 HEADERS += \
-    MainWindow.h
+    Car.h \
+    CheckInfo.h \
+    Customer.h \
+    Dialog_ManagerLogin.h \
+    Dialog_managerSingIn.h \
+    Human.h \
+    MainWindow.h \
+    Manager.h \
+    Seller.h
 
 FORMS += \
+    Dialog_ManagerLogin.ui \
+    Dialog_managerSingIn.ui \
     MainWindow.ui
 
 
