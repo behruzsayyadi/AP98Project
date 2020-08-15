@@ -314,7 +314,7 @@ border-bottom-left-radius:10px;
      <x>0</x>
      <y>0</y>
      <width>778</width>
-     <height>26</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuTools">
