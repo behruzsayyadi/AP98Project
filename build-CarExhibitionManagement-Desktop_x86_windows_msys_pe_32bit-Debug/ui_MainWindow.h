@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
@@ -21,6 +22,7 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
 #include "Page_Cars.h"
 
@@ -47,6 +49,8 @@ public:
     QPushButton *pushButton_Finance;
     Page_Cars *page_Cars;
     QWidget *page_Finance;
+    QGridLayout *gridLayout_3;
+    QTableWidget *tableWidget;
     QStatusBar *statusbar;
     QMenuBar *menubar;
     QMenu *menuTools;
@@ -216,6 +220,13 @@ public:
         stackedWidget->addWidget(page_Cars);
         page_Finance = new QWidget();
         page_Finance->setObjectName(QString::fromUtf8("page_Finance"));
+        gridLayout_3 = new QGridLayout(page_Finance);
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
+        tableWidget = new QTableWidget(page_Finance);
+        tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
+
+        gridLayout_3->addWidget(tableWidget, 0, 0, 1, 1);
+
         stackedWidget->addWidget(page_Finance);
 
         gridLayout->addWidget(stackedWidget, 2, 0, 1, 3);
@@ -239,7 +250,7 @@ public:
         QObject::connect(pushButton_Cars, SIGNAL(clicked()), MainWindow, SLOT(navigateToCarsPage()));
         QObject::connect(pushButton_Finance, SIGNAL(clicked()), MainWindow, SLOT(navigateToFinancePage()));
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

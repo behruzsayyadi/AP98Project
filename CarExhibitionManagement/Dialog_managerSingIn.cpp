@@ -56,8 +56,8 @@ Dialog_managerSingIn::Dialog_managerSingIn(QString title, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog_managerSingIn)
 {
-    this->setWindowTitle( title );
     ui->setupUi(this);
+    this->setWindowTitle( title );
 }
 
 Dialog_managerSingIn::~Dialog_managerSingIn()

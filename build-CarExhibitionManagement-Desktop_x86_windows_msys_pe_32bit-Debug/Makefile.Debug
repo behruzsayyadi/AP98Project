@@ -275,6 +275,27 @@ debug/moc_Page_Cars.cpp: ../CarExhibitionManagement/Page_Cars.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qfiledevice.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qvector2d.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtouchdevice.h \
+		../CarExhibitionManagement/Car.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMainWindow \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmainwindow.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qicon.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QObject \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonValue \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QFile \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QDebug \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonDocument \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsondocument.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonArray \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonarray.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonObject \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonobject.h \
+		../CarExhibitionManagement/SUV.h \
+		../CarExhibitionManagement/Coupe.h \
+		../CarExhibitionManagement/Crook.h \
+		../CarExhibitionManagement/CityCar.h \
+		../CarExhibitionManagement/Vanet.h \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
 	C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Nabi/Desktop/CarExhibitionManagement/build-CarExhibitionManagement-Desktop_x86_windows_msys_pe_32bit-Debug/debug/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -IC:/Users/Nabi/Desktop/CarExhibitionManagement/CarExhibitionManagement -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -I. -ID:/C/min/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++ -ID:/C/min/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32 -ID:/C/min/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward -ID:/C/min/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include -ID:/C/min/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include-fixed -ID:/C/min/mingw32/i686-w64-mingw32/include ..\CarExhibitionManagement\Page_Cars.h -o debug\moc_Page_Cars.cpp
@@ -635,6 +656,8 @@ debug/moc_MainWindow.cpp: ../CarExhibitionManagement/MainWindow.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonarray.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonObject \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonobject.h \
+		../CarExhibitionManagement/CheckInfo.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
 	C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/Nabi/Desktop/CarExhibitionManagement/build-CarExhibitionManagement-Desktop_x86_windows_msys_pe_32bit-Debug/debug/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -IC:/Users/Nabi/Desktop/CarExhibitionManagement/CarExhibitionManagement -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -I. -ID:/C/min/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++ -ID:/C/min/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32 -ID:/C/min/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward -ID:/C/min/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include -ID:/C/min/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include-fixed -ID:/C/min/mingw32/i686-w64-mingw32/include ..\CarExhibitionManagement\MainWindow.h -o debug\moc_MainWindow.cpp
@@ -655,7 +678,133 @@ ui_Dialog_managerSingIn.h: ../CarExhibitionManagement/Dialog_managerSingIn.ui \
 	C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\uic.exe ..\CarExhibitionManagement\Dialog_managerSingIn.ui -o ui_Dialog_managerSingIn.h
 
 ui_MainWindow.h: ../CarExhibitionManagement/MainWindow.ui \
-		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/bin/uic.exe
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/bin/uic.exe \
+		../CarExhibitionManagement/Page_Cars.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qwidget.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtguiglobal.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qglobal.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qconfig.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qtcore-config.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsysinfo.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qlogging.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qflags.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qatomic.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qmutex.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qnumeric.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qversiontagging.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtgui-config.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qnamespace.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qobject.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qstring.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qchar.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qbytearray.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qrefcount.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qarraydata.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qstringliteral.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qstringview.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qlist.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qalgorithms.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qiterator.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qhashfunctions.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qpair.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qvector.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcontainertools_impl.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qpoint.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qstringlist.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qregexp.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreevent.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qscopedpointer.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qmetatype.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qvarlengtharray.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcontainerfwd.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qobject_impl.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qmargins.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpaintdevice.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qrect.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsize.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpalette.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qcolor.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qrgb.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qrgba64.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qbrush.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qmatrix.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpolygon.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qregion.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qdatastream.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qiodevice.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qline.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtransform.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpainterpath.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qimage.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpixelformat.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpixmap.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qshareddata.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qhash.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qfont.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qfontmetrics.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qfontinfo.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qcursor.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qkeysequence.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qevent.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qvariant.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qmap.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qdebug.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qtextstream.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qlocale.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qset.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qurl.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qurlquery.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qfile.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qfiledevice.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qvector2d.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtouchdevice.h \
+		../CarExhibitionManagement/Car.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMainWindow \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmainwindow.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qicon.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QObject \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonValue \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QFile \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QDebug \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonDocument \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsondocument.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonArray \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonarray.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonObject \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonobject.h \
+		../CarExhibitionManagement/SUV.h \
+		../CarExhibitionManagement/Coupe.h \
+		../CarExhibitionManagement/Crook.h \
+		../CarExhibitionManagement/CityCar.h \
+		../CarExhibitionManagement/Vanet.h
 	C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\uic.exe ..\CarExhibitionManagement\MainWindow.ui -o ui_MainWindow.h
 
 ui_Page_Cars.h: ../CarExhibitionManagement/Page_Cars.ui \
@@ -1270,7 +1419,65 @@ debug/Page_Cars.o: ../CarExhibitionManagement/Page_Cars.cpp ../CarExhibitionMana
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qfiledevice.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qvector2d.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtouchdevice.h \
-		ui_Page_Cars.h
+		../CarExhibitionManagement/Car.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMainWindow \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmainwindow.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qicon.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QObject \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonValue \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QFile \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QDebug \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonDocument \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsondocument.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonArray \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonarray.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonObject \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonobject.h \
+		../CarExhibitionManagement/SUV.h \
+		../CarExhibitionManagement/Coupe.h \
+		../CarExhibitionManagement/Crook.h \
+		../CarExhibitionManagement/CityCar.h \
+		../CarExhibitionManagement/Vanet.h \
+		ui_Page_Cars.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QGridLayout \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qgridlayout.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlayout.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qboxlayout.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QHeaderView \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qvalidator.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qregularexpression.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qslider.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qstyle.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qrubberband.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QSpacerItem \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QTableWidget \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtablewidget.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtableview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Page_Cars.o ..\CarExhibitionManagement\Page_Cars.cpp
 
 debug/SUV.o: ../CarExhibitionManagement/SUV.cpp ../CarExhibitionManagement/SUV.h \
@@ -2222,14 +2429,32 @@ debug/MainWindow.o: ../CarExhibitionManagement/MainWindow.cpp ../CarExhibitionMa
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonarray.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonObject \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonobject.h \
+		../CarExhibitionManagement/CheckInfo.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
 		ui_MainWindow.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QAction \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qaction.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qactiongroup.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QHeaderView \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qvalidator.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qregularexpression.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qslider.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qstyle.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qrubberband.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLabel \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qframe.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMenu \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmenu.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMenuBar \
@@ -2241,7 +2466,9 @@ debug/MainWindow.o: ../CarExhibitionManagement/MainWindow.cpp ../CarExhibitionMa
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qstackedwidget.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QStatusBar \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qstatusbar.h \
-		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QTableWidget \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtablewidget.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtableview.h \
 		../CarExhibitionManagement/Dialog_ManagerLogin.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QDialog \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdialog.h \
@@ -2764,13 +2991,17 @@ debug/main.o: ../CarExhibitionManagement/main.cpp ../CarExhibitionManagement/Mai
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonarray.h \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonObject \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonobject.h \
+		../CarExhibitionManagement/CheckInfo.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QDateTime \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QCalendar \
 		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcalendar.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QDir \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qdir.h \
+		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qfileinfo.h \
 		../CarExhibitionManagement/Customer.h \
 		../CarExhibitionManagement/Seller.h \
 		../CarExhibitionManagement/Car.h \
-		C:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
 		../CarExhibitionManagement/SUV.h \
 		../CarExhibitionManagement/Crook.h \
 		../CarExhibitionManagement/CityCar.h \

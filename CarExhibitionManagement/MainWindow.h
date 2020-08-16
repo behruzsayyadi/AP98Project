@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QTimer>
 #include "Manager.h"
+#include "CheckInfo.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,13 +22,19 @@ public slots:
     void onBackButtonClicked();
     void navigateToCarsPage();
     void navigateToFinancePage();
+    void navigateToHomePage();
 private:
     Ui::MainWindow *ui;
     QTimer *timer;
     Manager *manager;
     int backPageIndex;
     void setBackPageIndex(int value);
+    void setUpChecksTable();
 private slots:
-    void on_pushButton_SignLog_in_clicked();
+    void signin();
+    void login();
+signals:
+    void signinSuccessful();
+    void loginSuccessful();
 };
 #endif // MAINWINDOW_H

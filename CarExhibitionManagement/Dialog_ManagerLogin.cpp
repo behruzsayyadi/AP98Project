@@ -14,11 +14,12 @@ QString Dialog_ManagerLogin::getPassword()
     return ui->lineEdit_password->text();
 }
 
-Dialog_ManagerLogin::Dialog_ManagerLogin(QWidget *parent) :
+Dialog_ManagerLogin::Dialog_ManagerLogin(QString title,QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog_ManagerLogin)
 {
     ui->setupUi(this);
+    this->setWindowTitle(title);
 }
 
 Dialog_ManagerLogin::~Dialog_ManagerLogin()

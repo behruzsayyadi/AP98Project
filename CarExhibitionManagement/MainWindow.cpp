@@ -18,13 +18,28 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->centralwidget->layout()->setMargin(0);
     ui->stackedWidget->setCurrentIndex(0);
+
     connect(ui->pushButton_backPage, SIGNAL(clicked()), this, SLOT(onBackButtonClicked()));
+    connect(this, SIGNAL(signinSuccessful()), this, SIGNAL(loginSuccessful()));
+    connect(this, SIGNAL(loginSuccessful()), this, SLOT(navigateToHomePage()));
+
+    setUpChecksTable();
     timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(displayCurrentDateTime()));
     timer->start(1000);
     manager = new Manager();
-    if(QFile("Documents/Managers.json").exists()) ui->pushButton_SignLog_in->setText("Login");
-    else ui->pushButton_SignLog_in->setText("Signin");
+
+    if(QFile("Documents/Managers.json").exists())
+    {
+        ui->pushButton_SignLog_in->setText("ورود");
+        connect(ui->pushButton_SignLog_in, SIGNAL(clicked()), this, SLOT(login()));
+    }
+    else
+    {
+        ui->pushButton_SignLog_in->setText("ثبت نام");
+        connect(ui->pushButton_SignLog_in, SIGNAL(clicked()), this, SLOT(signin()));
+
+    }
 }
 
 MainWindow::~MainWindow()
@@ -37,13 +52,6 @@ void MainWindow::setBackPageIndex(int value)
 }
 void MainWindow::displayCurrentDateTime()
 {
-//    QTime time = QTime::currentTime();
-//    QString time_text = time.toString("hh : mm : ss");
-//    if((time.second()%2) == 0)
-//    {
-//        time_text[3] = ' ';
-//        time_text[8] = ' ';
-//    }
     ui->label_CurrentDateTime->setText(QDateTime::currentDateTime().toString("h:m:s yy:m:d"));
 
 }
@@ -59,74 +67,69 @@ void MainWindow::navigateToFinancePage()
 {
         ui->stackedWidget->setCurrentIndex(3);
 }
-void MainWindow::on_pushButton_SignLog_in_clicked()
+void MainWindow::navigateToHomePage()
 {
-//    int result;
-    QFile mngr_open("Documents/Managers.json");
+    ui->stackedWidget->setCurrentIndex(1);
+    this->setBackPageIndex(1);
+}
 
-    if(mngr_open.open(QIODevice::ReadOnly) == true)
+
+
+void MainWindow::signin()
+{
+
+    Dialog_managerSingIn * mngr_sign_dlg = new Dialog_managerSingIn( "ثبت نام مدیر", this);
+    if(mngr_sign_dlg->exec() == Dialog_managerSingIn::Accepted)
     {
-        mngr_open.close();
-        Dialog_ManagerLogin *mngr_dlg = new Dialog_ManagerLogin(this);
-        mngr_dlg->setWindowTitle("ورود مدیر");
-
-//        result = mngr_dlg->exec();
-        if(mngr_dlg->exec() == Dialog_ManagerLogin::Accepted)
-        {
-//            Manager temp = loadManager();
-//            this->manager->setName(temp.getUsername());
-//            this->manager->setFamily(temp.getFamily());
-//            this->manager->setID(temp.getID());
-//            this->manager->setJob(temp.getJob());
-//            this->manager->setJobPhone(temp.getJobPhone());
-//            this->manager->setBirthDate(temp.getBirthDate());
-//            this->manager->setShShenasname(temp.getShShenasname());
-//            this->manager->setPhoneNum(temp.getPhoneNum());
-//            this->manager->setUsername(temp.getUsername());
-//            this->manager->setPassword(temp.getPassword());
-            *(this->manager) = loadManager();
-            this->statusBar()->showMessage("Logged in succesfully", 3500);
-            ui->stackedWidget->setCurrentIndex(1);
-            this->setBackPageIndex(1);
-
-//            QMessageBox msg_box_logIn_succesfully(this);
-//            msg_box_logIn_succesfully.information(this,"Logged In","Logged in succesfully");
-//            msg_box_logIn_succesfully.show();
-        }
-        else
-        {
-//            QMessageBox msg_box_logIn_faild(this);
-//            msg_box_logIn_faild.warning(this,"WARNING","Log in Unsuccesfull");
-//            msg_box_logIn_faild.show();
-            QMessageBox::warning(this, "login failed","could not log in. \n please try again.");
-        }
-
+        *(this->manager) = loadManager();
+        this->statusBar()->showMessage("signed up successfuly", 3500);
+        emit signinSuccessful();
     }
     else
     {
-        mngr_open.close();
-        Dialog_managerSingIn * mngr_sign_dlg = new Dialog_managerSingIn( "ثبت نام مدیر", this);
-//        mngr_sign_dlg->setWindowTitle("ثبت نام مدیر");
-//        result = mngr_sign_dlg->exec();
-        if(mngr_sign_dlg->exec() == Dialog_managerSingIn::Accepted)
-        {
-//            Manager temp = loadManager();
-//            this->manager->setName(temp.getUsername());
-//            this->manager->setFamily(temp.getFamily());
-//            this->manager->setID(temp.getID());
-//            this->manager->setJob(temp.getJob());
-//            this->manager->setJobPhone(temp.getJobPhone());
-//            this->manager->setBirthDate(temp.getBirthDate());
-//            this->manager->setShShenasname(temp.getShShenasname());
-//            this->manager->setPhoneNum(temp.getPhoneNum());
-//            this->manager->setUsername(temp.getUsername());
-//            this->manager->setPassword(temp.getPassword());
-            *(this->manager) = loadManager();
-            this->statusBar()->showMessage("signed up successfuly", 3500);
-        }
-        else
-        {
+        QMessageBox::warning(this, "signin failed","could not log in. \n please try again.");
 
-        }
     }
 }
+void MainWindow::login()
+{
+    Dialog_ManagerLogin *mngr_dlg = new Dialog_ManagerLogin("ورود", this);
+    if(mngr_dlg->exec() == Dialog_ManagerLogin::Accepted)
+    {
+        *(this->manager) = loadManager();
+        this->statusBar()->showMessage("Logged in succesfully", 3500);
+        emit loginSuccessful();
+    }
+    else
+    {
+        QMessageBox::warning(this, "login failed","could not log in. \n please try again.");
+    }
+}
+void MainWindow::setUpChecksTable()
+{
+    QJsonArray checks_in_table_widget = checks_jsonArray_sort_by_date(loadChecks_jsonArray());
+    foreach(QJsonValue x,checks_in_table_widget)
+    {
+        QString money,bank,shobe_bank,shenase;
+        QDate date;
+        money = (x.toObject())["money"].toString();
+        bank = (x.toObject())["bank"].toString();
+        shobe_bank = (x.toObject())["shobe bank"].toString();
+        shenase = (x.toObject())["shenase check"].toString();
+        date = dateFromJsonObject((x.toObject())["date"].toObject());
+
+        int temp_row_count;
+        ui->tableWidget->setDisabled(1);
+        temp_row_count = ui->tableWidget->rowCount();
+        ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+        ui->tableWidget->setItem(temp_row_count,0,new QTableWidgetItem(date.toString("yyyy/MM/dd")));
+        ui->tableWidget->setItem(temp_row_count,1,new QTableWidgetItem(money));
+        ui->tableWidget->setItem(temp_row_count,2,new QTableWidgetItem(bank));
+        ui->tableWidget->setItem(temp_row_count,3,new QTableWidgetItem(shobe_bank));
+        ui->tableWidget->setItem(temp_row_count,4,new QTableWidgetItem(shenase));
+
+    }
+
+}
+
+

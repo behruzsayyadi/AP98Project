@@ -269,7 +269,7 @@ border-bottom-right-radius:10px;
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page_Wellcome">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -324,7 +324,13 @@ border-width:4;
        </widget>
       </widget>
       <widget class="Page_Cars" name="page_Cars"/>
-      <widget class="QWidget" name="page_Finance"/>
+      <widget class="QWidget" name="page_Finance">
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QTableWidget" name="tableWidget"/>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
