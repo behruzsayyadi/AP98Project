@@ -1,4 +1,5 @@
 debug/Car.o
+debug/SUV.o
 debug/CheckInfo.o
 debug/Customer.o
 debug/Dialog_ManagerLogin.o

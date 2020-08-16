@@ -1,4 +1,5 @@
 release/Car.o
+release/SUV.o
 release/CheckInfo.o
 release/Customer.o
 release/Dialog_ManagerLogin.o
