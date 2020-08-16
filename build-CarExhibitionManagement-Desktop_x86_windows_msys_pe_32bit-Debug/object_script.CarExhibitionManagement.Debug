@@ -1,4 +1,7 @@
 debug/Car.o
+debug/CityCar.o
+debug/Coupe.o
+debug/Crook.o
 debug/SUV.o
 debug/CheckInfo.o
 debug/Customer.o
@@ -8,6 +11,7 @@ debug/Human.o
 debug/MainWindow.o
 debug/Manager.o
 debug/Seller.o
+debug/Vanet.o
 debug/main.o
 debug/moc_Dialog_ManagerLogin.o
 debug/moc_Dialog_managerSingIn.o

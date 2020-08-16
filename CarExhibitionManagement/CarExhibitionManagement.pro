@@ -18,6 +18,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     Car.cpp \
+    CityCar.cpp \
+    Coupe.cpp \
+    Crook.cpp \
     SUV.cpp \
     CheckInfo.cpp \
     Customer.cpp \
@@ -27,10 +30,14 @@ SOURCES += \
     MainWindow.cpp \
     Manager.cpp \
     Seller.cpp \
+    Vanet.cpp \
     main.cpp
 
 HEADERS += \
     Car.h \
+    CityCar.h \
+    Coupe.h \
+    Crook.h \
     SUV.h \
     CheckInfo.h \
     Customer.h \
@@ -39,7 +46,8 @@ HEADERS += \
     Human.h \
     MainWindow.h \
     Manager.h \
-    Seller.h
+    Seller.h \
+    Vanet.h
 
 FORMS += \
     Dialog_ManagerLogin.ui \

@@ -1,4 +1,7 @@
 release/Car.o
+release/CityCar.o
+release/Coupe.o
+release/Crook.o
 release/SUV.o
 release/CheckInfo.o
 release/Customer.o
@@ -8,6 +11,7 @@ release/Human.o
 release/MainWindow.o
 release/Manager.o
 release/Seller.o
+release/Vanet.o
 release/main.o
 release/moc_Dialog_ManagerLogin.o
 release/moc_Dialog_managerSingIn.o
