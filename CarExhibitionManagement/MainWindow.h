@@ -17,18 +17,17 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 public slots:
-    void mySlot();
-private slots:
-
-
-
-
-    void on_pushButton_SignLog_in_clicked();
-
+    void displayCurrentDateTime();
+    void onBackButtonClicked();
+    void navigateToCarsPage();
+    void navigateToFinancePage();
 private:
-
     Ui::MainWindow *ui;
     QTimer *timer;
     Manager *manager;
+    int backPageIndex;
+    void setBackPageIndex(int value);
+private slots:
+    void on_pushButton_SignLog_in_clicked();
 };
 #endif // MAINWINDOW_H

@@ -36,6 +36,8 @@ public:
     Manager (Manager& a);
     Manager (Manager&& a);
 
+    Manager operator=( const Manager& Other);
+
     void setBirthDate(QDate birth_date);
     QDate getBirthDate() const;
 
@@ -61,11 +63,11 @@ public:
 
 
     void setUsername(QString username);
-    QString getUsername();
+    QString getUsername() const;
 
 
     void setPassword(QString password);
-    QString getPassword();
+    QString getPassword() const;
 
     void addManager(QString managersFileAddress = "Documents/Managers.json");
 

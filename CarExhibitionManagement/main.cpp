@@ -88,39 +88,6 @@ namespace Data
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Car aaa, aa;
-    Crook c, c1("available", "mooodel");
-    CityCar cc("sold", "sd", "saf", "2000", "sdfa", "sdfafsa", "safas", 14413434, "1000000000"), cc2, cc3;
-    Coupe C1, C2, C3;
-    Vanet v, vv, vvv("", "", "", "", "", "", "", 531);
-    SUV s, sss, ss;
-
-    aaa.addCar();
-    aa.addCar();
-    c.addCar();
-    c1.addCar();
-    cc.addCar();
-    C1.addCar();
-    C3.addCar();
-    s.addCar();
-    ss.addCar();
-    v.addCar();
-    vvv.addCar();
-
-    qDebug() << loadAvailableCars_jsonArray() << '\n'
-             << loadCrooks_jsonArray() << '\n'
-             << loadCityCars_jsonArray() << '\n'
-             << loadCoupes_jsonArray() << '\n'
-             << loadVanets_jsonArray() << '\n'
-             << loadSUVs_jsonArray() << '\n'
-             << findCityCar(14413434).toJson() << '\n'
-             << findVanet(531).toJson() << '\n';
-
-
-
-
-
-
     MainWindow w;
     w.show();
     return a.exec();

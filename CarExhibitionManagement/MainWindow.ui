@@ -172,23 +172,17 @@
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>10</y>
-      <width>291</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Footlight MT Light</family>
-      <pointsize>20</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.517413 rgba(0, 85, 127, 255));
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="2">
+     <widget class="QLabel" name="label">
+      <property name="font">
+       <font>
+        <family>Footlight MT Light</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.517413 rgba(0, 85, 127, 255));
 border-color: rgb(255, 255, 0);
 color: rgb(255, 255, 255);
 border-style:outset;
@@ -196,35 +190,19 @@ border-width:4;
 border-radius:10px;
 
 </string>
-    </property>
-    <property name="text">
-     <string>Taskhir AutoGallery</string>
-    </property>
-   </widget>
-   <widget class="QStackedWidget" name="stackedWidget">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>70</y>
-      <width>741</width>
-      <height>451</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="currentIndex">
-     <number>0</number>
-    </property>
-    <widget class="QWidget" name="page_Home">
-     <widget class="QPushButton" name="pushButton_SignLog_in">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>50</y>
-        <width>161</width>
-        <height>41</height>
-       </rect>
+      </property>
+      <property name="text">
+       <string>Taskhir AutoGallery</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_CurrentDateTime">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>0</height>
+       </size>
       </property>
       <property name="font">
        <font>
@@ -236,76 +214,120 @@ border-radius:10px;
 border-color: rgb(255, 255, 0);
 color: rgb(255, 255, 255);
 border-style:outset;
-border-width:4;
+border-width:0 4 4 0;
+border-right:none;
+border-bottom-right-radius:10px;
+
 </string>
       </property>
       <property name="text">
-       <string>Log(Sign) In</string>
+       <string/>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="page_2"/>
-    <widget class="QWidget" name="page_3"/>
-    <widget class="QWidget" name="page_4"/>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>10</y>
-      <width>71</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.517413 rgba(0, 85, 127, 255));
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="pushButton_backPage">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>10</width>
+        <height>10</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>B</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="3">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="page_Wellcome">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="1" column="0">
+         <widget class="QPushButton" name="pushButton_SignLog_in">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.517413 rgba(0, 85, 127, 255));
 border-color: rgb(255, 255, 0);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-width:4;
-border-radius:0px;
-border-left:none;
-border-top-right-radius:10px;
-border-bottom-right-radius:10px;</string>
-    </property>
-    <property name="text">
-     <string>ساعت :</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_myClock">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>111</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.517413 rgba(0, 85, 127, 255));
-border-color: rgb(255, 255, 0);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-width:4;
-border-right:none;
-border-top-left-radius:10px;
-border-bottom-left-radius:10px;
 </string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
+          </property>
+          <property name="text">
+           <string>Log(Sign) In</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_Home">
+       <widget class="QPushButton" name="pushButton_Cars">
+        <property name="geometry">
+         <rect>
+          <x>490</x>
+          <y>100</y>
+          <width>80</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Cars</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_Finance">
+        <property name="geometry">
+         <rect>
+          <x>490</x>
+          <y>140</y>
+          <width>80</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Finance</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="Page_Cars" name="page_Cars"/>
+      <widget class="QWidget" name="page_Finance"/>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
@@ -321,7 +343,7 @@ border-bottom-left-radius:10px;
     <property name="title">
      <string>Tools</string>
     </property>
-    <addaction name="actionCalculator_2"/>
+    <addaction name="actionCalculator"/>
     <addaction name="separator"/>
    </widget>
    <addaction name="menuTools"/>
@@ -331,7 +353,7 @@ border-bottom-left-radius:10px;
     <string>Login</string>
    </property>
   </action>
-  <action name="actionCalculator_2">
+  <action name="actionCalculator">
    <property name="text">
     <string>Calculator</string>
    </property>
@@ -342,10 +364,53 @@ border-bottom-left-radius:10px;
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Page_Cars</class>
+   <extends>QWidget</extends>
+   <header>Page_Cars.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_Cars</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>navigateToCarsPage()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>525</x>
+     <y>213</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>450</x>
+     <y>62</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Finance</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>navigateToFinancePage()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>555</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>457</x>
+     <y>34</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
  <slots>
   <slot>mySlot()</slot>
   <slot>slot2()</slot>
+  <slot>navigateToCarsPage()</slot>
+  <slot>navigateToFinancePage()</slot>
  </slots>
 </ui>

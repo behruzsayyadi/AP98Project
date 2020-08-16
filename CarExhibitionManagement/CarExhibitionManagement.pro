@@ -21,6 +21,7 @@ SOURCES += \
     CityCar.cpp \
     Coupe.cpp \
     Crook.cpp \
+    Page_Cars.cpp \
     SUV.cpp \
     CheckInfo.cpp \
     Customer.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     CityCar.h \
     Coupe.h \
     Crook.h \
+    Page_Cars.h \
     SUV.h \
     CheckInfo.h \
     Customer.h \
@@ -52,7 +54,8 @@ HEADERS += \
 FORMS += \
     Dialog_ManagerLogin.ui \
     Dialog_managerSingIn.ui \
-    MainWindow.ui
+    MainWindow.ui \
+    Page_Cars.ui
 
 
 

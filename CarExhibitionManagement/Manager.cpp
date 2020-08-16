@@ -49,6 +49,21 @@ Manager::Manager(Manager &&a)
     this->setPassword(a.getPassword());
 }
 
+Manager Manager::operator= (const Manager& other)
+{
+    this->setName(other.getName());
+    this->setFamily(other.getFamily());
+    this->setID(other.getID());
+    this->setJob(other.getJob());
+    this->setJobPhone(other.getPhoneNum());
+    this->setBirthDate(other.getBirthDate());
+    this->setShShenasname(other.getShShenasname());
+    this->setPhoneNum(other.getPhoneNum());
+    this->setUsername(other.getUsername());
+    this->setPassword(other.getPassword());
+    return *this;
+}
+
 void Manager::setBirthDate(QDate birth_date)
 {
     this->birth_date = birth_date;
@@ -104,7 +119,7 @@ void Manager::setUsername(QString username)
     this->username = username;
 }
 
-QString Manager::getUsername()
+QString Manager::getUsername() const
 {
     return this->username;
 }
@@ -114,7 +129,7 @@ void Manager::setPassword(QString password)
     this->password = password;
 }
 
-QString Manager::getPassword()
+QString Manager::getPassword() const
 {
     return this->password;
 }

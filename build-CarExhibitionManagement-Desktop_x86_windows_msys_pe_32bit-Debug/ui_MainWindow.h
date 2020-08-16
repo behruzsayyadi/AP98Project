@@ -12,14 +12,17 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
+#include "Page_Cars.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -27,18 +30,23 @@ class Ui_MainWindow
 {
 public:
     QAction *actionLogin;
-    QAction *actionCalculator_2;
+    QAction *actionCalculator;
     QAction *actionSignIn;
     QWidget *centralwidget;
+    QGridLayout *gridLayout;
     QLabel *label;
+    QLabel *label_CurrentDateTime;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *pushButton_backPage;
     QStackedWidget *stackedWidget;
-    QWidget *page_Home;
+    QWidget *page_Wellcome;
+    QGridLayout *gridLayout_2;
     QPushButton *pushButton_SignLog_in;
-    QWidget *page_2;
-    QWidget *page_3;
-    QWidget *page_4;
-    QLabel *label_2;
-    QLabel *label_myClock;
+    QWidget *page_Home;
+    QPushButton *pushButton_Cars;
+    QPushButton *pushButton_Finance;
+    Page_Cars *page_Cars;
+    QWidget *page_Finance;
     QStatusBar *statusbar;
     QMenuBar *menubar;
     QMenu *menuTools;
@@ -115,15 +123,16 @@ public:
 ""));
         actionLogin = new QAction(MainWindow);
         actionLogin->setObjectName(QString::fromUtf8("actionLogin"));
-        actionCalculator_2 = new QAction(MainWindow);
-        actionCalculator_2->setObjectName(QString::fromUtf8("actionCalculator_2"));
+        actionCalculator = new QAction(MainWindow);
+        actionCalculator->setObjectName(QString::fromUtf8("actionCalculator"));
         actionSignIn = new QAction(MainWindow);
         actionSignIn->setObjectName(QString::fromUtf8("actionSignIn"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        gridLayout = new QGridLayout(centralwidget);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(470, 10, 291, 41));
         QFont font;
         font.setFamily(QString::fromUtf8("Footlight MT Light"));
         font.setPointSize(20);
@@ -136,17 +145,52 @@ public:
 "border-radius:10px;\n"
 "\n"
 ""));
-        stackedWidget = new QStackedWidget(centralwidget);
-        stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
-        stackedWidget->setGeometry(QRect(20, 70, 741, 451));
-        stackedWidget->setStyleSheet(QString::fromUtf8(""));
-        page_Home = new QWidget();
-        page_Home->setObjectName(QString::fromUtf8("page_Home"));
-        pushButton_SignLog_in = new QPushButton(page_Home);
-        pushButton_SignLog_in->setObjectName(QString::fromUtf8("pushButton_SignLog_in"));
-        pushButton_SignLog_in->setGeometry(QRect(40, 50, 161, 41));
+
+        gridLayout->addWidget(label, 0, 2, 1, 1);
+
+        label_CurrentDateTime = new QLabel(centralwidget);
+        label_CurrentDateTime->setObjectName(QString::fromUtf8("label_CurrentDateTime"));
+        label_CurrentDateTime->setMinimumSize(QSize(100, 0));
         QFont font1;
         font1.setPointSize(12);
+        label_CurrentDateTime->setFont(font1);
+        label_CurrentDateTime->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.517413 rgba(0, 85, 127, 255));\n"
+"border-color: rgb(255, 255, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"border-style:outset;\n"
+"border-width:0 4 4 0;\n"
+"border-right:none;\n"
+"border-bottom-right-radius:10px;\n"
+"\n"
+""));
+
+        gridLayout->addWidget(label_CurrentDateTime, 0, 0, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer, 0, 1, 1, 1);
+
+        pushButton_backPage = new QPushButton(centralwidget);
+        pushButton_backPage->setObjectName(QString::fromUtf8("pushButton_backPage"));
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(pushButton_backPage->sizePolicy().hasHeightForWidth());
+        pushButton_backPage->setSizePolicy(sizePolicy);
+        pushButton_backPage->setMinimumSize(QSize(10, 10));
+
+        gridLayout->addWidget(pushButton_backPage, 1, 0, 1, 1);
+
+        stackedWidget = new QStackedWidget(centralwidget);
+        stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
+        stackedWidget->setMinimumSize(QSize(100, 0));
+        stackedWidget->setStyleSheet(QString::fromUtf8(""));
+        page_Wellcome = new QWidget();
+        page_Wellcome->setObjectName(QString::fromUtf8("page_Wellcome"));
+        gridLayout_2 = new QGridLayout(page_Wellcome);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        pushButton_SignLog_in = new QPushButton(page_Wellcome);
+        pushButton_SignLog_in->setObjectName(QString::fromUtf8("pushButton_SignLog_in"));
         pushButton_SignLog_in->setFont(font1);
         pushButton_SignLog_in->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.517413 rgba(0, 85, 127, 255));\n"
 "border-color: rgb(255, 255, 0);\n"
@@ -154,42 +198,28 @@ public:
 "border-style:outset;\n"
 "border-width:4;\n"
 ""));
+
+        gridLayout_2->addWidget(pushButton_SignLog_in, 1, 0, 1, 1);
+
+        stackedWidget->addWidget(page_Wellcome);
+        page_Home = new QWidget();
+        page_Home->setObjectName(QString::fromUtf8("page_Home"));
+        pushButton_Cars = new QPushButton(page_Home);
+        pushButton_Cars->setObjectName(QString::fromUtf8("pushButton_Cars"));
+        pushButton_Cars->setGeometry(QRect(490, 100, 80, 21));
+        pushButton_Finance = new QPushButton(page_Home);
+        pushButton_Finance->setObjectName(QString::fromUtf8("pushButton_Finance"));
+        pushButton_Finance->setGeometry(QRect(490, 140, 80, 21));
         stackedWidget->addWidget(page_Home);
-        page_2 = new QWidget();
-        page_2->setObjectName(QString::fromUtf8("page_2"));
-        stackedWidget->addWidget(page_2);
-        page_3 = new QWidget();
-        page_3->setObjectName(QString::fromUtf8("page_3"));
-        stackedWidget->addWidget(page_3);
-        page_4 = new QWidget();
-        page_4->setObjectName(QString::fromUtf8("page_4"));
-        stackedWidget->addWidget(page_4);
-        label_2 = new QLabel(centralwidget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(120, 10, 71, 31));
-        label_2->setFont(font1);
-        label_2->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.517413 rgba(0, 85, 127, 255));\n"
-"border-color: rgb(255, 255, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"border-style:outset;\n"
-"border-width:4;\n"
-"border-radius:0px;\n"
-"border-left:none;\n"
-"border-top-right-radius:10px;\n"
-"border-bottom-right-radius:10px;"));
-        label_myClock = new QLabel(centralwidget);
-        label_myClock->setObjectName(QString::fromUtf8("label_myClock"));
-        label_myClock->setGeometry(QRect(10, 10, 111, 31));
-        label_myClock->setFont(font1);
-        label_myClock->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.517413 rgba(0, 85, 127, 255));\n"
-"border-color: rgb(255, 255, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"border-style:outset;\n"
-"border-width:4;\n"
-"border-right:none;\n"
-"border-top-left-radius:10px;\n"
-"border-bottom-left-radius:10px;\n"
-""));
+        page_Cars = new Page_Cars();
+        page_Cars->setObjectName(QString::fromUtf8("page_Cars"));
+        stackedWidget->addWidget(page_Cars);
+        page_Finance = new QWidget();
+        page_Finance->setObjectName(QString::fromUtf8("page_Finance"));
+        stackedWidget->addWidget(page_Finance);
+
+        gridLayout->addWidget(stackedWidget, 2, 0, 1, 3);
+
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -202,10 +232,12 @@ public:
         MainWindow->setMenuBar(menubar);
 
         menubar->addAction(menuTools->menuAction());
-        menuTools->addAction(actionCalculator_2);
+        menuTools->addAction(actionCalculator);
         menuTools->addSeparator();
 
         retranslateUi(MainWindow);
+        QObject::connect(pushButton_Cars, SIGNAL(clicked()), MainWindow, SLOT(navigateToCarsPage()));
+        QObject::connect(pushButton_Finance, SIGNAL(clicked()), MainWindow, SLOT(navigateToFinancePage()));
 
         stackedWidget->setCurrentIndex(0);
 
@@ -217,12 +249,14 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         actionLogin->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
-        actionCalculator_2->setText(QCoreApplication::translate("MainWindow", "Calculator", nullptr));
+        actionCalculator->setText(QCoreApplication::translate("MainWindow", "Calculator", nullptr));
         actionSignIn->setText(QCoreApplication::translate("MainWindow", "SignIn", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Taskhir AutoGallery", nullptr));
+        label_CurrentDateTime->setText(QString());
+        pushButton_backPage->setText(QCoreApplication::translate("MainWindow", "B", nullptr));
         pushButton_SignLog_in->setText(QCoreApplication::translate("MainWindow", "Log(Sign) In", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "\330\263\330\247\330\271\330\252 :", nullptr));
-        label_myClock->setText(QString());
+        pushButton_Cars->setText(QCoreApplication::translate("MainWindow", "Cars", nullptr));
+        pushButton_Finance->setText(QCoreApplication::translate("MainWindow", "Finance", nullptr));
         menuTools->setTitle(QCoreApplication::translate("MainWindow", "Tools", nullptr));
     } // retranslateUi
 

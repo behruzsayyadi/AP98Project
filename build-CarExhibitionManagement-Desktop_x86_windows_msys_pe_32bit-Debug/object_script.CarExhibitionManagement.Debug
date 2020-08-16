@@ -2,6 +2,7 @@ debug/Car.o
 debug/CityCar.o
 debug/Coupe.o
 debug/Crook.o
+debug/Page_Cars.o
 debug/SUV.o
 debug/CheckInfo.o
 debug/Customer.o
@@ -13,6 +14,7 @@ debug/Manager.o
 debug/Seller.o
 debug/Vanet.o
 debug/main.o
+debug/moc_Page_Cars.o
 debug/moc_Dialog_ManagerLogin.o
 debug/moc_Dialog_managerSingIn.o
 debug/moc_MainWindow.o

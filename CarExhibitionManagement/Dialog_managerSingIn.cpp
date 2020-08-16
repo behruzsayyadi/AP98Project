@@ -52,10 +52,11 @@ QDate Dialog_managerSingIn::getBirthDate()
     return  ui->dateEdit->date();
 }
 
-Dialog_managerSingIn::Dialog_managerSingIn(QWidget *parent) :
+Dialog_managerSingIn::Dialog_managerSingIn(QString title, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog_managerSingIn)
 {
+    this->setWindowTitle( title );
     ui->setupUi(this);
 }
 

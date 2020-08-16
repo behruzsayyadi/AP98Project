@@ -2,6 +2,7 @@ release/Car.o
 release/CityCar.o
 release/Coupe.o
 release/Crook.o
+release/Page_Cars.o
 release/SUV.o
 release/CheckInfo.o
 release/Customer.o
@@ -13,6 +14,7 @@ release/Manager.o
 release/Seller.o
 release/Vanet.o
 release/main.o
+release/moc_Page_Cars.o
 release/moc_Dialog_ManagerLogin.o
 release/moc_Dialog_managerSingIn.o
 release/moc_MainWindow.o
