@@ -60,6 +60,23 @@ namespace Data
         }
         return result;
     }
+    void save_jsonArray(QJsonArray array, QString arrayName, QString filePath)
+    {
+        QJsonObject object;
+        object[arrayName] = array;
+        QFile file(filePath);
+        if(file.exists())
+        {
+            if( file.open(QIODevice::WriteOnly))
+            {
+                file.write(QJsonDocument( object ).toJson());
+            }
+            else
+            {
+                qDebug() << "Problem making or writing to file: " + file.fileName();
+            }
+        }
+    }
 
 //    template <typename T>
 //    T find(QString value,QString arrayName, QString filePath)
@@ -93,10 +110,11 @@ int main(int argc, char *argv[])
 //    system("IF NOT exist Documents mkdir Documents");
     if( !QDir("Documents").exists() )
         QDir().mkdir("Documents");
-    SUV s ("موجود","سوناتا","هیوندای","2000","مشکی","خاکستری","61325613");
-    s.setGheymat("500000000");
 
-    s.addCar();
+    Data::changeIncomeInfo(100003200,2000000,1);
+    Data::changeIncomeInfo(10000200,3000000,2);
+    Data::changeIncomeInfo(10003000,3400000,6);
+    Data::changeIncomeInfo(100050,2342000,11);
     MainWindow w;
     w.show();
     return a.exec();

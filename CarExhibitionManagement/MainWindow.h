@@ -50,9 +50,8 @@ signals:
 };
 namespace Data
 {
- QVector<int> loadIncomeInfo();
- void changeIncomeInfo(int poorsant,int sood, int index);
- void saveIncomeinfo( QVector<int> );
+    QJsonArray getIncomeInfo();
+    void changeIncomeInfo(int poorsant,int sood, int index);
 }
 
 #endif // MAINWINDOW_H

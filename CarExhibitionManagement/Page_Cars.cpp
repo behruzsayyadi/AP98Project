@@ -94,5 +94,13 @@ void Page_Cars::populateCarsTable()
 }
 void Page_Cars::addNewCar()
 {
+    Dialog_AddCar * d = new Dialog_AddCar(this);
+    if(d->exec() == Dialog_AddCar::Accepted)
+    {
+        d->getCar().addCar();
+    }
+    else
+    {
 
+    }
 }

@@ -74,9 +74,6 @@ void MainWindow::navigateToHomePage()
     ui->stackedWidget->setCurrentIndex(1);
     this->setBackPageIndex(1);
 }
-
-
-
 void MainWindow::signin()
 {
 
@@ -143,12 +140,12 @@ void MainWindow::setUpincomeChart()
     setPoorsant->setColor(Qt::darkYellow);
     setSood->setColor(Qt::darkRed);
 
-    QVector<int> vec = Data::loadIncomeInfo();
-    for (auto x = vec.begin(); x != vec.end() ; x++)
+    foreach(QJsonValue v, Data::getIncomeInfo())
     {
-        *setPoorsant << *x;
-        *setSood << *++x;
+        *setPoorsant << v.toObject()["poorsant"].toInt();
+        *setSood << v.toObject()["sood"].toInt();
     }
+
     QStackedBarSeries *series = new QStackedBarSeries();
 
     series->append(setPoorsant);
@@ -178,70 +175,38 @@ void MainWindow::setUpincomeChart()
 
     ui->layout_FinancePage->addWidget(chartView, 0, 1);
 }
-
-
 namespace Data
 {
-    QVector<int> loadIncomeInfo()
-    {
-        QVector<int> result;
-        QFile file("Documents/income.txt");
-        QTextStream stream(&file);
-        QString poorsant, sood;
-        if(!file.exists())
-        {
-            result.resize(24);
-            saveIncomeinfo(result);
-        }
-        else
-        {
-            if(file.open(QIODevice::ReadOnly | QIODevice::Text))
-            {
-                while( !stream.atEnd() )
-                {
-                    stream >> poorsant ;
-                    stream >> sood;
-                    result << poorsant.toInt() << sood.toInt();
-                }
-                if(result.size() != 24)
-                {
-                    result.resize(24);
-                }
-            }
-            else
-            {
-                qDebug() << "problem opening incomes file";
-                result.resize(24);
-            }
-        }
-        return result;
-    }
+    QJsonArray load_jsonArray(QString arrayName, QString filePath);
+    void save_jsonArray(QJsonArray array, QString arrayName, QString filePath);
+
+
+
     void changeIncomeInfo(int poorsant,int sood, int index)
     {
         if(index < 1 || index > 12) return;
-        QVector<int> vec = loadIncomeInfo();
-        int i = (index - 1) * 2;
-        vec.swapItemsAt(sood, i);
-        vec.swapItemsAt(poorsant, i + 1);
-        saveIncomeinfo(vec);
-    }
-    void saveIncomeinfo( QVector<int> vec )
-    {
-        QFile file("Documents/income.txt");
-        QTextStream stream(&file);
-        if(file.open(QIODevice::WriteOnly | QIODevice::Text))
+        QJsonArray income =  load_jsonArray("income", "Documents/Income.json");
+        if(income.empty())
         {
-            QString t, tt;
-            for(auto x = vec.begin() ; x != vec.end() ; x ++)
+            for(int i = 0; i <12; i++)
             {
-                t = *x;
-                tt = *++x;
-                stream << t << ' ' << tt << '\n';
+                QJsonObject O;
+                O["poorsant"] = 0;
+                O["sood"] = 0;
+                income.append(O);
             }
         }
-        else
-        {
-            qDebug() << "problem opening incomes file";
-        }
+        QJsonObject o;
+        o["poorsant"] = poorsant;
+        o["sood"] = sood;
+        income[index - 1] = o;
+        qDebug() << income;
+        save_jsonArray(income, "income", "Documents/Income.json");
     }
+
+    QJsonArray getIncomeInfo()
+    {
+        return load_jsonArray("income", "Documents/Income.json");
+    }
+
 }
