@@ -111,10 +111,19 @@ int main(int argc, char *argv[])
     if( !QDir("Documents").exists() )
         QDir().mkdir("Documents");
 
-    Data::changeIncomeInfo(100003200,2000000,1);
-    Data::changeIncomeInfo(10000200,3000000,2);
-    Data::changeIncomeInfo(10003000,3400000,6);
-    Data::changeIncomeInfo(100050,2342000,11);
+
+    Crook mycar("sold","405GLX","Peugeot"
+                      ,"","khakestari","keremi","2342424243",12342,1050000000,0.02);
+    Car * car_ptr = &mycar;
+//    car_ptr->addCar();
+    qDebug() << car_ptr->getPoorsant();
+    Car carrr("sold","405GLX","Peugeot"
+              ,"","khakestari","keremi","2342424243",12342,1050000000);
+//    carrr.addCar();
+    CityCar c("asdfasf","safdsafd","sadfasf");
+    car_ptr = &c;
+//    car_ptr->addCar();
+//    c.addCar();
     MainWindow w;
     w.show();
     return a.exec();

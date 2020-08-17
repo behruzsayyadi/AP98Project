@@ -8,7 +8,8 @@ CityCar::CityCar( QString status,
           QString inside_color,
           QString shomare_shasi,
           int shomare_sanad,
-          QString gheymat ) :
+          quint64 gheymat ,
+              double poorsant) :
     Car( status,
          model,
          brand,
@@ -18,7 +19,14 @@ CityCar::CityCar( QString status,
          shomare_shasi,
          shomare_sanad,
          gheymat )
-{}
+{
+    this->poorsant = poorsant;
+}
+
+quint64 CityCar::getPoorsant()
+{
+    return static_cast<quint64>(this->poorsant*getGheymat()) ;
+}
 CityCar::~CityCar()
 {}
 //void CityCar::loadFromJson(QJsonObject o)

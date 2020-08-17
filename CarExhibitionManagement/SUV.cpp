@@ -8,7 +8,8 @@ SUV::SUV( QString status,
           QString inside_color,
           QString shomare_shasi,
           int shomare_sanad,
-          QString gheymat ) :
+          quint64 gheymat ,
+              double poorsant) :
     Car( status,
          model,
          brand,
@@ -18,7 +19,14 @@ SUV::SUV( QString status,
          shomare_shasi,
          shomare_sanad,
          gheymat )
-{}
+{
+    this->poorsant = poorsant;
+}
+
+quint64 SUV::getPoorsant()
+{
+    return static_cast<quint64>(this->poorsant*getGheymat()) ;
+}
 SUV::~SUV()
 {}
 //void SUV::loadFromJson(QJsonObject o)

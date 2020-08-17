@@ -13,9 +13,9 @@ Dialog_AddCar::~Dialog_AddCar()
     delete ui;
 }
 
-Car Dialog_AddCar::getCar()
+Car * Dialog_AddCar::getCar()
 {
-    return Car( "available",
+    return new Car( "available",
                 ui->lineEdit_Model->text(),
                 ui->lineEdit_Brand->text(),
                 ui->lineEdit_Year->text(),
@@ -23,5 +23,5 @@ Car Dialog_AddCar::getCar()
                 ui->lineEdit_InsideColor->text(),
                 ui->lineEdit_ShomareShasi->text(),
                 ui->lineEdit_ShomareSanad->text().toInt(),
-                ui->lineEdit_Gheymat->text());
+                ui->lineEdit_Gheymat->text().toULongLong());
 }

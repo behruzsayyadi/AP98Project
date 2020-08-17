@@ -20,7 +20,7 @@ public:
     explicit Dialog_AddCar(QWidget *parent = nullptr);
     ~Dialog_AddCar();
 
-    Car  getCar();
+    Car *getCar();
 private:
     Ui::Dialog_AddCar *ui;
 

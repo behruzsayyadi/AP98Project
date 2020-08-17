@@ -43,7 +43,6 @@ MainWindow::MainWindow(QWidget *parent)
     setUpChecksTable();
     setUpincomeChart();
 }
-
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -200,7 +199,6 @@ namespace Data
         o["poorsant"] = poorsant;
         o["sood"] = sood;
         income[index - 1] = o;
-        qDebug() << income;
         save_jsonArray(income, "income", "Documents/Income.json");
     }
 

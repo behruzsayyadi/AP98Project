@@ -28,7 +28,33 @@
     </widget>
    </item>
    <item row="0" column="1">
-    <widget class="QComboBox" name="comboBox_CarType"/>
+    <widget class="QComboBox" name="comboBox_CarType">
+     <item>
+      <property name="text">
+       <string>شاسی بلند</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>شهری</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>کروک</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>کوپه</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>وانت</string>
+      </property>
+     </item>
+    </widget>
    </item>
    <item row="1" column="0">
     <widget class="QLabel" name="label_Brand">

@@ -24,8 +24,10 @@ private:
     QString inside_color;
     QString shomare_shasi;
     int shomare_sanad;
-    QString gheymat;
+    quint64 gheymat;
+
 protected:
+    double poorsant;
     static int last_shomare_sanad;
 public:
     Car( QString status = "",
@@ -36,8 +38,8 @@ public:
          QString inside_color = "",
          QString shomare_shasi = "",
          int shomare_sanad = ++last_shomare_sanad,
-         QString gheymat = "" );
-    ~Car();
+         quint64 gheymat = 0 );
+    virtual ~Car();
     void setStatus(QString status);
     void setModel(QString model);
     void setColor(QString color);
@@ -45,7 +47,7 @@ public:
     void setShomareShasi(QString shomare_shasi);
     void setShomareSanad(int shomare_sanad);
     void setBrand(QString brand);
-    void setGheymat(QString gheymat);
+    void setGheymat(quint64 gheymat);
     void setYear(QString year);
 
     QString getStatus() const;
@@ -55,12 +57,17 @@ public:
     QString getShomareShasi() const;
     int getShomareSanad() const;
     QString getBrand() const;
-    QString getGheymat() const;
+    quint64 getGheymat() const;
     QString getYear() const;
+
+
+
+    virtual quint64 getPoorsant();
+
 
     virtual void loadFromJson(QJsonObject object);
     virtual QJsonObject toJson();
-    virtual void addCar(QString availableCarsAddress = "Documents/Cars_Available.json");
+    virtual void addCar(QString availableCarsAddress);
 };
 QJsonArray loadAvailableCars_jsonArray(QString availableCarsAddress = "Documents/Cars_Available.json");
 QJsonArray loadSoldCars_jsonArray(QString availableCarsAddress = "Documents/Cars_Sold.json");
