@@ -19,6 +19,7 @@
 #include "Coupe.h"
 #include "Vanet.h"
 
+
 namespace Data
 {
     QString default_car_path;
@@ -92,25 +93,10 @@ int main(int argc, char *argv[])
 //    system("IF NOT exist Documents mkdir Documents");
     if( !QDir("Documents").exists() )
         QDir().mkdir("Documents");
+    SUV s ("موجود","سوناتا","هیوندای","2000","مشکی","خاکستری","61325613");
+    s.setGheymat("500000000");
 
-    Checkinfo mychk("800000000","Melli","Talaghani",QDate(2021,5,13),"221-3332-554-12");
-    mychk.addCheck();
-    Checkinfo mychk2("500000000","Melli","Talaghani",QDate(2020,5,14),"221-3332-553-17");
-    mychk2.addCheck();
-    Checkinfo mychk4("800000000","Melli","Talaghani",QDate(2024,5,13),"221-3332-554-12");
-    mychk4.addCheck();
-    Checkinfo mychk3("800000000","Melli","Talaghani",QDate(2022,5,13),"221-3332-554-12");
-    mychk3.addCheck();
-    QJsonArray arr;
-        arr.append(3);
-        arr.append(2);
-        arr.append(4);
-        arr.append(1);
-        arr.replace(0,arr[1].toInt());
-        qDebug() << arr;
-        QJsonArray arra = loadChecks_jsonArray() ;
-     //   b = checks_jsonArray_sort_by_date(a);
-        qDebug() << checks_jsonArray_sort_by_date(arra);
+    s.addCar();
     MainWindow w;
     w.show();
     return a.exec();

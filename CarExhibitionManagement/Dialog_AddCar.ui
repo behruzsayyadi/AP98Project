@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog_AddCar</class>
+ <widget class="QDialog" name="Dialog_AddCar">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>381</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
+  <layout class="QFormLayout" name="formLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_Type">
+     <property name="text">
+      <string>نوع</string>
+     </property>
+     <property name="buddy">
+      <cstring>comboBox_CarType</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QComboBox" name="comboBox_CarType"/>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label_Brand">
+     <property name="text">
+      <string>برند</string>
+     </property>
+     <property name="buddy">
+      <cstring>lineEdit_Brand</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="lineEdit_Brand"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_Model">
+     <property name="text">
+      <string>مدل</string>
+     </property>
+     <property name="buddy">
+      <cstring>lineEdit_Model</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLineEdit" name="lineEdit_Model"/>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="label_Year">
+     <property name="text">
+      <string>سال تولید</string>
+     </property>
+     <property name="buddy">
+      <cstring>lineEdit_Year</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QLineEdit" name="lineEdit_Year"/>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="label_Color">
+     <property name="text">
+      <string>رنگ</string>
+     </property>
+     <property name="buddy">
+      <cstring>lineEdit_Color</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLineEdit" name="lineEdit_Color"/>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="label_InsideColor">
+     <property name="text">
+      <string>رنگ داخل</string>
+     </property>
+     <property name="buddy">
+      <cstring>lineEdit_InsideColor</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QLineEdit" name="lineEdit_InsideColor"/>
+   </item>
+   <item row="6" column="0">
+    <widget class="QLabel" name="label_Gheymat">
+     <property name="text">
+      <string>قیمت</string>
+     </property>
+     <property name="buddy">
+      <cstring>lineEdit_Gheymat</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1">
+    <widget class="QLineEdit" name="lineEdit_Gheymat"/>
+   </item>
+   <item row="7" column="0">
+    <widget class="QLabel" name="label_ShomareShasi">
+     <property name="text">
+      <string>شماره شاسی</string>
+     </property>
+     <property name="buddy">
+      <cstring>lineEdit_ShomareShasi</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="1">
+    <widget class="QLineEdit" name="lineEdit_ShomareShasi"/>
+   </item>
+   <item row="9" column="0">
+    <widget class="QLabel" name="label_ShomareSanad">
+     <property name="text">
+      <string>شماره سند</string>
+     </property>
+     <property name="buddy">
+      <cstring>lineEdit_ShomareSanad</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="1">
+    <widget class="QLineEdit" name="lineEdit_ShomareSanad"/>
+   </item>
+   <item row="10" column="1">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>Dialog_AddCar</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>257</x>
+     <y>371</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>Dialog_AddCar</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>315</x>
+     <y>371</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>AddCar()</slot>
+ </slots>
+</ui>

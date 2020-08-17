@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -21,6 +21,7 @@ SOURCES += \
     CityCar.cpp \
     Coupe.cpp \
     Crook.cpp \
+    Dialog_AddCar.cpp \
     Page_Cars.cpp \
     SUV.cpp \
     CheckInfo.cpp \
@@ -39,6 +40,7 @@ HEADERS += \
     CityCar.h \
     Coupe.h \
     Crook.h \
+    Dialog_AddCar.h \
     Page_Cars.h \
     SUV.h \
     CheckInfo.h \
@@ -52,6 +54,7 @@ HEADERS += \
     Vanet.h
 
 FORMS += \
+    Dialog_AddCar.ui \
     Dialog_ManagerLogin.ui \
     Dialog_managerSingIn.ui \
     MainWindow.ui \

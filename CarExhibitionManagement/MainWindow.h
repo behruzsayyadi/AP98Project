@@ -3,6 +3,16 @@
 
 #include <QMainWindow>
 #include <QTimer>
+
+#include <QVector>
+
+#include <QtCharts/QChartView>
+#include <QtCharts/QStackedBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QLegend>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtCharts/QValueAxis>
+
 #include "Manager.h"
 #include "CheckInfo.h"
 
@@ -30,6 +40,7 @@ private:
     int backPageIndex;
     void setBackPageIndex(int value);
     void setUpChecksTable();
+    void setUpincomeChart();
 private slots:
     void signin();
     void login();
@@ -37,4 +48,11 @@ signals:
     void signinSuccessful();
     void loginSuccessful();
 };
+namespace Data
+{
+ QVector<int> loadIncomeInfo();
+ void changeIncomeInfo(int poorsant,int sood, int index);
+ void saveIncomeinfo( QVector<int> );
+}
+
 #endif // MAINWINDOW_H

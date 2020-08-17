@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>604</width>
-    <height>291</height>
+    <width>812</width>
+    <height>350</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,16 +15,9 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="2" column="2">
-    <widget class="QPushButton" name="pushButton_SellCar">
+    <widget class="QPushButton" name="pushButton_AddCar">
      <property name="text">
-      <string>PushButton</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
-    <widget class="QPushButton" name="pushButton_BuyCar">
-     <property name="text">
-      <string>PushButton</string>
+      <string>اضافه کردن ماشین</string>
      </property>
     </widget>
    </item>
@@ -49,10 +42,74 @@
     </spacer>
    </item>
    <item row="0" column="0" rowspan="4">
-    <widget class="QTableWidget" name="tableWidget_Cars"/>
+    <widget class="QTableWidget" name="tableWidget_Cars">
+     <property name="layoutDirection">
+      <enum>Qt::RightToLeft</enum>
+     </property>
+     <column>
+      <property name="text">
+       <string>نوع</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>برند</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>مدل</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>سال تولید</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>رنگ</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>رنگ داخل</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>قیمت</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>وضعیت</string>
+      </property>
+     </column>
+    </widget>
    </item>
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_AddCar</sender>
+   <signal>clicked()</signal>
+   <receiver>Page_Cars</receiver>
+   <slot>addNewCar()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>767</x>
+     <y>327</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>724</x>
+     <y>345</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>addNewCar()</slot>
+ </slots>
 </ui>

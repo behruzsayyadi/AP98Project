@@ -15,7 +15,7 @@ public:
     QString getUsername();
     QString getPassword();
 
-    explicit Dialog_ManagerLogin(QString title = "ورود", QWidget *parent = nullptr);
+    explicit Dialog_ManagerLogin(QString title /*= "ورود"*/, QWidget *parent = nullptr);
     ~Dialog_ManagerLogin();
 
 private slots:

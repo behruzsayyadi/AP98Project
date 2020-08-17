@@ -23,10 +23,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(signinSuccessful()), this, SIGNAL(loginSuccessful()));
     connect(this, SIGNAL(loginSuccessful()), this, SLOT(navigateToHomePage()));
 
-    setUpChecksTable();
     timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(displayCurrentDateTime()));
     timer->start(1000);
+
     manager = new Manager();
 
     if(QFile("Documents/Managers.json").exists())
@@ -38,8 +38,10 @@ MainWindow::MainWindow(QWidget *parent)
     {
         ui->pushButton_SignLog_in->setText("ثبت نام");
         connect(ui->pushButton_SignLog_in, SIGNAL(clicked()), this, SLOT(signin()));
-
     }
+
+    setUpChecksTable();
+    setUpincomeChart();
 }
 
 MainWindow::~MainWindow()
@@ -93,7 +95,7 @@ void MainWindow::signin()
 }
 void MainWindow::login()
 {
-    Dialog_ManagerLogin *mngr_dlg = new Dialog_ManagerLogin("ورود", this);
+    Dialog_ManagerLogin *mngr_dlg = new Dialog_ManagerLogin("ورود ", this);
     if(mngr_dlg->exec() == Dialog_ManagerLogin::Accepted)
     {
         *(this->manager) = loadManager();
@@ -131,5 +133,115 @@ void MainWindow::setUpChecksTable()
     }
 
 }
+void MainWindow::setUpincomeChart()
+{
+    QT_CHARTS_USE_NAMESPACE
+
+    QBarSet *setPoorsant = new QBarSet("پورسانت");
+    QBarSet *setSood = new QBarSet("سود فروش");
+
+    setPoorsant->setColor(Qt::darkYellow);
+    setSood->setColor(Qt::darkRed);
+
+    QVector<int> vec = Data::loadIncomeInfo();
+    for (auto x = vec.begin(); x != vec.end() ; x++)
+    {
+        *setPoorsant << *x;
+        *setSood << *++x;
+    }
+    QStackedBarSeries *series = new QStackedBarSeries();
+
+    series->append(setPoorsant);
+    series->append(setSood);
+
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("Amount of income made from poorsant or selling cars during the year");
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+
+    QStringList categories;
+    categories << "Jan" << "Feb" << "Mar" << "Apr" << "May" << "Jun"
+               << "Jul" << "Aug" << "Sep" << "Oct" << "Nov" << "Dec";
+    QBarCategoryAxis *axisX = new QBarCategoryAxis();
+    axisX->append(categories);
+    chart->addAxis(axisX, Qt::AlignBottom);
+    series->attachAxis(axisX);
+    QValueAxis *axisY = new QValueAxis();
+    chart->addAxis(axisY, Qt::AlignLeft);
+    series->attachAxis(axisY);
+
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    ui->layout_FinancePage->addWidget(chartView, 0, 1);
+}
 
 
+namespace Data
+{
+    QVector<int> loadIncomeInfo()
+    {
+        QVector<int> result;
+        QFile file("Documents/income.txt");
+        QTextStream stream(&file);
+        QString poorsant, sood;
+        if(!file.exists())
+        {
+            result.resize(24);
+            saveIncomeinfo(result);
+        }
+        else
+        {
+            if(file.open(QIODevice::ReadOnly | QIODevice::Text))
+            {
+                while( !stream.atEnd() )
+                {
+                    stream >> poorsant ;
+                    stream >> sood;
+                    result << poorsant.toInt() << sood.toInt();
+                }
+                if(result.size() != 24)
+                {
+                    result.resize(24);
+                }
+            }
+            else
+            {
+                qDebug() << "problem opening incomes file";
+                result.resize(24);
+            }
+        }
+        return result;
+    }
+    void changeIncomeInfo(int poorsant,int sood, int index)
+    {
+        if(index < 1 || index > 12) return;
+        QVector<int> vec = loadIncomeInfo();
+        int i = (index - 1) * 2;
+        vec.swapItemsAt(sood, i);
+        vec.swapItemsAt(poorsant, i + 1);
+        saveIncomeinfo(vec);
+    }
+    void saveIncomeinfo( QVector<int> vec )
+    {
+        QFile file("Documents/income.txt");
+        QTextStream stream(&file);
+        if(file.open(QIODevice::WriteOnly | QIODevice::Text))
+        {
+            QString t, tt;
+            for(auto x = vec.begin() ; x != vec.end() ; x ++)
+            {
+                t = *x;
+                tt = *++x;
+                stream << t << ' ' << tt << '\n';
+            }
+        }
+        else
+        {
+            qDebug() << "problem opening incomes file";
+        }
+    }
+}

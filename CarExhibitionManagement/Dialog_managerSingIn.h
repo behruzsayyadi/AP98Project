@@ -24,7 +24,7 @@ public:
     QString getPassword();
     QDate getBirthDate();
 
-    explicit Dialog_managerSingIn(QString title = "ثبت نام", QWidget *parent = nullptr);
+    explicit Dialog_managerSingIn(QString title /*= "ثبت نام"*/, QWidget *parent = nullptr);
     ~Dialog_managerSingIn();
 
 private slots:

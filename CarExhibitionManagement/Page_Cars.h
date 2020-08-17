@@ -3,13 +3,14 @@
 
 #include <QWidget>
 
+#include "Dialog_AddCar.h"
+
 #include "Car.h"
 #include "SUV.h"
 #include "Coupe.h"
 #include "Crook.h"
 #include "CityCar.h"
 #include "Vanet.h"
-
 namespace Ui {
 class Page_Cars;
 }
@@ -25,6 +26,8 @@ public:
 private:
     Ui::Page_Cars *ui;
     void populateCarsTable();
+public slots:
+    void addNewCar();
 };
 
 #endif // PAGE_CARS_H

@@ -167,12 +167,8 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.517413 rgba(0, 125, 187, 255));
-</string>
-  </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
+   <layout class="QGridLayout" name="layout_CentralWidget">
     <item row="0" column="2">
      <widget class="QLabel" name="label">
       <property name="font">
@@ -265,14 +261,21 @@ border-bottom-right-radius:10px;
         <height>0</height>
        </size>
       </property>
+      <property name="palette">
+       <palette>
+        <active/>
+        <inactive/>
+        <disabled/>
+       </palette>
+      </property>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page_Wellcome">
-       <layout class="QGridLayout" name="gridLayout_2">
+       <layout class="QGridLayout" name="layout_WelcomePage">
         <item row="1" column="0">
          <widget class="QPushButton" name="pushButton_SignLog_in">
           <property name="font">
@@ -296,38 +299,70 @@ border-width:4;
        </layout>
       </widget>
       <widget class="QWidget" name="page_Home">
-       <widget class="QPushButton" name="pushButton_Cars">
-        <property name="geometry">
-         <rect>
-          <x>490</x>
-          <y>100</y>
-          <width>80</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Cars</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_Finance">
-        <property name="geometry">
-         <rect>
-          <x>490</x>
-          <y>140</y>
-          <width>80</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Finance</string>
-        </property>
-       </widget>
+       <layout class="QGridLayout" name="layout_HomePage">
+        <item row="0" column="0">
+         <widget class="QPushButton" name="pushButton_Cars">
+          <property name="text">
+           <string>Cars</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="pushButton_Finance">
+          <property name="text">
+           <string>Finance</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="Page_Cars" name="page_Cars"/>
       <widget class="QWidget" name="page_Finance">
-       <layout class="QGridLayout" name="gridLayout_3">
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <layout class="QGridLayout" name="layout_FinancePage">
         <item row="0" column="0">
-         <widget class="QTableWidget" name="tableWidget"/>
+         <widget class="QTableWidget" name="tableWidget">
+          <column>
+           <property name="text">
+            <string>تاریخ</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>مبلغ</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>بانک</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>شعبه</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>شناسه</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
         </item>
        </layout>
       </widget>
@@ -387,8 +422,8 @@ border-width:4;
    <slot>navigateToCarsPage()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>525</x>
-     <y>213</y>
+     <x>534</x>
+     <y>260</y>
     </hint>
     <hint type="destinationlabel">
      <x>450</x>
@@ -403,8 +438,8 @@ border-width:4;
    <slot>navigateToFinancePage()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>555</x>
-     <y>252</y>
+     <x>564</x>
+     <y>419</y>
     </hint>
     <hint type="destinationlabel">
      <x>457</x>
