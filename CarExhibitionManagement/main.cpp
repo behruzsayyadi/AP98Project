@@ -110,8 +110,7 @@ int main(int argc, char *argv[])
 //    system("IF NOT exist Documents mkdir Documents");
     if( !QDir("Documents").exists() )
         QDir().mkdir("Documents");
-    Crook c("sdafasdf", "safsdfsafd", "sadfasdffsad");
-    qDebug() << c.toJson();
+
 
     MainWindow w;
     w.show();

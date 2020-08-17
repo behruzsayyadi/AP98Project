@@ -59,7 +59,6 @@ Dialog_managerSingIn::Dialog_managerSingIn(QString title, QWidget *parent) :
     ui->setupUi(this);
     this->setWindowTitle( title );
 
-    ui->lineEdit_ID->setValidator(new QRegularExpressionValidator(this));
 }
 
 Dialog_managerSingIn::~Dialog_managerSingIn()
@@ -73,9 +72,9 @@ void Dialog_managerSingIn::on_buttonBox_accepted()
     mngr.setUsername(getUsername());
     mngr.setPassword(getPassword());
     mngr.addManager();
-    QMessageBox msg_box_signedIn(this);
-    msg_box_signedIn.information(this,"Done","Signed In!");
-    msg_box_signedIn.show();
+//    QMessageBox msg_box_signedIn(this);
+//    msg_box_signedIn.information(this,"Done","Signed In!");
+//    msg_box_signedIn.show();
     accept();
 
 }
