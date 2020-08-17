@@ -110,20 +110,9 @@ int main(int argc, char *argv[])
 //    system("IF NOT exist Documents mkdir Documents");
     if( !QDir("Documents").exists() )
         QDir().mkdir("Documents");
+    Crook c("sdafasdf", "safsdfsafd", "sadfasdffsad");
+    qDebug() << c.toJson();
 
-
-    Crook mycar("sold","405GLX","Peugeot"
-                      ,"","khakestari","keremi","2342424243",12342,1050000000,0.02);
-    Car * car_ptr = &mycar;
-//    car_ptr->addCar();
-    qDebug() << car_ptr->getPoorsant();
-    Car carrr("sold","405GLX","Peugeot"
-              ,"","khakestari","keremi","2342424243",12342,1050000000);
-//    carrr.addCar();
-    CityCar c("asdfasf","safdsafd","sadfasf");
-    car_ptr = &c;
-//    car_ptr->addCar();
-//    c.addCar();
     MainWindow w;
     w.show();
     return a.exec();

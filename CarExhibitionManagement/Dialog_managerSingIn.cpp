@@ -58,6 +58,8 @@ Dialog_managerSingIn::Dialog_managerSingIn(QString title, QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle( title );
+
+    ui->lineEdit_ID->setValidator(new QRegularExpressionValidator(this));
 }
 
 Dialog_managerSingIn::~Dialog_managerSingIn()

@@ -36,16 +36,14 @@ Crook::~Crook()
 //    //add codes specific to this class
 
 //}
-//QJsonObject Crook::toJson()
-//{
-//    Car * bp = this;
-//    QJsonObject o ;
-//    bp->toJson();
+QJsonObject Crook::toJson()
+{
+    QJsonObject o = Car::toJson();
 
-//    //add codes specific to this class
+    //add codes specific to this class
 
-//    return o;
-//}
+    return o;
+}
 void Crook::addCar(QString availableCarsAddress)
 {
     int ss = this->getShomareSanad();

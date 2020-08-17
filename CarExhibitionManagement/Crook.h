@@ -21,7 +21,7 @@ public:
 
     virtual quint64 getPoorsant() override;
     ~Crook();
-//    QJsonObject toJson() override;
+    QJsonObject toJson() override;
 //    void loadFromJson(QJsonObject) override;
     void addCar(QString availableCarsAddress) override;
 };

@@ -3,6 +3,10 @@
 
 #include <QDialog>
 
+#include <QValidator>
+#include <QIntValidator>
+#include <QRegularExpressionValidator>
+
 namespace Ui {
 class Dialog_ManagerLogin;
 }

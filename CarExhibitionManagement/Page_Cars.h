@@ -26,6 +26,7 @@ public:
 private:
     Ui::Page_Cars *ui;
     void populateCarsTable();
+    void addNewRow( Car*, QString type);
 public slots:
     void addNewCar();
 };
