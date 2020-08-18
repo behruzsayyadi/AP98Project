@@ -85,6 +85,14 @@ void Page_Cars::addNewCar()
     else
     {}
 }
+void Page_Cars::addNewMemorandum()
+{
+    Dialog_Memorandum * d = new Dialog_Memorandum(this);
+    if(d->exec() == Dialog_Memorandum::Accepted)
+    {
+
+    }
+}
 void Page_Cars::addNewRow( Car* c, QString type)
 {
     int row_count ;

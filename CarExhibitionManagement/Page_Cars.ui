@@ -108,8 +108,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_NewMemorandum</sender>
+   <signal>clicked()</signal>
+   <receiver>Page_Cars</receiver>
+   <slot>addNewMemorandum()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>748</x>
+     <y>307</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>640</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addNewCar()</slot>
+  <slot>addNewMemorandum()</slot>
  </slots>
 </ui>

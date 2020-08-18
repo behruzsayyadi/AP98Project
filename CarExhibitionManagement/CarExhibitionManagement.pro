@@ -22,6 +22,8 @@ SOURCES += \
     Coupe.cpp \
     Crook.cpp \
     Dialog_AddCar.cpp \
+    Dialog_Check.cpp \
+    Dialog_Memorandum.cpp \
     Page_Cars.cpp \
     SUV.cpp \
     CheckInfo.cpp \
@@ -41,6 +43,8 @@ HEADERS += \
     Coupe.h \
     Crook.h \
     Dialog_AddCar.h \
+    Dialog_Check.h \
+    Dialog_Memorandum.h \
     Page_Cars.h \
     SUV.h \
     CheckInfo.h \
@@ -55,7 +59,9 @@ HEADERS += \
 
 FORMS += \
     Dialog_AddCar.ui \
+    Dialog_Check.ui \
     Dialog_ManagerLogin.ui \
+    Dialog_Memorandum.ui \
     Dialog_managerSingIn.ui \
     MainWindow.ui \
     Page_Cars.ui

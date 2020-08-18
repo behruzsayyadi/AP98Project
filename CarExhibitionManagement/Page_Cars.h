@@ -4,6 +4,7 @@
 #include <QWidget>
 
 #include "Dialog_AddCar.h"
+#include "Dialog_Memorandum.h"
 
 #include "Car.h"
 #include "SUV.h"
@@ -11,6 +12,7 @@
 #include "Crook.h"
 #include "CityCar.h"
 #include "Vanet.h"
+
 namespace Ui {
 class Page_Cars;
 }
@@ -29,6 +31,8 @@ private:
     void addNewRow( Car*, QString type);
 public slots:
     void addNewCar();
+    void addNewMemorandum();
+
 };
 
 #endif // PAGE_CARS_H
