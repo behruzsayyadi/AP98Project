@@ -7,7 +7,7 @@ Crook::Crook( QString status,
           QString color,
           QString inside_color,
           QString shomare_shasi,
-          int shomare_sanad,
+          QString shomare_sanad,
           quint64 gheymat ,
               double poorsant) :
     Car( status,
@@ -29,13 +29,12 @@ quint64 Crook::getPoorsant()
 }
 Crook::~Crook()
 {}
-//void Crook::loadFromJson(QJsonObject o)
-//{
-//    Car * bp = this;
-//    bp->loadFromJson(o);
-//    //add codes specific to this class
+void Crook::loadFromJson(QJsonObject o)
+{
+    Car::loadFromJson(o);
+    //add codes specific to this class
 
-//}
+}
 QJsonObject Crook::toJson()
 {
     QJsonObject o = Car::toJson();
@@ -44,9 +43,10 @@ QJsonObject Crook::toJson()
 
     return o;
 }
-void Crook::addCar(QString availableCarsAddress)
+void Crook::addCar()
 {
-    int ss = this->getShomareSanad();
+    QString availableCarsAddress = Data::default_crook_path;
+    QString ss = this->getShomareSanad();
     if(ss == 0)
     {
         qDebug() << "shomare sanad is needed for adding car";
@@ -102,55 +102,55 @@ void Crook::addCar(QString availableCarsAddress)
         }
     }
 }
-QJsonArray loadCrooks_jsonArray(QString availableCarsAddress)
+QJsonArray loadCrooks_jsonArray()
 {
-    QFile file(availableCarsAddress);
-    if(!file.exists())
-    {
-        qDebug() << "No such file: " + availableCarsAddress
-                 << "Creating a new one ...";
+//    QFile file(availableCarsAddress);
+//    if(!file.exists())
+//    {
+//        qDebug() << "No such file: " + availableCarsAddress
+//                 << "Creating a new one ...";
 
-        if( file.open(QIODevice::WriteOnly))
-        {
-            QJsonObject o;
-            QJsonArray a;
-            o["Crook"] = a;
-            file.write(QJsonDocument(o).toJson());
-            qDebug() << "File created successfuly: " + availableCarsAddress;
-        }
-        else
-        {
-            qDebug() << "Problem making and writing to file: " + availableCarsAddress;
-        }
-        return QJsonArray();
-    }
-    else
-    {
-        if(file.open(QIODevice::ReadOnly))
-        {
-            QByteArray ba = file.readAll();
-            file.close();
+//        if( file.open(QIODevice::WriteOnly))
+//        {
+//            QJsonObject o;
+//            QJsonArray a;
+//            o["Crook"] = a;
+//            file.write(QJsonDocument(o).toJson());
+//            qDebug() << "File created successfuly: " + availableCarsAddress;
+//        }
+//        else
+//        {
+//            qDebug() << "Problem making and writing to file: " + availableCarsAddress;
+//        }
+//        return QJsonArray();
+//    }
+//    else
+//    {
+//        if(file.open(QIODevice::ReadOnly))
+//        {
+//            QByteArray ba = file.readAll();
+//            file.close();
 
-            QJsonObject o = QJsonDocument::fromJson(ba).object();
-            QJsonArray a = o["Crook"].toArray();
-            return a;
-        }
-        else
-        {
-             qDebug() << "Couldn\'t open file: " + availableCarsAddress ;
-        }
-    }
-    return QJsonArray();
-
+//            QJsonObject o = QJsonDocument::fromJson(ba).object();
+//            QJsonArray a = o["Crook"].toArray();
+//            return a;
+//        }
+//        else
+//        {
+//             qDebug() << "Couldn\'t open file: " + availableCarsAddress ;
+//        }
+//    }
+//    return QJsonArray();
+    return Data::load_jsonArray(Data::default_crook_array_name, Data::default_crook_path);
 }
-Crook findCrook(int shomare_sanad, QString availableCarsAddress)
+Crook findCrook(QString shomare_sanad)
 {
     Crook c;
-    QJsonArray a = loadCrooks_jsonArray(availableCarsAddress);
+    QJsonArray a = loadCrooks_jsonArray();
     if(a.isEmpty())
     {
         qDebug() << "List of cars is empty."
-                 << "file address:" + availableCarsAddress;
+                 << "file address:" + Data::default_crook_path;
     }
     else
     {

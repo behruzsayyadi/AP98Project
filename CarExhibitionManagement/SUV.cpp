@@ -7,7 +7,7 @@ SUV::SUV( QString status,
           QString color,
           QString inside_color,
           QString shomare_shasi,
-          int shomare_sanad,
+          QString shomare_sanad,
           quint64 gheymat ,
               double poorsant) :
     Car( status,
@@ -46,9 +46,10 @@ SUV::~SUV()
 
 //    return o;
 //}
-void SUV::addCar(QString availableCarsAddress)
+void SUV::addCar()
 {
-    int ss = this->getShomareSanad();
+    QString availableCarsAddress = Data::default_suv_path;
+    QString ss = this->getShomareSanad();
     if(ss == 0)
     {
         qDebug() << "shomare sanad is needed for adding car";
@@ -104,55 +105,55 @@ void SUV::addCar(QString availableCarsAddress)
         }
     }
 }
-QJsonArray loadSUVs_jsonArray(QString availableCarsAddress)
+QJsonArray loadSUVs_jsonArray()
 {
-    QFile file(availableCarsAddress);
-    if(!file.exists())
-    {
-        qDebug() << "No such file: " + availableCarsAddress
-                 << "Creating a new one ...";
+//    QFile file(availableCarsAddress);
+//    if(!file.exists())
+//    {
+//        qDebug() << "No such file: " + availableCarsAddress
+//                 << "Creating a new one ...";
 
-        if( file.open(QIODevice::WriteOnly))
-        {
-            QJsonObject o;
-            QJsonArray a;
-            o["SUV"] = a;
-            file.write(QJsonDocument(o).toJson());
-            qDebug() << "File created successfuly: " + availableCarsAddress;
-        }
-        else
-        {
-            qDebug() << "Problem making and writing to file: " + availableCarsAddress;
-        }
-        return QJsonArray();
-    }
-    else
-    {
-        if(file.open(QIODevice::ReadOnly))
-        {
-            QByteArray ba = file.readAll();
-            file.close();
+//        if( file.open(QIODevice::WriteOnly))
+//        {
+//            QJsonObject o;
+//            QJsonArray a;
+//            o["SUV"] = a;
+//            file.write(QJsonDocument(o).toJson());
+//            qDebug() << "File created successfuly: " + availableCarsAddress;
+//        }
+//        else
+//        {
+//            qDebug() << "Problem making and writing to file: " + availableCarsAddress;
+//        }
+//        return QJsonArray();
+//    }
+//    else
+//    {
+//        if(file.open(QIODevice::ReadOnly))
+//        {
+//            QByteArray ba = file.readAll();
+//            file.close();
 
-            QJsonObject o = QJsonDocument::fromJson(ba).object();
-            QJsonArray a = o["SUV"].toArray();
-            return a;
-        }
-        else
-        {
-             qDebug() << "Couldn\'t open file: " + availableCarsAddress ;
-        }
-    }
-    return QJsonArray();
-
+//            QJsonObject o = QJsonDocument::fromJson(ba).object();
+//            QJsonArray a = o["SUV"].toArray();
+//            return a;
+//        }
+//        else
+//        {
+//             qDebug() << "Couldn\'t open file: " + availableCarsAddress ;
+//        }
+//    }
+//    return QJsonArray();
+    return Data::load_jsonArray(Data::default_suv_array_name, Data::default_suv_path);
 }
-SUV findSUV(int shomare_sanad, QString availableCarsAddress)
+SUV findSUV(QString shomare_sanad)
 {
     SUV c;
-    QJsonArray a = loadSUVs_jsonArray(availableCarsAddress);
+    QJsonArray a = loadSUVs_jsonArray();
     if(a.isEmpty())
     {
         qDebug() << "List of cars is empty."
-                 << "file address:" + availableCarsAddress;
+                 << "file address:" + Data::default_suv_path;
     }
     else
     {

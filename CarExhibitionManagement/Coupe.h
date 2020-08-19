@@ -3,6 +3,14 @@
 
 #include "Car.h"
 
+namespace Data
+{
+    extern QString default_coupe_path;
+    extern QString default_coupe_array_name;
+    QJsonArray load_jsonArray(QString arrayName, QString filePath);
+    void save_jsonArray(QJsonArray array, QString arrayName, QString filePath);
+}
+
 class Coupe : public Car
 {
 private:
@@ -14,17 +22,17 @@ public:
          QString color = "",
          QString inside_color = "",
          QString shomare_shasi = "",
-         int shomare_sanad = ++last_shomare_sanad,
+         QString shomare_sanad = "",
          quint64 gheymat = 0,
-         double poorsant = 0);
+         double poorsant = 0.005);
 
 
     virtual quint64 getPoorsant() override;
     ~Coupe();
 //    QJsonObject toJson() override;
 //    void loadFromJson(QJsonObject) override;
-    void addCar(QString availableCarsAddress) override;
+    void addCar() override;
 };
-QJsonArray loadCoupes_jsonArray(QString availableCarsAddress = "Documents/Coupe.json");
-Coupe findCoupe(int shomare_sanad, QString availableCarsAddress = "Documents/Coupe.json");
+QJsonArray loadCoupes_jsonArray();
+Coupe findCoupe(QString shomare_sanad);
 #endif // COUPE_H

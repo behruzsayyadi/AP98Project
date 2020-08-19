@@ -80,6 +80,7 @@ void Page_Cars::addNewCar()
             addNewRow(v, "وانت");
         }
         else {}
+        c->addCar();
         delete c;
     }
     else

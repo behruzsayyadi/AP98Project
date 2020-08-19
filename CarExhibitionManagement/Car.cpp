@@ -1,5 +1,4 @@
 #include "Car.h"
-int Car::last_shomare_sanad = 0;
 Car::Car( QString status,
           QString model,
           QString brand,
@@ -7,7 +6,7 @@ Car::Car( QString status,
           QString color,
           QString inside_color,
           QString shomare_shasi,
-          int shomare_sanad,
+          QString shomare_sanad,
           quint64 gheymat )
 {
     this->status = status;
@@ -26,7 +25,7 @@ void Car::setModel(QString model) { this->model = model; }
 void Car::setColor(QString color) { this->color = color; }
 void Car::setInsideColor(QString inside_color) { this->inside_color = inside_color; }
 void Car::setShomareShasi(QString shomare_shasi) { this->shomare_shasi = shomare_shasi; }
-void Car::setShomareSanad(int shomare_sanad) { this->shomare_sanad = shomare_sanad; }
+void Car::setShomareSanad(QString shomare_sanad) { this->shomare_sanad = shomare_sanad; }
 void Car::setBrand(QString brand) { this->brand = brand; }
 void Car::setGheymat(quint64 gheymat) { this->gheymat = gheymat; }
 void Car::setYear(QString year) { this->year = year; }
@@ -36,6 +35,7 @@ QString Car::getModel() const { return this->model; }
 QString Car::getColor() const { return this->color; }
 QString Car::getInsideColor() const { return this->inside_color; }
 QString Car::getShomareShasi() const { return this->shomare_shasi; }
+QString Car::getShomareSanad() const { return this->shomare_sanad; }
 QString Car::getBrand() const { return this->brand; }
 quint64 Car::getGheymat() const { return this->gheymat; }
 QString Car::getYear() const { return this->year; }
@@ -44,7 +44,6 @@ quint64 Car::getPoorsant()
 {
     return this->poorsant * gheymat;
 }
-int Car::getShomareSanad() const { return this->shomare_sanad; }
 
 void Car::loadFromJson(QJsonObject o)
 {
@@ -55,7 +54,7 @@ void Car::loadFromJson(QJsonObject o)
     setColor(o["color"].toString());
     setInsideColor(o["inside color"].toString());
     setShomareShasi(o["shomare shasi"].toString());
-    setShomareSanad(o["shomare sanad"].toInt());
+    setShomareSanad(o["shomare sanad"].toString());
     setGheymat(static_cast<quint64>((o["gheymat"].toString()).toULongLong()));
 }
 QJsonObject Car::toJson()
@@ -72,9 +71,10 @@ QJsonObject Car::toJson()
     o["gheymat"] = QString::number(getGheymat());
     return o;
 }
-void Car::addCar(QString availableCarsAddress)
+void Car::addCar()
 {
-    int ss = this->getShomareSanad();
+    QString availableCarsAddress = Data::default_car_path;
+    QString ss = this->getShomareSanad();
     if(ss == 0)
     {
         qDebug() << "shomare sanad is needed for adding car";
@@ -130,55 +130,55 @@ void Car::addCar(QString availableCarsAddress)
         }
     }
 }
-QJsonArray loadAvailableCars_jsonArray(QString availableCarsAddress)
+QJsonArray loadAvailableCars_jsonArray()
 {
-    QFile file(availableCarsAddress);
-    if(!file.exists())
-    {
-        qDebug() << "No such file: " + availableCarsAddress
-                 << "Creating a new one ...";
+//    QFile file(availableCarsAddress);
+//    if(!file.exists())
+//    {
+//        qDebug() << "No such file: " + availableCarsAddress
+//                 << "Creating a new one ...";
 
-        if( file.open(QIODevice::WriteOnly))
-        {
-            QJsonObject o;
-            QJsonArray a;
-            o["Car"] = a;
-            file.write(QJsonDocument(o).toJson());
-            qDebug() << "File created successfuly: " + availableCarsAddress;
-        }
-        else
-        {
-            qDebug() << "Problem making and writing to file: " + availableCarsAddress;
-        }
-        return QJsonArray();
-    }
-    else
-    {
-        if(file.open(QIODevice::ReadOnly))
-        {
-            QByteArray ba = file.readAll();
-            file.close();
+//        if( file.open(QIODevice::WriteOnly))
+//        {
+//            QJsonObject o;
+//            QJsonArray a;
+//            o["Car"] = a;
+//            file.write(QJsonDocument(o).toJson());
+//            qDebug() << "File created successfuly: " + availableCarsAddress;
+//        }
+//        else
+//        {
+//            qDebug() << "Problem making and writing to file: " + availableCarsAddress;
+//        }
+//        return QJsonArray();
+//    }
+//    else
+//    {
+//        if(file.open(QIODevice::ReadOnly))
+//        {
+//            QByteArray ba = file.readAll();
+//            file.close();
 
-            QJsonObject o = QJsonDocument::fromJson(ba).object();
-            QJsonArray a = o["Car"].toArray();
-            return a;
-        }
-        else
-        {
-             qDebug() << "Couldn\'t open file: " + availableCarsAddress ;
-        }
-    }
-    return QJsonArray();
-
+//            QJsonObject o = QJsonDocument::fromJson(ba).object();
+//            QJsonArray a = o["Car"].toArray();
+//            return a;
+//        }
+//        else
+//        {
+//             qDebug() << "Couldn\'t open file: " + availableCarsAddress ;
+//        }
+//    }
+//    return QJsonArray();
+    return Data::load_jsonArray(Data::default_car_array_name, Data::default_car_array_name);
 }
-Car findCar(int shomare_sanad, QString availableCarsAddress)
+Car findCar(QString shomare_sanad)
 {
     Car c;
-    QJsonArray a = loadAvailableCars_jsonArray(availableCarsAddress);
+    QJsonArray a = loadAvailableCars_jsonArray();
     if(a.isEmpty())
     {
         qDebug() << "List of cars is empty."
-                 << "file address:" + availableCarsAddress;
+                 << "file address:" + Data::default_car_path;
     }
     else
     {

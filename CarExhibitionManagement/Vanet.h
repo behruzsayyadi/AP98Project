@@ -5,7 +5,14 @@
 
 #include "Car.h"
 
+namespace Data
+{
+    extern QString default_vanet_path;
+    extern QString default_vanet_array_name;
 
+    QJsonArray load_jsonArray(QString arrayName, QString filePath);
+    void save_jsonArray(QJsonArray array, QString arrayName, QString filePath);
+}
 class Vanet : public Car
 {
 private:
@@ -17,17 +24,17 @@ public:
          QString color = "",
          QString inside_color = "",
          QString shomare_shasi = "",
-         int shomare_sanad = ++last_shomare_sanad,
+         QString shomare_sanad = "",
          quint64 gheymat = 0,
-         double poorsant = 0);
+         double poorsant = 0.015);
 
 
     virtual quint64 getPoorsant() override;
     ~Vanet();
 //    QJsonObject toJson() override;
 //    void loadFromJson(QJsonObject) override;
-    void addCar(QString availableCarsAddress) override;
+    void addCar() override;
 };
-QJsonArray loadVanets_jsonArray(QString availableCarsAddress = "Documents/Vanet.json");
-Vanet findVanet(int shomare_sanad, QString availableCarsAddress = "Documents/Vanet.json");
+QJsonArray loadVanets_jsonArray();
+Vanet findVanet(QString shomare_sanad);
 #endif // VANET_H

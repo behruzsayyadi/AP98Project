@@ -2,7 +2,13 @@
 #define CROOK_H
 
 #include "Car.h"
-
+namespace Data
+{
+    extern QString default_crook_path;
+    extern QString default_crook_array_name;
+    QJsonArray load_jsonArray(QString arrayName, QString filePath);
+    void save_jsonArray(QJsonArray array, QString arrayName, QString filePath);
+}
 class Crook : public Car
 {
 private:
@@ -14,17 +20,17 @@ public:
          QString color = "",
          QString inside_color = "",
          QString shomare_shasi = "",
-         int shomare_sanad = ++last_shomare_sanad,
+         QString shomare_sanad = "",
          quint64 gheymat = 0,
-         double poorsant = 0);
+         double poorsant = 0.02);
 
 
     virtual quint64 getPoorsant() override;
     ~Crook();
     QJsonObject toJson() override;
-//    void loadFromJson(QJsonObject) override;
-    void addCar(QString availableCarsAddress) override;
+    void loadFromJson(QJsonObject) override;
+    void addCar() override;
 };
-QJsonArray loadCrooks_jsonArray(QString availableCarsAddress = "Documents/Crook.json");
-Crook findCrook(int shomare_sanad, QString availableCarsAddress = "Documents/Crook.json");
+QJsonArray loadCrooks_jsonArray();
+Crook findCrook(QString shomare_sanad);
 #endif // CROOK_H

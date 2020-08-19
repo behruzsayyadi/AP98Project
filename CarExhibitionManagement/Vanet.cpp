@@ -7,7 +7,7 @@ Vanet::Vanet( QString status,
           QString color,
           QString inside_color,
           QString shomare_shasi,
-          int shomare_sanad,
+          QString shomare_sanad,
           quint64 gheymat ,
               double poorsant) :
     Car( status,
@@ -46,9 +46,10 @@ Vanet::~Vanet()
 
 //    return o;
 //}
-void Vanet::addCar(QString availableCarsAddress)
+void Vanet::addCar()
 {
-    int ss = this->getShomareSanad();
+    QString availableCarsAddress = Data::default_vanet_path;
+    QString ss = this->getShomareSanad();
     if(ss == 0)
     {
         qDebug() << "shomare sanad is needed for adding car";
@@ -104,55 +105,55 @@ void Vanet::addCar(QString availableCarsAddress)
         }
     }
 }
-QJsonArray loadVanets_jsonArray(QString availableCarsAddress)
+QJsonArray loadVanets_jsonArray()
 {
-    QFile file(availableCarsAddress);
-    if(!file.exists())
-    {
-        qDebug() << "No such file: " + availableCarsAddress
-                 << "Creating a new one ...";
+//    QFile file(availableCarsAddress);
+//    if(!file.exists())
+//    {
+//        qDebug() << "No such file: " + availableCarsAddress
+//                 << "Creating a new one ...";
 
-        if( file.open(QIODevice::WriteOnly))
-        {
-            QJsonObject o;
-            QJsonArray a;
-            o["Vanet"] = a;
-            file.write(QJsonDocument(o).toJson());
-            qDebug() << "File created successfuly: " + availableCarsAddress;
-        }
-        else
-        {
-            qDebug() << "Problem making and writing to file: " + availableCarsAddress;
-        }
-        return QJsonArray();
-    }
-    else
-    {
-        if(file.open(QIODevice::ReadOnly))
-        {
-            QByteArray ba = file.readAll();
-            file.close();
+//        if( file.open(QIODevice::WriteOnly))
+//        {
+//            QJsonObject o;
+//            QJsonArray a;
+//            o["Vanet"] = a;
+//            file.write(QJsonDocument(o).toJson());
+//            qDebug() << "File created successfuly: " + availableCarsAddress;
+//        }
+//        else
+//        {
+//            qDebug() << "Problem making and writing to file: " + availableCarsAddress;
+//        }
+//        return QJsonArray();
+//    }
+//    else
+//    {
+//        if(file.open(QIODevice::ReadOnly))
+//        {
+//            QByteArray ba = file.readAll();
+//            file.close();
 
-            QJsonObject o = QJsonDocument::fromJson(ba).object();
-            QJsonArray a = o["Vanet"].toArray();
-            return a;
-        }
-        else
-        {
-             qDebug() << "Couldn\'t open file: " + availableCarsAddress ;
-        }
-    }
-    return QJsonArray();
-
+//            QJsonObject o = QJsonDocument::fromJson(ba).object();
+//            QJsonArray a = o["Vanet"].toArray();
+//            return a;
+//        }
+//        else
+//        {
+//             qDebug() << "Couldn\'t open file: " + availableCarsAddress ;
+//        }
+//    }
+//    return QJsonArray();
+    return Data::load_jsonArray(Data::default_vanet_array_name, Data::default_vanet_path);
 }
-Vanet findVanet(int shomare_sanad, QString availableCarsAddress)
+Vanet findVanet(QString shomare_sanad)
 {
     Vanet c;
-    QJsonArray a = loadVanets_jsonArray(availableCarsAddress);
+    QJsonArray a = loadVanets_jsonArray();
     if(a.isEmpty())
     {
         qDebug() << "List of cars is empty."
-                 << "file address:" + availableCarsAddress;
+                 << "file address:" + Data::default_vanet_path;
     }
     else
     {

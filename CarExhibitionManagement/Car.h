@@ -12,6 +12,13 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
+namespace Data
+{
+    extern QString default_car_path;
+    extern QString default_car_array_name;
+    QJsonArray load_jsonArray(QString arrayName, QString filePath);
+    void save_jsonArray(QJsonArray array, QString arrayName, QString filePath);
+}
 
 class Car
 {
@@ -23,12 +30,11 @@ private:
     QString color;
     QString inside_color;
     QString shomare_shasi;
-    int shomare_sanad;
+    QString shomare_sanad;
     quint64 gheymat;
 
 protected:
     double poorsant;
-    static int last_shomare_sanad;
 public:
     Car( QString status = "",
          QString model = "",
@@ -37,7 +43,7 @@ public:
          QString color = "",
          QString inside_color = "",
          QString shomare_shasi = "",
-         int shomare_sanad = ++last_shomare_sanad,
+         QString shomare_sanad = "",
          quint64 gheymat = 0 );
     virtual ~Car();
     void setStatus(QString status);
@@ -45,7 +51,7 @@ public:
     void setColor(QString color);
     void setInsideColor(QString inside_color);
     void setShomareShasi(QString shomare_shasi);
-    void setShomareSanad(int shomare_sanad);
+    void setShomareSanad(QString shomare_sanad);
     void setBrand(QString brand);
     void setGheymat(quint64 gheymat);
     void setYear(QString year);
@@ -55,7 +61,7 @@ public:
     QString getColor() const;
     QString getInsideColor() const;
     QString getShomareShasi() const;
-    int getShomareSanad() const;
+    QString getShomareSanad() const;
     QString getBrand() const;
     quint64 getGheymat() const;
     QString getYear() const;
@@ -67,10 +73,10 @@ public:
 
     virtual void loadFromJson(QJsonObject object);
     virtual QJsonObject toJson();
-    virtual void addCar(QString availableCarsAddress);
+    virtual void addCar();
 };
-QJsonArray loadAvailableCars_jsonArray(QString availableCarsAddress = "Documents/Cars_Available.json");
-QJsonArray loadSoldCars_jsonArray(QString availableCarsAddress = "Documents/Cars_Sold.json");
-QJsonArray loadBoughtCars_jsonArray(QString availableCarsAddress = "Documents/Cars_Bought.json");
-Car findCar(int shomare_sanad, QString availableCarsAddress = "Documents/Cars_Available.json");
+QJsonArray loadAvailableCars_jsonArray();
+//QJsonArray loadSoldCars_jsonArray(QString availableCarsAddress = "Documents/Cars_Sold.json");
+//QJsonArray loadBoughtCars_jsonArray(QString availableCarsAddress = "Documents/Cars_Bought.json");
+Car findCar(QString shomare_sanad);
 #endif // CAR_H

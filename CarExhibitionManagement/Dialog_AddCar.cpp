@@ -26,7 +26,7 @@ Car * Dialog_AddCar::getCar()
                           ui->lineEdit_Color->text(),
                           ui->lineEdit_InsideColor->text(),
                           ui->lineEdit_ShomareShasi->text(),
-                          ui->lineEdit_ShomareSanad->text().toInt(),
+                          ui->lineEdit_ShomareSanad->text(),
                           ui->lineEdit_Gheymat->text().toULongLong() );
     }
     else if(type == "کروک")
@@ -38,7 +38,7 @@ Car * Dialog_AddCar::getCar()
                           ui->lineEdit_Color->text(),
                           ui->lineEdit_InsideColor->text(),
                           ui->lineEdit_ShomareShasi->text(),
-                          ui->lineEdit_ShomareSanad->text().toInt(),
+                          ui->lineEdit_ShomareSanad->text(),
                           ui->lineEdit_Gheymat->text().toULongLong() );
     }
     else if(type == "شهری")
@@ -50,7 +50,7 @@ Car * Dialog_AddCar::getCar()
                           ui->lineEdit_Color->text(),
                           ui->lineEdit_InsideColor->text(),
                           ui->lineEdit_ShomareShasi->text(),
-                          ui->lineEdit_ShomareSanad->text().toInt(),
+                          ui->lineEdit_ShomareSanad->text(),
                           ui->lineEdit_Gheymat->text().toULongLong() );
     }
     else if(type == "وانت")
@@ -62,7 +62,7 @@ Car * Dialog_AddCar::getCar()
                           ui->lineEdit_Color->text(),
                           ui->lineEdit_InsideColor->text(),
                           ui->lineEdit_ShomareShasi->text(),
-                          ui->lineEdit_ShomareSanad->text().toInt(),
+                          ui->lineEdit_ShomareSanad->text(),
                           ui->lineEdit_Gheymat->text().toULongLong() );
     }
     else if(type == "کوپه")
@@ -74,7 +74,7 @@ Car * Dialog_AddCar::getCar()
                           ui->lineEdit_Color->text(),
                           ui->lineEdit_InsideColor->text(),
                           ui->lineEdit_ShomareShasi->text(),
-                          ui->lineEdit_ShomareSanad->text().toInt(),
+                          ui->lineEdit_ShomareSanad->text(),
                           ui->lineEdit_Gheymat->text().toULongLong() );
     }
     else

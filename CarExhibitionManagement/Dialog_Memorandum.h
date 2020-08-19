@@ -2,6 +2,7 @@
 #define DIALOG_MEMORANDUM_H
 
 #include <QDialog>
+#include "CheckInfo.h"
 #include "Dialog_Check.h"
 
 namespace Ui {
@@ -30,6 +31,7 @@ private slots:
     void getNewChecks();
 private:
     Ui::Dialog_Memorandum *ui;
+    QVector<Checkinfo*> checks_vector;;
 };
 
 #endif // DIALOG_MEMORANDUM_H
