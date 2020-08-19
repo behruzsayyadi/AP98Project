@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>891</width>
-    <height>684</height>
+    <width>653</width>
+    <height>555</height>
    </rect>
   </property>
   <property name="font">
@@ -1020,6 +1020,9 @@
      </item>
      <item>
       <widget class="QGroupBox" name="groupBox_check">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="font">
         <font>
          <pointsize>12</pointsize>

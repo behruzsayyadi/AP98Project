@@ -1,7 +1,7 @@
 #include "Dialog_Memorandum.h"
 #include "ui_Dialog_Memorandum.h"
 
-#include "Memorandum.cpp"
+#include "Memorandum.h"
 #include "Seller.h"
 #include "Customer.h"
 #include "QTime"
@@ -100,11 +100,13 @@ void Dialog_Memorandum::on_buttonBox_accepted()
                 car.setBrand(ui->lineEdit_brand->text());
                 car.setModel(ui->lineEdit_model->text());
                 car.setYear(ui->lineEdit_production_year->text());
+                car.setColor(ui->lineEdit_color->text());
                 car.setInsideColor(ui->lineEdit_inside_color->text());
                 car.setShomareSanad(ui->lineEdit_sh_sanad->text());
                 car.setShomareShasi(ui->lineEdit_sh_shasi->text());
                 car.setGheymat(static_cast<quint64>(ui->lineEdit_gheymat->text().toULongLong()));
-                Memorandum(&car,seller,customer,date,time);
+                Memorandum(&car,seller,customer,date,time,this->checks_vector);
+                accept();
             }
             else if(ui->comboBox->currentText()=="SUV")
             {
@@ -112,11 +114,13 @@ void Dialog_Memorandum::on_buttonBox_accepted()
                 car.setBrand(ui->lineEdit_brand->text());
                 car.setModel(ui->lineEdit_model->text());
                 car.setYear(ui->lineEdit_production_year->text());
+                car.setColor(ui->lineEdit_color->text());
                 car.setInsideColor(ui->lineEdit_inside_color->text());
                 car.setShomareSanad(ui->lineEdit_sh_sanad->text());
                 car.setShomareShasi(ui->lineEdit_sh_shasi->text());
                 car.setGheymat(static_cast<quint64>(ui->lineEdit_gheymat->text().toULongLong()));
-                Memorandum(&car,seller,customer,date,time);
+                Memorandum(&car,seller,customer,date,time,this->checks_vector);
+                accept();
             }
             else if(ui->comboBox->currentText()=="Coupe")
             {
@@ -124,11 +128,13 @@ void Dialog_Memorandum::on_buttonBox_accepted()
                 car.setBrand(ui->lineEdit_brand->text());
                 car.setModel(ui->lineEdit_model->text());
                 car.setYear(ui->lineEdit_production_year->text());
+                car.setColor(ui->lineEdit_color->text());
                 car.setInsideColor(ui->lineEdit_inside_color->text());
                 car.setShomareSanad(ui->lineEdit_sh_sanad->text());
                 car.setShomareShasi(ui->lineEdit_sh_shasi->text());
                 car.setGheymat(static_cast<quint64>(ui->lineEdit_gheymat->text().toULongLong()));
-                Memorandum(&car,seller,customer,date,time);
+                Memorandum(&car,seller,customer,date,time,this->checks_vector);
+                accept();
             }
             else if(ui->comboBox->currentText()=="Vanet")
             {
@@ -136,11 +142,13 @@ void Dialog_Memorandum::on_buttonBox_accepted()
                 car.setBrand(ui->lineEdit_brand->text());
                 car.setModel(ui->lineEdit_model->text());
                 car.setYear(ui->lineEdit_production_year->text());
+                car.setColor(ui->lineEdit_color->text());
                 car.setInsideColor(ui->lineEdit_inside_color->text());
                 car.setShomareSanad(ui->lineEdit_sh_sanad->text());
                 car.setShomareShasi(ui->lineEdit_sh_shasi->text());
                 car.setGheymat(static_cast<quint64>(ui->lineEdit_gheymat->text().toULongLong()));
-                Memorandum(&car,seller,customer,date,time);
+                Memorandum(&car,seller,customer,date,time,this->checks_vector);
+                accept();
             }
             else if(ui->comboBox->currentText()=="Crook")
             {
@@ -148,11 +156,13 @@ void Dialog_Memorandum::on_buttonBox_accepted()
                 car.setBrand(ui->lineEdit_brand->text());
                 car.setModel(ui->lineEdit_model->text());
                 car.setYear(ui->lineEdit_production_year->text());
+                car.setColor(ui->lineEdit_color->text());
                 car.setInsideColor(ui->lineEdit_inside_color->text());
                 car.setShomareSanad(ui->lineEdit_sh_sanad->text());
                 car.setShomareShasi(ui->lineEdit_sh_shasi->text());
                 car.setGheymat(static_cast<quint64>(ui->lineEdit_gheymat->text().toULongLong()));
-                Memorandum(&car,seller,customer,date,time);
+                Memorandum(&car,seller,customer,date,time,this->checks_vector);
+                accept();
             }
 
         }
@@ -168,7 +178,6 @@ void Dialog_Memorandum::on_buttonBox_accepted()
             customer.setShShenasname(ui->lineEdit_sh_shenasname_4->text());
 
             Manager m = loadManager();
-
             seller.setName(m.getName());
             seller.setFamily(m.getFamily());
             seller.setID(m.getID());
@@ -184,12 +193,14 @@ void Dialog_Memorandum::on_buttonBox_accepted()
                 car.setBrand(ui->lineEdit_brand->text());
                 car.setModel(ui->lineEdit_model->text());
                 car.setYear(ui->lineEdit_production_year->text());
+                car.setColor(ui->lineEdit_color->text());
                 car.setInsideColor(ui->lineEdit_inside_color->text());
                 car.setShomareSanad(ui->lineEdit_sh_sanad->text());
                 car.setShomareShasi(ui->lineEdit_sh_shasi->text());
                 car.setGheymat(static_cast<quint64>(ui->lineEdit_gheymat->text().toULongLong()));
 
-                Memorandum(&car,seller,customer,date,time);
+                Memorandum(&car,seller,customer,date,time,this->checks_vector);
+                accept();
             }
             else if(ui->comboBox->currentText()=="SUV")
             {
@@ -197,11 +208,13 @@ void Dialog_Memorandum::on_buttonBox_accepted()
                 car.setBrand(ui->lineEdit_brand->text());
                 car.setModel(ui->lineEdit_model->text());
                 car.setYear(ui->lineEdit_production_year->text());
+                car.setColor(ui->lineEdit_color->text());
                 car.setInsideColor(ui->lineEdit_inside_color->text());
                 car.setShomareSanad(ui->lineEdit_sh_sanad->text());
                 car.setShomareShasi(ui->lineEdit_sh_shasi->text());
                 car.setGheymat(static_cast<quint64>(ui->lineEdit_gheymat->text().toULongLong()));
-                Memorandum(&car,seller,customer,date,time);
+                Memorandum(&car,seller,customer,date,time,this->checks_vector);
+                accept();
             }
             else if(ui->comboBox->currentText()=="Coupe")
             {
@@ -209,11 +222,13 @@ void Dialog_Memorandum::on_buttonBox_accepted()
                 car.setBrand(ui->lineEdit_brand->text());
                 car.setModel(ui->lineEdit_model->text());
                 car.setYear(ui->lineEdit_production_year->text());
+                car.setColor(ui->lineEdit_color->text());
                 car.setInsideColor(ui->lineEdit_inside_color->text());
                 car.setShomareSanad(ui->lineEdit_sh_sanad->text());
                 car.setShomareShasi(ui->lineEdit_sh_shasi->text());
                 car.setGheymat(static_cast<quint64>(ui->lineEdit_gheymat->text().toULongLong()));
-                Memorandum(&car,seller,customer,date,time);
+                Memorandum(&car,seller,customer,date,time,this->checks_vector);
+                accept();
             }
             else if(ui->comboBox->currentText()=="Vanet")
             {
@@ -221,11 +236,13 @@ void Dialog_Memorandum::on_buttonBox_accepted()
                 car.setBrand(ui->lineEdit_brand->text());
                 car.setModel(ui->lineEdit_model->text());
                 car.setYear(ui->lineEdit_production_year->text());
+                car.setColor(ui->lineEdit_color->text());
                 car.setInsideColor(ui->lineEdit_inside_color->text());
                 car.setShomareSanad(ui->lineEdit_sh_sanad->text());
                 car.setShomareShasi(ui->lineEdit_sh_shasi->text());
                 car.setGheymat(static_cast<quint64>(ui->lineEdit_gheymat->text().toULongLong()));
-                Memorandum(&car,seller,customer,date,time);
+                Memorandum(&car,seller,customer,date,time,this->checks_vector);
+                accept();
             }
             else if(ui->comboBox->currentText()=="Crook")
             {
@@ -233,13 +250,17 @@ void Dialog_Memorandum::on_buttonBox_accepted()
                 car.setBrand(ui->lineEdit_brand->text());
                 car.setModel(ui->lineEdit_model->text());
                 car.setYear(ui->lineEdit_production_year->text());
+                car.setColor(ui->lineEdit_color->text());
                 car.setInsideColor(ui->lineEdit_inside_color->text());
                 car.setShomareSanad(ui->lineEdit_sh_sanad->text());
                 car.setShomareShasi(ui->lineEdit_sh_shasi->text());
                 car.setGheymat(static_cast<quint64>(ui->lineEdit_gheymat->text().toULongLong()));
-                Memorandum(&car,seller,customer,date,time);
+                Memorandum(&car,seller,customer,date,time,this->checks_vector);
+                accept();
             }
         }
+
+
 
 }
 

@@ -13,6 +13,8 @@
 #include <QtCharts/QBarCategoryAxis>
 #include <QtCharts/QValueAxis>
 
+//#include "Data.h"
+
 #include "Manager.h"
 #include "CheckInfo.h"
 
@@ -46,6 +48,7 @@ private:
 private slots:
     void signin();
     void login();
+//    void addIncome();
 signals:
     void signinSuccessful();
     void loginSuccessful();

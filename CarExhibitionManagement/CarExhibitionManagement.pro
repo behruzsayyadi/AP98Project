@@ -24,7 +24,6 @@ SOURCES += \
     Dialog_AddCar.cpp \
     Dialog_Check.cpp \
     Dialog_Memorandum.cpp \
-    Memorandum.cpp \
     Page_Cars.cpp \
     SUV.cpp \
     CheckInfo.cpp \
@@ -43,9 +42,11 @@ HEADERS += \
     CityCar.h \
     Coupe.h \
     Crook.h \
+    Data.h \
     Dialog_AddCar.h \
     Dialog_Check.h \
     Dialog_Memorandum.h \
+    Memorandum.h \
     Page_Cars.h \
     SUV.h \
     CheckInfo.h \

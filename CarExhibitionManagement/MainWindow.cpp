@@ -174,6 +174,7 @@ void MainWindow::setUpincomeChart()
 
     ui->layout_FinancePage->addWidget(chartView, 0, 1);
 }
+
 namespace Data
 {
     QJsonArray load_jsonArray(QString arrayName, QString filePath);
@@ -201,10 +202,16 @@ namespace Data
         income[index - 1] = o;
         save_jsonArray(income, "income", "Documents/Income.json");
     }
-
     QJsonArray getIncomeInfo()
     {
         return load_jsonArray("income", "Documents/Income.json");
+    }
+    void addIncome(int poorsant, int sood, int index)
+    {
+        if(index < 1 || index > 12) return;
+        QJsonObject obj = getIncomeInfo()[index].toObject();
+        changeIncomeInfo(obj["poorsant"].toInt() + poorsant, obj["sood"].toInt() + sood, index);
+
     }
 
 }
