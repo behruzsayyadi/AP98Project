@@ -20,7 +20,7 @@ namespace Data
     QString default_crook_path =  "Documents/Crook.json";
 
     QString default_car_array_name = "cars";
-    QString default_suv_array_name = "sucs";
+    QString default_suv_array_name = "suvs";
     QString default_citycar_array_name = "city car";
     QString default_coupe_array_name = "coupe";
     QString default_vanet_array_name = "vanet";
@@ -78,7 +78,8 @@ namespace Data
             }
         }
     }
-    QJsonObject find(QString key, QString value, QString arrayName, QString filePath)
+
+    QJsonObject find(QString primary_key, QJsonValue value, QString arrayName, QString filePath)
     {
         QJsonArray array = load_jsonArray(arrayName, filePath);
         if(array.isEmpty())
@@ -91,17 +92,19 @@ namespace Data
             foreach(QJsonValue v, array)
             {
                 object = v.toObject();
-                if(object[ key ].toString() == value)
+                if(object[ primary_key ] == value)
                 {
                     return object;
                 }
             }
+            1234
+
         }
         return QJsonObject();
     }
-    void add(QJsonObject object, QString key, QString value, QString array_name, QString filePath)
+    void add(QJsonObject object, QString primary_key, QJsonValue unique_value, QString array_name, QString filePath)
     {
-        if( find(key, value, array_name, filePath)[ key ] == value )
+        if( !find(primary_key, unique_value, array_name, filePath).isEmpty() )
         {//if we can find an object with the value for key as same as this object:
             return;
         }
@@ -116,7 +119,7 @@ namespace Data
 //    {
 //        find(key, value, array_name, filePath);
 //    }
-
+    bool jsonObjectExists();
     QJsonArray getIncomeInfo();
     void changeIncomeInfo(int poorsant,int sood, int index);
 }

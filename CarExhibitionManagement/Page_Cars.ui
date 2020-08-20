@@ -14,10 +14,19 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" rowspan="8">
+   <item row="0" column="0" rowspan="9">
     <widget class="QTableWidget" name="tableWidget_Cars">
      <property name="layoutDirection">
       <enum>Qt::RightToLeft</enum>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
      </property>
      <column>
       <property name="text">
@@ -61,10 +70,17 @@
      </column>
     </widget>
    </item>
-   <item row="5" column="2">
+   <item row="6" column="2">
     <widget class="QPushButton" name="pushButton_AddCar">
      <property name="text">
       <string>اضافه کردن ماشین</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="2">
+    <widget class="QPushButton" name="pushButton_NewMemorandum">
+     <property name="text">
+      <string>قولنامه ی جدید</string>
      </property>
     </widget>
    </item>
@@ -82,9 +98,9 @@
     </spacer>
    </item>
    <item row="4" column="2">
-    <widget class="QPushButton" name="pushButton_NewMemorandum">
+    <widget class="QPushButton" name="pushButton">
      <property name="text">
-      <string>قولنامه ی جدید</string>
+      <string>PushButton</string>
      </property>
     </widget>
    </item>
