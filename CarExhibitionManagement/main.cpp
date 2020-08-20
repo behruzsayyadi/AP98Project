@@ -11,7 +11,7 @@
 #include <QStyleFactory>
 
 #include "Car.h"
-
+#include "CityCar.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -41,7 +41,8 @@ int main(int argc, char *argv[])
         Data::dir_root.mkdir("Documents");
     if( !Data::dir_memorandums.exists() )
         Data::dir_documents.mkdir("Memorandums");
-
+    CityCar c;
+    c.addCar();
     MainWindow w;
     w.show();
     return a.exec();

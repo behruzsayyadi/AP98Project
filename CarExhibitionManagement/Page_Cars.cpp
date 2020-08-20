@@ -69,7 +69,7 @@ void Page_Cars::addNewCar()
         }
         else if((cc = dynamic_cast<CityCar*>(c)))
         {
-            addNewRow(ck, "کوروک");
+            addNewRow(cc, "شهری");
         }
         else if((s = dynamic_cast<SUV*>(c)))
         {
