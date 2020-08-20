@@ -2,13 +2,13 @@
 #define CROOK_H
 
 #include "Car.h"
-namespace Data
-{
-    extern QString default_crook_path;
-    extern QString default_crook_array_name;
-    QJsonArray load_jsonArray(QString arrayName, QString filePath);
-    void save_jsonArray(QJsonArray array, QString arrayName, QString filePath);
-}
+//namespace Data
+//{
+//    extern QString default_crook_path;
+//    extern QString default_crook_array_name;
+//    QJsonArray load_jsonArray(QString arrayName, QString filePath);
+//    void save_jsonArray(QJsonArray array, QString arrayName, QString filePath);
+//}
 class Crook : public Car
 {
 private:

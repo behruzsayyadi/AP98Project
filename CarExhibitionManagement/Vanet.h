@@ -5,14 +5,14 @@
 
 #include "Car.h"
 
-namespace Data
-{
-    extern QString default_vanet_path;
-    extern QString default_vanet_array_name;
+//namespace Data
+//{
+//    extern QString default_vanet_path;
+//    extern QString default_vanet_array_name;
 
-    QJsonArray load_jsonArray(QString arrayName, QString filePath);
-    void save_jsonArray(QJsonArray array, QString arrayName, QString filePath);
-}
+//    QJsonArray load_jsonArray(QString arrayName, QString filePath);
+//    void save_jsonArray(QJsonArray array, QString arrayName, QString filePath);
+//}
 class Vanet : public Car
 {
 private:

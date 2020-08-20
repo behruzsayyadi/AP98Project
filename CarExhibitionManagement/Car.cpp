@@ -73,62 +73,64 @@ QJsonObject Car::toJson()
 }
 void Car::addCar()
 {
-    QString availableCarsAddress = Data::default_car_path;
-    QString ss = this->getShomareSanad();
-    if(ss == 0)
-    {
-        qDebug() << "shomare sanad is needed for adding car";
-        return;
-    }
-    else if( findCar(ss).getShomareSanad() == ss )
-    {//if we can find a car with shomare sanad as this car's:
-        qDebug() << "Car with this shomare sanad already exists: " << ss;
-        return;
-    }
-    else
-    {
-        QFile file(availableCarsAddress);
-        QJsonObject t = this->toJson();
+//    QString availableCarsAddress = Data::default_car_path;
+//    QString ss = this->getShomareSanad();
+//    if(ss == 0)
+//    {
+//        qDebug() << "shomare sanad is needed for adding car";
+//        return;
+//    }
+//    else if( findCar(ss).getShomareSanad() == ss )
+//    {//if we can find a car with shomare sanad as this car's:
+//        qDebug() << "Car with this shomare sanad already exists: " << ss;
+//        return;
+//    }
+//    else
+//    {
+//        QFile file(availableCarsAddress);
+//        QJsonObject t = this->toJson();
 
-        if(file.exists())
-        {
-            if(file.open(QIODevice::ReadOnly))
-            {
-                QJsonObject o (QJsonDocument::fromJson(file.readAll()).object());
-                file.close();
-                file.open(QIODevice::WriteOnly);
-                QJsonArray a = o["Car"].toArray();
-                a.append(t);
-                o["Car"] = a;
-                file.write( QJsonDocument(o).toJson() );
-                file.close();
-            }
-            else
-            {
-                qDebug() << "Couldn\'t open file: " + availableCarsAddress ;
-            }
-        }
-        else
-        {
-            qDebug() << "No such file: " + availableCarsAddress
-                     << "Creating a new one ...";
+//        if(file.exists())
+//        {
+//            if(file.open(QIODevice::ReadOnly))
+//            {
+//                QJsonObject o (QJsonDocument::fromJson(file.readAll()).object());
+//                file.close();
+//                file.open(QIODevice::WriteOnly);
+//                QJsonArray a = o["Car"].toArray();
+//                a.append(t);
+//                o["Car"] = a;
+//                file.write( QJsonDocument(o).toJson() );
+//                file.close();
+//            }
+//            else
+//            {
+//                qDebug() << "Couldn\'t open file: " + availableCarsAddress ;
+//            }
+//        }
+//        else
+//        {
+//            qDebug() << "No such file: " + availableCarsAddress
+//                     << "Creating a new one ...";
 
-            if(file.open(QIODevice::WriteOnly))
-            {
-                QJsonObject o;
-                QJsonArray a;
-                a.append(t);
-                o["Car"] = a;
-                file.write(QJsonDocument(o).toJson());
-                file.close();
-                qDebug() << "File created successfuly: " + availableCarsAddress;
-            }
-            else
-            {
-                qDebug() << "Couldn\'t open file: " + availableCarsAddress ;
-            }
-        }
-    }
+//            if(file.open(QIODevice::WriteOnly))
+//            {
+//                QJsonObject o;
+//                QJsonArray a;
+//                a.append(t);
+//                o["Car"] = a;
+//                file.write(QJsonDocument(o).toJson());
+//                file.close();
+//                qDebug() << "File created successfuly: " + availableCarsAddress;
+//            }
+//            else
+//            {
+//                qDebug() << "Couldn\'t open file: " + availableCarsAddress ;
+//            }
+//        }
+//    }
+    Data::add(this->toJson(), "shomare sanad", this->getShomareSanad(), Data::default_car_array_name, Data::default_car_path);
+
 }
 QJsonArray loadAvailableCars_jsonArray()
 {
@@ -191,6 +193,6 @@ Car findCar(QString shomare_sanad)
             }
         }
     }
-
+    Data::find("shomare sanad", shomare_sanad, Data::default_car_array_name, Data::default_car_path);
     return c;
 }

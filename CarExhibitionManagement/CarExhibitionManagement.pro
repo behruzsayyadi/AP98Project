@@ -21,6 +21,7 @@ SOURCES += \
     CityCar.cpp \
     Coupe.cpp \
     Crook.cpp \
+    Data.cpp \
     Dialog_AddCar.cpp \
     Dialog_Check.cpp \
     Dialog_Memorandum.cpp \

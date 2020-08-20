@@ -1,17 +1,20 @@
-#include "MainWindow.h"
+//#include "MainWindow.h"
 
 #include <QApplication>
 #include "Data.h"
+
 
 #include "Human.h"
 #include "Manager.h"
 #include "Customer.h"
 #include "Seller.h"
 #include <QStyleFactory>
+
+#include "Car.h"
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-
     a.setStyle(QStyleFactory::create("Fusion"));
     QPalette darkPalette;
     darkPalette.setColor(QPalette::Window, QColor(53,53,53));
@@ -38,8 +41,10 @@ int main(int argc, char *argv[])
         Data::dir_root.mkdir("Documents");
     if( !Data::dir_memorandums.exists() )
         Data::dir_documents.mkdir("Memorandums");
-
-    MainWindow w;
-    w.show();
+    Car c("sdfaasdf", "sadfasd;", "asdfasdf", "asfdasf", "asdfadfs", "adfasdf'", "adfafd", "adfssfad");
+    c.addCar();
+    qDebug() << loadAvailableCars_jsonArray();
+//    MainWindow w;
+//    w.show();
     return a.exec();
 }

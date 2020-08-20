@@ -3,13 +3,13 @@
 
 #include "Car.h"
 
-namespace Data
-{
-    extern QString default_coupe_path;
-    extern QString default_coupe_array_name;
-    QJsonArray load_jsonArray(QString arrayName, QString filePath);
-    void save_jsonArray(QJsonArray array, QString arrayName, QString filePath);
-}
+//namespace Data
+//{
+//    extern QString default_coupe_path;
+//    extern QString default_coupe_array_name;
+//    QJsonArray load_jsonArray(QString arrayName, QString filePath);
+//    void save_jsonArray(QJsonArray array, QString arrayName, QString filePath);
+//}
 
 class Coupe : public Car
 {

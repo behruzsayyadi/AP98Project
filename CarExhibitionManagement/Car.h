@@ -12,13 +12,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-namespace Data
-{
-    extern QString default_car_path;
-    extern QString default_car_array_name;
-    QJsonArray load_jsonArray(QString arrayName, QString filePath);
-    void save_jsonArray(QJsonArray array, QString arrayName, QString filePath);
-}
+#include "Data.h"
 
 class Car
 {

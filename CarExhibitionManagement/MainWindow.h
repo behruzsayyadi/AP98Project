@@ -53,10 +53,10 @@ signals:
     void signinSuccessful();
     void loginSuccessful();
 };
-namespace Data
-{
-    QJsonArray getIncomeInfo();
-    void changeIncomeInfo(int poorsant,int sood, int index);
-}
+//namespace Data
+//{
+//    QJsonArray getIncomeInfo();
+//    void changeIncomeInfo(int poorsant,int sood, int index);
+//}
 
 #endif // MAINWINDOW_H
