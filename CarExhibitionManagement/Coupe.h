@@ -1,15 +1,8 @@
 #ifndef COUPE_H
 #define COUPE_H
 
+#include "Data.h"
 #include "Car.h"
-
-//namespace Data
-//{
-//    extern QString default_coupe_path;
-//    extern QString default_coupe_array_name;
-//    QJsonArray load_jsonArray(QString arrayName, QString filePath);
-//    void save_jsonArray(QJsonArray array, QString arrayName, QString filePath);
-//}
 
 class Coupe : public Car
 {
@@ -29,8 +22,8 @@ public:
 
     virtual quint64 getPoorsant() override;
     ~Coupe();
-//    QJsonObject toJson() override;
-//    void loadFromJson(QJsonObject) override;
+    QJsonObject toJson() override;
+    void loadFromJson(QJsonObject) override;
     void addCar() override;
 };
 QJsonArray loadCoupes_jsonArray();

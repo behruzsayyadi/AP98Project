@@ -29,23 +29,17 @@ quint64 Vanet::getPoorsant()
 }
 Vanet::~Vanet()
 {}
-//void Vanet::loadFromJson(QJsonObject o)
-//{
-//    Car * bp = this;
-//    bp->loadFromJson(o);
-//    //add codes specific to this class
-
-//}
-//QJsonObject Vanet::toJson()
-//{
-//    Car * bp = this;
-//    QJsonObject o ;
-//    bp->toJson();
-
-//    //add codes specific to this class
-
-//    return o;
-//}
+void Vanet::loadFromJson(QJsonObject o)
+{
+    Car::loadFromJson(o);
+    //add codes specific to this class
+}
+QJsonObject Vanet::toJson()
+{
+    QJsonObject o = Car::toJson();
+    //add codes specific to this class
+    return o;
+}
 void Vanet::addCar()
 {
     QString availableCarsAddress = Data::default_vanet_path;

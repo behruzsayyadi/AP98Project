@@ -32,7 +32,7 @@ struct Data
     static QJsonObject find(QString primary_key, QJsonValue value, QString arrayName, QString filePath);
     static void add(QJsonObject object, QString primary_key, QJsonValue unique_value, QString array_name, QString filePath);
 
-    static bool jsonObjectExists();
+//    static bool jsonObjectExists();
     static QJsonArray getIncomeInfo();
     static void changeIncomeInfo(int poorsant,int sood, int index);
 };

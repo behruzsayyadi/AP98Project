@@ -171,28 +171,30 @@ QJsonArray loadAvailableCars_jsonArray()
 //        }
 //    }
 //    return QJsonArray();
-    return Data::load_jsonArray(Data::default_car_array_name, Data::default_car_array_name);
+    return Data::load_jsonArray(Data::default_car_array_name, Data::default_car_path);
 }
 Car findCar(QString shomare_sanad)
 {
+//    Car c;
+//    QJsonArray a = loadAvailableCars_jsonArray();
+//    if(a.isEmpty())
+//    {
+//        qDebug() << "List of cars is empty."
+//                 << "file address:" + Data::default_car_path;
+//    }
+//    else
+//    {
+//        foreach(QJsonValue v, a)
+//        {
+//            QJsonObject o = v.toObject();
+//            if(o["shomare sanad"].toInt() == shomare_sanad)
+//            {
+//                c.loadFromJson(o);
+//            }
+//        }
+//    }
+//    return c;
     Car c;
-    QJsonArray a = loadAvailableCars_jsonArray();
-    if(a.isEmpty())
-    {
-        qDebug() << "List of cars is empty."
-                 << "file address:" + Data::default_car_path;
-    }
-    else
-    {
-        foreach(QJsonValue v, a)
-        {
-            QJsonObject o = v.toObject();
-            if(o["shomare sanad"].toInt() == shomare_sanad)
-            {
-                c.loadFromJson(o);
-            }
-        }
-    }
-    Data::find("shomare sanad", shomare_sanad, Data::default_car_array_name, Data::default_car_path);
+    c.loadFromJson(Data::find("shomare sanad", shomare_sanad, Data::default_car_array_name, Data::default_car_path));
     return c;
 }

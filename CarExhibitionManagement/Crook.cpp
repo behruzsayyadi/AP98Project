@@ -33,14 +33,11 @@ void Crook::loadFromJson(QJsonObject o)
 {
     Car::loadFromJson(o);
     //add codes specific to this class
-
 }
 QJsonObject Crook::toJson()
 {
     QJsonObject o = Car::toJson();
-
     //add codes specific to this class
-
     return o;
 }
 void Crook::addCar()

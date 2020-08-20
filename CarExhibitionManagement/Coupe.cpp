@@ -29,23 +29,17 @@ quint64 Coupe::getPoorsant()
 }
 Coupe::~Coupe()
 {}
-//void Coupe::loadFromJson(QJsonObject o)
-//{
-//    Car * bp = this;
-//    bp->loadFromJson(o);
-//    //add codes specific to this class
-
-//}
-//QJsonObject Coupe::toJson()
-//{
-//    Car * bp = this;
-//    QJsonObject o ;
-//    bp->toJson();
-
-//    //add codes specific to this class
-
-//    return o;
-//}
+void Coupe::loadFromJson(QJsonObject o)
+{
+    Car::loadFromJson(o);
+    //add codes specific to this class
+}
+QJsonObject Coupe::toJson()
+{
+    QJsonObject o = Car::toJson();
+    //add codes specific to this class
+    return o;
+}
 void Coupe::addCar()
 {
     QString availableCarsAddress = Data::default_coupe_path;

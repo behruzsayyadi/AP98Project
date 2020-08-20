@@ -1,15 +1,9 @@
 #ifndef SUV_H
 #define SUV_H
 
+#include "Data.h"
 #include "Car.h"
-//namespace Data
-//{
-//    extern QString default_suv_path;
-//    extern QString default_suv_array_name;
 
-//    QJsonArray load_jsonArray(QString arrayName, QString filePath);
-//    void save_jsonArray(QJsonArray array, QString arrayName, QString filePath);
-//}
 class SUV : public Car
 {
 private:
@@ -28,8 +22,8 @@ public:
 
     virtual quint64 getPoorsant() override;
     ~SUV();
-//    QJsonObject toJson() override;
-//    void loadFromJson(QJsonObject) override;
+    QJsonObject toJson() override;
+    void loadFromJson(QJsonObject) override;
     void addCar() override;
 };
 QJsonArray loadSUVs_jsonArray();

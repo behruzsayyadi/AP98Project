@@ -20,6 +20,8 @@
 
 #include "Dialog_Memorandum.h"
 
+#include "Data.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

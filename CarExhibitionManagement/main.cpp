@@ -1,4 +1,4 @@
-//#include "MainWindow.h"
+#include "MainWindow.h"
 
 #include <QApplication>
 #include "Data.h"
@@ -41,10 +41,8 @@ int main(int argc, char *argv[])
         Data::dir_root.mkdir("Documents");
     if( !Data::dir_memorandums.exists() )
         Data::dir_documents.mkdir("Memorandums");
-    Car c("sdfaasdf", "sadfasd;", "asdfasdf", "asfdasf", "asdfadfs", "adfasdf'", "adfafd", "adfssfad");
-    c.addCar();
-    qDebug() << loadAvailableCars_jsonArray();
-//    MainWindow w;
-//    w.show();
+
+    MainWindow w;
+    w.show();
     return a.exec();
 }

@@ -29,23 +29,17 @@ quint64 SUV::getPoorsant()
 }
 SUV::~SUV()
 {}
-//void SUV::loadFromJson(QJsonObject o)
-//{
-//    Car * bp = this;
-//    bp->loadFromJson(o);
-//    //add codes specific to this class
-
-//}
-//QJsonObject SUV::toJson()
-//{
-//    Car * bp = this;
-//    QJsonObject o ;
-//    bp->toJson();
-
-//    //add codes specific to this class
-
-//    return o;
-//}
+void SUV::loadFromJson(QJsonObject o)
+{
+    Car::loadFromJson(o);
+    //add codes specific to this class
+}
+QJsonObject SUV::toJson()
+{
+    QJsonObject o = Car::toJson();
+    //add codes specific to this class
+    return o;
+}
 void SUV::addCar()
 {
     QString availableCarsAddress = Data::default_suv_path;

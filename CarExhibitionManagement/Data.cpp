@@ -112,7 +112,36 @@
 //    {
 //        find(key, value, array_name, filePath);
 //    }
-    bool Data::jsonObjectExists(){}
-    QJsonArray Data::getIncomeInfo(){}
-    void Data::changeIncomeInfo(int poorsant,int sood, int index){}
+//    bool Data::jsonObjectExists(){}
+    void Data::changeIncomeInfo(int poorsant,int sood, int index)
+    {
+        if(index < 1 || index > 12) return;
+        QJsonArray income =  load_jsonArray("income", "Documents/Income.json");
+        if(income.empty())
+        {
+            for(int i = 0; i <12; i++)
+            {
+                QJsonObject O;
+                O["poorsant"] = 0;
+                O["sood"] = 0;
+                income.append(O);
+            }
+        }
+        QJsonObject o;
+        o["poorsant"] = poorsant;
+        o["sood"] = sood;
+        income[index - 1] = o;
+        save_jsonArray(income, "income", "Documents/Income.json");
+    }
+    QJsonArray Data::getIncomeInfo()
+    {
+        return load_jsonArray("income", "Documents/Income.json");
+    }
+    void addIncome(int poorsant, int sood, int index)
+    {
+        if(index < 1 || index > 12) return;
+        QJsonObject obj = Data::getIncomeInfo()[index].toObject();
+        Data::changeIncomeInfo(obj["poorsant"].toInt() + poorsant, obj["sood"].toInt() + sood, index);
+
+    }
 
