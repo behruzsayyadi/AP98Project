@@ -118,7 +118,7 @@ border-bottom-right-radius:10px;
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="page_Wellcome">
        <layout class="QGridLayout" name="layout_WelcomePage">
@@ -170,6 +170,12 @@ border-width:4;
        <layout class="QGridLayout" name="layout_FinancePage">
         <item row="0" column="0">
          <widget class="QTableWidget" name="tableWidget">
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
           <column>
            <property name="text">
             <string>تاریخ</string>

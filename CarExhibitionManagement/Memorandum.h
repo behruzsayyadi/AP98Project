@@ -24,8 +24,6 @@ void Memorandum(Car * car,Seller seller,Customer customer,QDate date,QString tim
     if(Jfile_read.open(QIODevice::ReadOnly) == false)
     {
         Jfile_read.close();
-        QJsonObject memorandums_obj;
-        QJsonArray memorandums_array;
         QJsonObject a_memorandum_obj;
         a_memorandum_obj["car brand"] = car->getBrand();
         a_memorandum_obj["car model"] = car->getModel();
@@ -69,36 +67,78 @@ void Memorandum(Car * car,Seller seller,Customer customer,QDate date,QString tim
         a_memorandum_obj["time of purchase"] = time;
         int j = 1;
 
-        for(int i = 0; i < checks_vector.size();i++)
+        for(Checkinfo * c : checks_vector)
         {
-            if(checks_vector.isEmpty()==false  )
-            {
-                Checkinfo * c = checks_vector.takeFirst();
-                a_memorandum_obj["check "+QString::number(j)+" money"] = c->getMoney();
-                a_memorandum_obj["check "+QString::number(j)+" bank"]  = c->getBank();
-                a_memorandum_obj["check "+QString::number(j)+" shobe"] = c->getShobeBank();
-                a_memorandum_obj["shenase "+QString::number(j)+" check"] = c->getShenase();
-                QJsonObject a_check_date_obj;
-                a_check_date_obj["year"] = customer.getBirthDate().year();
-                a_check_date_obj["month"]= customer.getBirthDate().month();
-                a_check_date_obj["day"]  = customer.getBirthDate().day();
-                a_memorandum_obj["check"+QString::number(j)+" date"] = a_check_date_obj ;
-                delete c;
-                j++;
-            }
+            a_memorandum_obj["check "+QString::number(j)+" money"] = c->getMoney();
+            a_memorandum_obj["check "+QString::number(j)+" bank"]  = c->getBank();
+            a_memorandum_obj["check "+QString::number(j)+" shobe"] = c->getShobeBank();
+            a_memorandum_obj["shenase "+QString::number(j)+" check"] = c->getShenase();
+            QJsonObject a_check_date_obj;
+            a_check_date_obj["year"] = customer.getBirthDate().year();
+            a_check_date_obj["month"]= customer.getBirthDate().month();
+            a_check_date_obj["day"]  = customer.getBirthDate().day();
+            a_memorandum_obj["check"+QString::number(j)+" date"] = a_check_date_obj ;
+            c->addCheck();
+            delete c;
+            j++;
         }
-        memorandums_array.append(a_memorandum_obj);
-        memorandums_obj ["memorandums"] = memorandums_array;
-        QJsonDocument doc_write(memorandums_obj);
+
+        QJsonDocument doc_write(a_memorandum_obj);
+
         QFile Jfile_write(path);
         Jfile_write.open(QIODevice::WriteOnly);
         Jfile_write.write(doc_write.toJson());
         Jfile_write.close();
+
     }
     else
     {
 
     }
+    QFile Jfile__read("Documents/Memorandums.json");
+    if(Jfile__read.open(QIODevice::ReadOnly) == false)
+    {
+        Jfile__read.close();
+        QJsonObject memorandums_obj;
+        QJsonArray memorandums_array;
+        QJsonObject a_memorandum_object;
+        a_memorandum_object["seller name"] = seller.getName();
+        a_memorandum_object["customer name"] = customer.getName();
+        a_memorandum_object["money"] = QString::number( car->getGheymat() );
+        a_memorandum_object["poorsant"] = QString::number( car->getPoorsant() );
+        a_memorandum_object["car"] = car->getBrand() + " " + car->getModel() + " " + car->getYear();
+        memorandums_array.append(a_memorandum_object);
+        memorandums_obj["memorandums"] = memorandums_array;
+        QJsonDocument doc_write(memorandums_obj);
+        QFile memo_write("Documents/Memorandums.json");
+        memo_write.open(QIODevice::WriteOnly);
+        memo_write.write(doc_write.toJson());
+        memo_write.close();
+    }
+    else
+    {
+        QByteArray qbyt ;
+        qbyt = Jfile__read.readAll();
+        Jfile__read.close();
+        QJsonDocument doc_read = QJsonDocument::fromJson(qbyt);
+        QJsonObject memorandums_obj = doc_read.object();
+        QJsonArray memorandums_array = memorandums_obj["memorandums"].toArray();
+        QJsonObject a_memorandum_object;
+        a_memorandum_object["seller name"] = seller.getName();
+        a_memorandum_object["customer name"] = customer.getName();
+        a_memorandum_object["money"] = QString::number( car->getGheymat() );
+        a_memorandum_object["poorsant"] = QString::number( car->getPoorsant() );
+        a_memorandum_object["car"] = car->getBrand() + " " + car->getModel() + " " + car->getYear();
+        memorandums_array.append(a_memorandum_object);
+        memorandums_obj["memorandums"] = memorandums_array;
+        QJsonDocument doc_write(memorandums_obj);
+        QFile memo_write("Documents/Memorandums.json");
+        memo_write.open(QIODevice::WriteOnly);
+        memo_write.write(doc_write.toJson());
+        memo_write.close();
+
+    }
+
 
 
     return;

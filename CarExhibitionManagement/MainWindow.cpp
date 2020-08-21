@@ -40,8 +40,8 @@ MainWindow::MainWindow(QWidget *parent)
         connect(ui->pushButton_SignLog_in, SIGNAL(clicked()), this, SLOT(signin()));
     }
 
-    setUpChecksTable();
-    setUpincomeChart();
+//    setUpChecksTable();
+//    setUpincomeChart();
 }
 MainWindow::~MainWindow()
 {
@@ -67,6 +67,8 @@ void MainWindow::navigateToCarsPage()
 void MainWindow::navigateToFinancePage()
 {
         ui->stackedWidget->setCurrentIndex(3);
+        setUpChecksTable();
+        setUpincomeChart();
 }
 void MainWindow::navigateToHomePage()
 {

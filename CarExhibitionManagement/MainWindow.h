@@ -13,7 +13,9 @@
 #include <QtCharts/QBarCategoryAxis>
 #include <QtCharts/QValueAxis>
 
-//#include "Data.h"
+
+
+#include "Data.h"
 
 #include "Manager.h"
 #include "CheckInfo.h"
