@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <QInputDialog>
+
+#include <QCalendar>
 
 #include <QVector>
 
@@ -21,12 +24,13 @@
 #include "CheckInfo.h"
 
 #include "Dialog_Memorandum.h"
-
-#include "Data.h"
+#include "Dialog_AddIncome.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+
+QT_CHARTS_USE_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
@@ -49,18 +53,23 @@ private:
     void setBackPageIndex(int value);
     void setUpChecksTable();
     void setUpincomeChart();
+
+    QBarSet * barSet_Poorsant;
+    QBarSet * barSet_Sood;
+    QStackedBarSeries * stackedBarSeries;
+    QChart * chart_Income;
+    QChartView * chartView_Income;
 private slots:
     void signin();
     void login();
-//    void addIncome();
+    void addNewCheck();
+    void addIncome();
+
 signals:
     void signinSuccessful();
     void loginSuccessful();
+
 };
-//namespace Data
-//{
-//    QJsonArray getIncomeInfo();
-//    void changeIncomeInfo(int poorsant,int sood, int index);
-//}
+
 
 #endif // MAINWINDOW_H

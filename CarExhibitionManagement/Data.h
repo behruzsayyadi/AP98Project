@@ -35,5 +35,6 @@ struct Data
 //    static bool jsonObjectExists();
     static QJsonArray getIncomeInfo();
     static void changeIncomeInfo(int poorsant,int sood, int index);
+    static void addIncome(int poorsant, int sood, int index);
 };
 #endif //DATA_H

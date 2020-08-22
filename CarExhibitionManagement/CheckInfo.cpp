@@ -1,41 +1,34 @@
 #include "CheckInfo.h"
 #include<QString>
-Checkinfo::Checkinfo()
-    : money("")
-    , date(QDate(0,0,0))
-    , shenase("")
-{
+//Checkinfo::Checkinfo()
+//    : money("")
+//    , date(QDate(0,0,0))
+//    , shenase("")
+//{}
 
-}
+Checkinfo::Checkinfo(Checkinfo &other) :
+    money(other.money),
+    bank(other.bank),
+    shobe_bank(other.shobe_bank),
+    date(other.date),
+    shenase(other.shenase)
+{}
 
-Checkinfo::Checkinfo(Checkinfo &a)
-{
-    this->date  = a.getDate();
-    this->bank = a.getBank();
-    this->shobe_bank = a.getShobeBank();
-    this->money = a.getMoney();
-    this->date  = a.getDate();
+Checkinfo::Checkinfo(Checkinfo &&other):
+    money(other.money),
+    bank(other.bank),
+    shobe_bank(other.shobe_bank),
+    date(other.date),
+    shenase(other.shenase)
+{}
 
-}
-
-Checkinfo::Checkinfo(Checkinfo &&a)
-{
-    this->date  = a.getDate();
-    this->bank = a.getBank();
-    this->shobe_bank = a.getShobeBank();
-    this->money = a.getMoney();
-    this->date  = a.getDate();
-
-}
-
-Checkinfo::Checkinfo(QString money,QString bank,QString shobe_bank,QDate date,QString shenase)
-{
-    this->money=money;
-    this->bank = bank;
-    this->shobe_bank = shobe_bank;
-    this->date=date;
-    this->shenase=shenase;
-}
+Checkinfo::Checkinfo(QString money,QString bank,QString shobe_bank,QDate date,QString shenase) :
+    money(money),
+    bank(bank),
+    shobe_bank(shobe_bank),
+    date(date),
+    shenase(shenase)
+{}
 
 void Checkinfo::setMoney(QString money)
 {

@@ -38,35 +38,6 @@ border-radius:10px;
       </property>
      </widget>
     </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="label_CurrentDateTime">
-      <property name="minimumSize">
-       <size>
-        <width>100</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.517413 rgba(0, 85, 127, 255));
-border-color: rgb(255, 255, 0);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-width:0 4 4 0;
-border-right:none;
-border-bottom-right-radius:10px;
-
-</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="1">
      <spacer name="horizontalSpacer">
       <property name="orientation">
@@ -99,6 +70,35 @@ border-bottom-right-radius:10px;
       </property>
      </widget>
     </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_CurrentDateTime">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.517413 rgba(0, 85, 127, 255));
+border-color: rgb(255, 255, 0);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-width:0 4 4 0;
+border-right:none;
+border-bottom-right-radius:10px;
+
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
     <item row="2" column="0" colspan="3">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="minimumSize">
@@ -118,11 +118,11 @@ border-bottom-right-radius:10px;
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page_Wellcome">
        <layout class="QGridLayout" name="layout_WelcomePage">
-        <item row="0" column="0">
+        <item row="0" column="1">
          <widget class="QPushButton" name="pushButton_SignLog_in">
           <property name="font">
            <font>
@@ -140,6 +140,20 @@ border-width:4;
           <property name="text">
            <string>Log(Sign) In</string>
           </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QListWidget" name="listWidget_Vitrine">
+          <item>
+           <property name="text">
+            <string>ماشین 1</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ماشین 2</string>
+           </property>
+          </item>
          </widget>
         </item>
        </layout>
@@ -168,7 +182,24 @@ border-width:4;
         <enum>Qt::RightToLeft</enum>
        </property>
        <layout class="QGridLayout" name="layout_FinancePage">
-        <item row="0" column="0">
+        <item row="3" column="2">
+         <widget class="QPushButton" name="pushButton_addPoorsant">
+          <property name="text">
+           <string>اضافه کردن درآمد</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QPushButton" name="pushButton_addNewCheck">
+          <property name="text">
+           <string>اضافه کردن چک جدید</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2" rowspan="3">
+         <widget class="QWidget" name="widget_ChartPlaceHolder" native="true"/>
+        </item>
+        <item row="0" column="0" rowspan="3">
          <widget class="QTableWidget" name="tableWidget">
           <property name="selectionMode">
            <enum>QAbstractItemView::SingleSelection</enum>
@@ -202,19 +233,6 @@ border-width:4;
            </property>
           </column>
          </widget>
-        </item>
-        <item row="0" column="1">
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
         </item>
        </layout>
       </widget>
@@ -274,8 +292,8 @@ border-width:4;
    <slot>navigateToCarsPage()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>534</x>
-     <y>260</y>
+     <x>99</x>
+     <y>110</y>
     </hint>
     <hint type="destinationlabel">
      <x>450</x>
@@ -290,8 +308,8 @@ border-width:4;
    <slot>navigateToFinancePage()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>564</x>
-     <y>419</y>
+     <x>99</x>
+     <y>119</y>
     </hint>
     <hint type="destinationlabel">
      <x>457</x>
@@ -299,11 +317,43 @@ border-width:4;
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_addNewCheck</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addNewCheck()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>600</x>
+     <y>551</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>602</x>
+     <y>563</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_addPoorsant</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addIncome()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>217</x>
+     <y>542</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>225</x>
+     <y>562</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
-  <slot>mySlot()</slot>
-  <slot>slot2()</slot>
   <slot>navigateToCarsPage()</slot>
   <slot>navigateToFinancePage()</slot>
+  <slot>addNewCheck()</slot>
+  <slot>addIncome()</slot>
  </slots>
 </ui>

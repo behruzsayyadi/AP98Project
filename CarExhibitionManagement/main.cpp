@@ -12,6 +12,7 @@
 
 #include "Car.h"
 #include "CityCar.h"
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -36,13 +37,10 @@ int main(int argc, char *argv[])
 
     a.setStyleSheet("QToolTip { color: #ffffff; background-color: #2a82da; border: 1px solid white; }");
 
-//    system("IF NOT exist Documents mkdir Documents");
     if( !Data::dir_documents.exists() )
         Data::dir_root.mkdir("Documents");
     if( !Data::dir_memorandums.exists() )
         Data::dir_documents.mkdir("Memorandums");
-    CityCar c;
-    c.addCar();
     MainWindow w;
     w.show();
     return a.exec();

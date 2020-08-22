@@ -269,15 +269,8 @@ void Dialog_Memorandum::getNewChecks()
     Dialog_Check * d = new Dialog_Check(this);
     if(d->exec() == Dialog_Check::Accepted)
     {
-//        for(Checkinfo * c : d->getChecks())
-//        {
-//            qDebug() << c->getBank() << c->getMoney()
-//                     << c->getShenase() << c->getShenase()
-//                     << c->getDate();
-//            delete c;
-//        }
         this->checks_vector = d->getChecks();
-
     }
+
 }
 

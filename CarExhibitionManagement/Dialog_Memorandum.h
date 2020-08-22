@@ -4,7 +4,7 @@
 #include <QDialog>
 #include "CheckInfo.h"
 #include "Dialog_Check.h"
-
+#include "Dialog_AddCheck.h"
 namespace Ui {
 class Dialog_Memorandum;
 }

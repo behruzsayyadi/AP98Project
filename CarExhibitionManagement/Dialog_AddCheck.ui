@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog_AddCheck</class>
+ <widget class="QDialog" name="Dialog_AddCheck">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>201</width>
+    <height>222</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
+  <layout class="QFormLayout" name="formLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_Money">
+     <property name="text">
+      <string>مبلغ</string>
+     </property>
+     <property name="buddy">
+      <cstring>lineEdit_Money</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLineEdit" name="lineEdit_Money"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_Bank">
+     <property name="text">
+      <string>بانک</string>
+     </property>
+     <property name="buddy">
+      <cstring>lineEdit_Bank</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLineEdit" name="lineEdit_Bank"/>
+   </item>
+   <item row="7" column="0">
+    <widget class="QLabel" name="label_Date">
+     <property name="text">
+      <string>تاریخ پرداخت</string>
+     </property>
+     <property name="buddy">
+      <cstring>dateEdit</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="1">
+    <widget class="QDateEdit" name="dateEdit">
+     <property name="minimumDate">
+      <date>
+       <year>2000</year>
+       <month>9</month>
+       <day>14</day>
+      </date>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="0">
+    <widget class="QLabel" name="label_Shenase">
+     <property name="text">
+      <string>شناسه ی چک</string>
+     </property>
+     <property name="buddy">
+      <cstring>lineEdit_Shenase</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="1">
+    <widget class="QLineEdit" name="lineEdit_Shenase"/>
+   </item>
+   <item row="12" column="0" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="label_Shobe">
+     <property name="text">
+      <string>شعبه</string>
+     </property>
+     <property name="buddy">
+      <cstring>lineEdit_Shobe</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLineEdit" name="lineEdit_Shobe"/>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>Dialog_AddCheck</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>325</x>
+     <y>324</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>Dialog_AddCheck</receiver>
+   <slot>onAcceptClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>165</x>
+     <y>310</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>242</x>
+     <y>290</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>onAcceptClicked()</slot>
+ </slots>
+</ui>

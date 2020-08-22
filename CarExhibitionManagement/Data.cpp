@@ -137,11 +137,14 @@
     {
         return load_jsonArray("income", "Documents/Income.json");
     }
-    void addIncome(int poorsant, int sood, int index)
+    void Data::addIncome(int poorsant, int sood, int index)
     {
         if(index < 1 || index > 12) return;
-        QJsonObject obj = Data::getIncomeInfo()[index].toObject();
-        Data::changeIncomeInfo(obj["poorsant"].toInt() + poorsant, obj["sood"].toInt() + sood, index);
+        QJsonObject obj = Data::getIncomeInfo()[index - 1].toObject();
+        Data::changeIncomeInfo(
+                    obj["poorsant"].toInt() + poorsant,
+                obj["sood"].toInt() + sood,
+                index );
 
     }
 

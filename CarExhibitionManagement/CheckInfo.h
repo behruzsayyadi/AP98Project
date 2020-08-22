@@ -20,8 +20,8 @@ private:
     QDate date;
     QString shenase;
 public:
-    Checkinfo(QString money,QString bank,QString shobe_bank,QDate date,QString shenase);
-    Checkinfo();
+    Checkinfo(QString money = "",QString bank = "",QString shobe_bank = "",QDate date = QDate(),QString shenase = "");
+//    Checkinfo();
     Checkinfo(Checkinfo &a);
     Checkinfo(Checkinfo &&a);
 
