@@ -42,11 +42,16 @@ void Dialog_AddCheck::onAcceptClicked()
 {
     if(validate())
     {
-        check.setMoney(ui->lineEdit_Money->text());
-        check.setBank(ui->lineEdit_Bank->text());
-        check.setShobeBank(ui->lineEdit_Shobe->text());
-        check.setShenase(ui->lineEdit_Shenase->text());
-        check.setDate(ui->dateEdit->date());
+        check = new Checkinfo(ui->lineEdit_Money->text(),
+                              ui->lineEdit_Bank->text(),
+                              ui->lineEdit_Shobe->text(),
+                              ui->dateEdit->date(),
+                              ui->lineEdit_Shenase->text());
+//        check->setMoney(ui->lineEdit_Money->text());
+//        check->setBank(ui->lineEdit_Bank->text());
+//        check->setShobeBank(ui->lineEdit_Shobe->text());
+//        check->setShenase(ui->lineEdit_Shenase->text());
+//        check->setDate(ui->dateEdit->date());
         accept();
     }
     else
@@ -55,7 +60,7 @@ void Dialog_AddCheck::onAcceptClicked()
         reject();
     }
 }
-Checkinfo Dialog_AddCheck::getCheck()
+Checkinfo * Dialog_AddCheck::getCheck()
 {
     return check;
 }

@@ -33,6 +33,7 @@
                 object[ arrayName ] = result;
                 file.write(QJsonDocument( object ).toJson());
                 qDebug() << "File created successfuly.";
+                file.close();
             }
             else
             {

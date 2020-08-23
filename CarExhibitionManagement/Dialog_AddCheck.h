@@ -17,11 +17,11 @@ class Dialog_AddCheck : public QDialog
 public:
     explicit Dialog_AddCheck(QWidget *parent = nullptr);
     ~Dialog_AddCheck();
-    Checkinfo getCheck();
+    Checkinfo * getCheck();
 private:
     Ui::Dialog_AddCheck *ui;
     bool validate();
-    Checkinfo check;
+    Checkinfo * check;
 private slots:
     void onAcceptClicked();
 };

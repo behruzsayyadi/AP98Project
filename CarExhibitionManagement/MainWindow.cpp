@@ -72,7 +72,7 @@ void MainWindow::navigateToCarsPage()
 void MainWindow::navigateToFinancePage()
 {
         ui->stackedWidget->setCurrentIndex(3);
-//        setUpChecksTable();
+        setUpChecksTable();
 //        setUpincomeChart();
 }
 void MainWindow::navigateToHomePage()
@@ -112,6 +112,8 @@ void MainWindow::login()
 }
 void MainWindow::setUpChecksTable()
 {
+    ui->tableWidget->clearContents();
+
     QJsonArray checks_in_table_widget = checks_jsonArray_sort_by_date(loadChecks_jsonArray());
     foreach(QJsonValue x,checks_in_table_widget)
     {
@@ -197,7 +199,8 @@ void MainWindow::addNewCheck()
     Dialog_AddCheck * d = new Dialog_AddCheck(this);
     if(d->exec() == Dialog_AddCheck::Accepted)
     {
-        Checkinfo a = d->getCheck();
-        a.addCheck();
+        Checkinfo * a = d->getCheck();
+        a->addCheck();
+        delete a;
     }
 }
