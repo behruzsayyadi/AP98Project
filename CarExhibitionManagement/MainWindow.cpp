@@ -73,7 +73,7 @@ void MainWindow::navigateToFinancePage()
 {
         ui->stackedWidget->setCurrentIndex(3);
         setUpChecksTable();
-        setUpincomeChart();
+//        setUpincomeChart();
 }
 void MainWindow::navigateToHomePage()
 {
@@ -188,7 +188,7 @@ void MainWindow::addIncome()
     {
         Data::addIncome(d->getPoorsant(),d->getSood(),d->getMonthIndex());
     }
-    setUpincomeChart();
+//    setUpincomeChart();
 
 }
 
