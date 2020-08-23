@@ -72,7 +72,7 @@ void MainWindow::navigateToCarsPage()
 void MainWindow::navigateToFinancePage()
 {
         ui->stackedWidget->setCurrentIndex(3);
-        setUpChecksTable();
+//        setUpChecksTable();
 //        setUpincomeChart();
 }
 void MainWindow::navigateToHomePage()
