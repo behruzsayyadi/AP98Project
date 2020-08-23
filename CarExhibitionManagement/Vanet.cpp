@@ -20,12 +20,13 @@ Vanet::Vanet( QString status,
          shomare_sanad,
          gheymat )
 {
-    this->poorsant = poorsant;
+//    this->poorsant = poorsant;
 }
 
 quint64 Vanet::getPoorsant()
 {
-    return static_cast<quint64>(this->poorsant*getGheymat()) ;
+//    return static_cast<quint64>(this->poorsant*getGheymat()) ;
+    return static_cast<quint64>(0.015 * getGheymat());
 }
 Vanet::~Vanet()
 {}

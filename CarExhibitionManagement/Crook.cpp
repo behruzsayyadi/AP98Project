@@ -20,12 +20,14 @@ Crook::Crook( QString status,
          shomare_sanad,
          gheymat )
 {
-    this->poorsant = poorsant;
+//    this->poorsant = poorsant;
 }
 
 quint64 Crook::getPoorsant()
 {
-    return static_cast<quint64>(this->poorsant*getGheymat()) ;
+//    return static_cast<quint64>(this->poorsant*getGheymat()) ;
+    return static_cast<quint64>(0.02 * getGheymat());
+
 }
 Crook::~Crook()
 {}

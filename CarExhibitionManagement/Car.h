@@ -28,7 +28,7 @@ private:
     quint64 gheymat;
 
 protected:
-    double poorsant;
+//    double poorsant;
 public:
     Car( QString status = "",
          QString model = "",

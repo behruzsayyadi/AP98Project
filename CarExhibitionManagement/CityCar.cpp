@@ -20,12 +20,14 @@ CityCar::CityCar( QString status,
          shomare_sanad,
          gheymat )
 {
-    this->poorsant = poorsant;
+//    this->poorsant = poorsant;
 }
 
 quint64 CityCar::getPoorsant()
 {
-    return static_cast<quint64>(this->poorsant*getGheymat()) ;
+//    return static_cast<quint64>(this->poorsant*getGheymat()) ;
+    return static_cast<quint64>(0.01 * getGheymat());
+
 }
 CityCar::~CityCar()
 {}

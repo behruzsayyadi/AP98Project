@@ -42,7 +42,8 @@ QString Car::getYear() const { return this->year; }
 
 quint64 Car::getPoorsant()
 {
-    return this->poorsant * gheymat;
+//    return this->poorsant * gheymat;
+    return 0;
 }
 
 void Car::loadFromJson(QJsonObject o)
