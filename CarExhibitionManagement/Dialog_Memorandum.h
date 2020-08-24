@@ -36,6 +36,8 @@ private slots:
 private:
     Ui::Dialog_Memorandum *ui;
     QVector<Checkinfo*> checks_vector;;
+signals:
+    void memorandumCreated(QString seller_name, QString buyer_name, QString car_info, QString poorsant, QDateTime time, QString shomare_sanad);
 };
 
 #endif // DIALOG_MEMORANDUM_H

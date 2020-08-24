@@ -126,6 +126,12 @@ void Dialog_Memorandum::on_buttonBox_accepted()
     }
 
     Memorandum(car, seller, customer, date_time_of_purchase, checks_vector);
+    emit memorandumCreated( seller.getName() + ' ' + seller.getFamily(),
+                            customer.getName() + ' ' + customer.getFamily(),
+                            car->getModel() + ' ' + car->getBrand() + ' ' + car->getYear(),
+                            QString::number(car->getPoorsant()),
+                            date_time_of_purchase,
+                            car->getShomareSanad() );
     delete car;
 
     accept();

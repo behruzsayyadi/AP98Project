@@ -72,7 +72,7 @@ void MainWindow::navigateToCarsPage()
 void MainWindow::navigateToFinancePage()
 {
         ui->stackedWidget->setCurrentIndex(3);
-        setUpChecksTable();
+//        setUpChecksTable();
 //        setUpincomeChart();
 }
 void MainWindow::navigateToHomePage()
@@ -117,23 +117,20 @@ void MainWindow::setUpChecksTable()
     QJsonArray checks_in_table_widget = checks_jsonArray_sort_by_date(loadChecks_jsonArray());
     foreach(QJsonValue x,checks_in_table_widget)
     {
-        QString money,bank,shobe_bank,shenase;
-        QDate date;
-        money = (x.toObject())["money"].toString();
-        bank = (x.toObject())["bank"].toString();
-        shobe_bank = (x.toObject())["shobe bank"].toString();
-        shenase = (x.toObject())["shenase check"].toString();
-        date = dateFromJsonObject((x.toObject())["date"].toObject());
+        QJsonObject o = x.toObject();
+//        QString money,bank,shobe_bank,shenase;
+//        QDate date;
+//        money = (x.toObject())["money"].toString();
+//        bank = (x.toObject())["bank"].toString();
+//        shobe_bank = (x.toObject())["shobe bank"].toString();
+//        shenase = (x.toObject())["shenase check"].toString();
+//        date = dateFromJsonObject((x.toObject())["date"].toObject());
+        addNewCheckRow(Checkinfo ( o["money"].toString(),
+                                   o["bank"].toString(),
+                                   o["shobe bank"].toString(),
+                                   dateFromJsonObject(o["date"].toObject()),
+                                   o["shenase check"].toString() ));
 
-        int temp_row_count;
-        ui->tableWidget->setDisabled(1);
-        temp_row_count = ui->tableWidget->rowCount();
-        ui->tableWidget->insertRow(ui->tableWidget->rowCount());
-        ui->tableWidget->setItem(temp_row_count,0,new QTableWidgetItem(date.toString("yyyy/MM/dd")));
-        ui->tableWidget->setItem(temp_row_count,1,new QTableWidgetItem(money));
-        ui->tableWidget->setItem(temp_row_count,2,new QTableWidgetItem(bank));
-        ui->tableWidget->setItem(temp_row_count,3,new QTableWidgetItem(shobe_bank));
-        ui->tableWidget->setItem(temp_row_count,4,new QTableWidgetItem(shenase));
 
     }
 
@@ -201,6 +198,22 @@ void MainWindow::addNewCheck()
     {
         Checkinfo * a = d->getCheck();
         a->addCheck();
+        addNewCheckRow(*a);
         delete a;
     }
+}
+void MainWindow::addNewCheckRow(Checkinfo c)
+{
+    int temp_row_count;
+    temp_row_count = ui->tableWidget->rowCount();
+    ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+    ui->tableWidget->setItem(temp_row_count,0,new QTableWidgetItem(c.getDate().toString("yyyy/MM/dd")));
+    ui->tableWidget->setItem(temp_row_count,1,new QTableWidgetItem(c.getMoney()));
+    ui->tableWidget->setItem(temp_row_count,2,new QTableWidgetItem(c.getBank()));
+    ui->tableWidget->setItem(temp_row_count,3,new QTableWidgetItem(c.getShobeBank()));
+    ui->tableWidget->setItem(temp_row_count,4,new QTableWidgetItem(c.getShenase()));
+}
+void MainWindow::addIncomeToChart()
+{
+
 }

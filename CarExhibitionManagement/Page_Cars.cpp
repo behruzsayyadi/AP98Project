@@ -89,6 +89,8 @@ void Page_Cars::addNewCar()
 void Page_Cars::addNewMemorandum()
 {
     Dialog_Memorandum * d = new Dialog_Memorandum(this);
+    connect(d, SIGNAL(memorandumCreated(QString, QString, QString, QString, QDateTime, QString)),
+            this, SLOT(addNewMemorandumRow(QString, QString, QString, QString, QDateTime, QString)));
     if(d->exec() == Dialog_Memorandum::Accepted)
     {
 
@@ -109,4 +111,22 @@ void Page_Cars::addNewRow( Car* c, QString type)
     table->setItem(row_count, 5,new QTableWidgetItem(c->getInsideColor()) );
     table->setItem(row_count, 6,new QTableWidgetItem(c->getGheymat()) );
     table->setItem(row_count, 7,new QTableWidgetItem(c->getStatus()) );
+}
+
+void Page_Cars::addNewMemorandumRow(QString seller_name, QString buyer_name, QString car_info, QString poorsant, QDateTime time, QString shomare_sanad)
+{
+    QTableWidget * table = ui->tableWidget_Memorandums;
+    int row_count = table->rowCount();
+    table->insertRow(row_count);
+    table->setItem(row_count, 0,new QTableWidgetItem(seller_name));
+    table->setItem(row_count, 1,new QTableWidgetItem(buyer_name));
+    table->setItem(row_count, 2,new QTableWidgetItem(car_info));
+    table->setItem(row_count, 3,new QTableWidgetItem(poorsant));
+    table->setItem(row_count, 4,new QTableWidgetItem(time.toString()));
+    table->setItem(row_count, 5,new QTableWidgetItem(shomare_sanad));
+}
+
+void Page_Cars::showMemorandum()
+{
+
 }

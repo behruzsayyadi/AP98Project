@@ -28,11 +28,12 @@ public:
 private:
     Ui::Page_Cars *ui;
     void populateCarsTable();
-    void addNewRow( Car*, QString type);
+    void addNewRow(Car*, QString type);
 public slots:
     void addNewCar();
     void addNewMemorandum();
-
+    void addNewMemorandumRow(QString seller_name, QString buyer_name, QString car_info, QString poorsant, QDateTime time, QString shomare_sanad);
+    void showMemorandum();
 };
 
 #endif // PAGE_CARS_H

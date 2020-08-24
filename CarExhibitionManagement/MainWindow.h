@@ -54,6 +54,9 @@ private:
     void setUpChecksTable();
     void setUpincomeChart();
 
+    void addNewCheckRow(Checkinfo check);
+    void addIncomeToChart();
+
     QBarSet * barSet_Poorsant;
     QBarSet * barSet_Sood;
     QStackedBarSeries * stackedBarSeries;
@@ -64,7 +67,6 @@ private slots:
     void login();
     void addNewCheck();
     void addIncome();
-
 signals:
     void signinSuccessful();
     void loginSuccessful();
