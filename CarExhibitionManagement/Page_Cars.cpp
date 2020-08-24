@@ -7,6 +7,7 @@ Page_Cars::Page_Cars(QWidget *parent) :
 {
     ui->setupUi(this);
     populateCarsTable();
+    populateMemorandumsTable();
 }
 
 Page_Cars::~Page_Cars()
@@ -44,6 +45,20 @@ void Page_Cars::populateCarsTable()
     {
         va.loadFromJson(v.toObject());
         addNewRow(&va, "وانت");
+    }
+}
+
+void Page_Cars::populateMemorandumsTable()
+{
+    QJsonObject o;
+    for(QJsonValue v : loadMemorandums())
+    {
+        o = v.toObject();
+        addNewMemorandumRow(o["seller name"].toString(),
+                o["customer name"].toString(), o["car"].toString(),
+                o["poorsant"].toString(),
+                QDateTime::fromString(o["date and time"].toString()),
+                o["shomare sanad"].toString());
     }
 }
 void Page_Cars::addNewCar()
@@ -126,7 +141,11 @@ void Page_Cars::addNewMemorandumRow(QString seller_name, QString buyer_name, QSt
     table->setItem(row_count, 5,new QTableWidgetItem(shomare_sanad));
 }
 
-void Page_Cars::showMemorandum()
+void Page_Cars::showMemorandum(QTableWidgetItem * item)
 {
-
+    QTableWidget * table = ui->tableWidget_Memorandums;
+    int row = item->row();
+    QString shomare_sanad = table->item(row, 5 )->text();
+    Dialog_Memorandum * d = new Dialog_Memorandum(findMemorandum(shomare_sanad), this);
+    d->exec();
 }

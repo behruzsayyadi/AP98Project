@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include <QTableWidgetItem>
+
 #include "Dialog_AddCar.h"
 #include "Dialog_Memorandum.h"
 
@@ -12,6 +14,9 @@
 #include "Crook.h"
 #include "CityCar.h"
 #include "Vanet.h"
+
+#include "Memorandum.h"
+
 
 namespace Ui {
 class Page_Cars;
@@ -28,12 +33,13 @@ public:
 private:
     Ui::Page_Cars *ui;
     void populateCarsTable();
+    void populateMemorandumsTable();
     void addNewRow(Car*, QString type);
 public slots:
     void addNewCar();
     void addNewMemorandum();
     void addNewMemorandumRow(QString seller_name, QString buyer_name, QString car_info, QString poorsant, QDateTime time, QString shomare_sanad);
-    void showMemorandum();
+    void showMemorandum(QTableWidgetItem *);
 };
 
 #endif // PAGE_CARS_H

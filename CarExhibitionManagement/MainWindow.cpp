@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->centralwidget->layout()->setMargin(0);
     ui->stackedWidget->setCurrentIndex(0);
+    ui->pushButton_backPage->hide();
 
     connect(ui->pushButton_backPage, SIGNAL(clicked()), this, SLOT(onBackButtonClicked()));
     connect(this, SIGNAL(signinSuccessful()), this, SIGNAL(loginSuccessful()));
@@ -64,21 +65,26 @@ void MainWindow::displayCurrentDateTime()
 void MainWindow::onBackButtonClicked()
 {
     ui->stackedWidget->setCurrentIndex(backPageIndex);
+    if(ui->stackedWidget->currentIndex() == 1)
+    {
+        ui->pushButton_backPage->hide();
+    }
 }
 void MainWindow::navigateToCarsPage()
 {
     ui->stackedWidget->setCurrentIndex(2);
+    ui->pushButton_backPage->show();
 }
 void MainWindow::navigateToFinancePage()
 {
-        ui->stackedWidget->setCurrentIndex(3);
-//        setUpChecksTable();
-//        setUpincomeChart();
+    ui->stackedWidget->setCurrentIndex(3);
+    ui->pushButton_backPage->show();
 }
 void MainWindow::navigateToHomePage()
 {
     ui->stackedWidget->setCurrentIndex(1);
     this->setBackPageIndex(1);
+    ui->pushButton_backPage->hide();
 }
 void MainWindow::signin()
 {

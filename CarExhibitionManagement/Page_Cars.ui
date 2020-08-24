@@ -33,6 +33,12 @@
    </item>
    <item row="1" column="2">
     <widget class="QTableWidget" name="tableWidget_Memorandums">
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
      <column>
       <property name="text">
        <string>فروشنده</string>
@@ -181,9 +187,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>tableWidget_Memorandums</sender>
+   <signal>itemDoubleClicked(QTableWidgetItem*)</signal>
+   <receiver>Page_Cars</receiver>
+   <slot>showMemorandum(QTableWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>515</x>
+     <y>77</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>807</x>
+     <y>86</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addNewCar()</slot>
   <slot>addNewMemorandum()</slot>
+  <slot>showMemorandum(QTableWidgetItem*)</slot>
  </slots>
 </ui>

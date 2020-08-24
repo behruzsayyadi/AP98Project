@@ -98,8 +98,7 @@ color: rgb(255, 255, 255);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.517413 rgba(0, 85, 127, 255));
-color: rgb(255, 255, 255);</string>
+          <string notr="true"/>
          </property>
         </widget>
        </item>
@@ -306,8 +305,7 @@ color: rgb(255, 255, 255);</string>
    <item row="1" column="0">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="styleSheet">
-      <string notr="true">background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.517413 rgba(0, 85, 127, 255));
-color: rgb(255, 255, 255);</string>
+      <string notr="true"/>
      </property>
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>

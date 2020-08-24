@@ -27,6 +27,7 @@ SOURCES += \
     Dialog_AddIncome.cpp \
     Dialog_Check.cpp \
     Dialog_Memorandum.cpp \
+    Memorandum.cpp \
     Page_Cars.cpp \
     SUV.cpp \
     CheckInfo.cpp \
