@@ -11,6 +11,8 @@
         QString Data::default_vanet_path =  "Documents/Vanet.json";
         QString Data::default_crook_path =  "Documents/Crook.json";
 
+        QString Data::default_all_memorandums_path = "Documents/Memorandums.json" ;
+
         QString Data::default_car_array_name = "cars";
         QString Data::default_suv_array_name = "suvs";
         QString Data::default_citycar_array_name = "city car";
@@ -18,6 +20,7 @@
         QString Data::default_vanet_array_name = "vanet";
         QString Data::default_crook_array_name = "crook";
 
+        QString Data::default_all_memorandums_array_name = "memorandums";
 
     QJsonArray Data::load_jsonArray(QString arrayName, QString filePath)
     {

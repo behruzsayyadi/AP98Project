@@ -1,6 +1,9 @@
 #ifndef MEMORANDUM_H
 #define MEMORANDUM_H
 #include <QMessageBox>
+
+#include "Data.h"
+
 #include "Human.h"
 #include "Manager.h"
 #include "Customer.h"
@@ -88,40 +91,45 @@ void Memorandum(Car * car,Seller seller,Customer customer,QDateTime date,QVector
 
 
     QJsonObject m;
-    m["seller name"] = seller.getName() + seller.getFamily();
-    m["customer name"] = customer.getName() + customer.getFamily();
+    m["seller name"] = seller.getName() + ' ' + seller.getFamily();
+    m["customer name"] = customer.getName() + ' ' + customer.getFamily();
     m["date and time"] = date.toString();
-    m["car"] = car->getModel() + car->getBrand() + car->getYear() ;
+    m["car"] = car->getModel() + ' ' + car->getBrand() + ' ' + car->getYear() ;
     m["poorsant"] = QString::number(car->getPoorsant());
+    m["shomare sanad"] = car->getShomareSanad();
 
-    if(all_memorandums_file.exists())
-    {
-        all_memorandums_file.open(QIODevice::ReadOnly);
-        QJsonObject all_memorandums_object = QJsonDocument::fromJson(all_memorandums_file.readAll()).object();
-        all_memorandums_file.close();
+    Data::add(m, "shomare sanad", m["shomare sanad"], Data::default_all_memorandums_array_name, Data::default_all_memorandums_path);
 
-        QJsonArray all_memorandums_array = all_memorandums_object["memorandums"].toArray();
+//    if(all_memorandums_file.exists())
+//    {
+//        all_memorandums_file.open(QIODevice::ReadOnly);
+//        QJsonObject all_memorandums_object = QJsonDocument::fromJson(all_memorandums_file.readAll()).object();
+//        all_memorandums_file.close();
 
-        all_memorandums_array.append(m);
+//        QJsonArray all_memorandums_array = all_memorandums_object["memorandums"].toArray();
 
-        all_memorandums_object["memorandums"] = all_memorandums_array;
+//        all_memorandums_array.append(m);
 
-        all_memorandums_file.open(QIODevice::WriteOnly);
+//        all_memorandums_object["memorandums"] = all_memorandums_array;
 
-        all_memorandums_file.write( QJsonDocument(all_memorandums_object).toJson() );
-    }
-    else
-    {
-        qDebug() << "there is no file for all memorandums."
-                 << "creating a new one";
-        all_memorandums_file.open(QIODevice::WriteOnly);
-        QJsonObject all_memorandums_object;
-        QJsonArray all_memorandums_array;
-        all_memorandums_array.append(m);
-        all_memorandums_object["memorandums"] = all_memorandums_array;
-        all_memorandums_file.write(QJsonDocument(all_memorandums_object).toJson());
-        all_memorandums_file.close();
-    }
+//        all_memorandums_file.open(QIODevice::WriteOnly);
+
+//        all_memorandums_file.write( QJsonDocument(all_memorandums_object).toJson() );
+
+//        all_memorandums_file.close();
+//    }
+//    else
+//    {
+//        qDebug() << "there is no file for all memorandums."
+//                 << "creating a new one";
+//        all_memorandums_file.open(QIODevice::WriteOnly);
+//        QJsonObject all_memorandums_object;
+//        QJsonArray all_memorandums_array;
+//        all_memorandums_array.append(m);
+//        all_memorandums_object["memorandums"] = all_memorandums_array;
+//        all_memorandums_file.write(QJsonDocument(all_memorandums_object).toJson());
+//        all_memorandums_file.close();
+//    }
 //    QFile Jfile_read(path);
 //    if(Jfile_read.open(QIODevice::ReadOnly) == false)
 //    {
