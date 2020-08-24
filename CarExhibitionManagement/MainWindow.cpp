@@ -40,14 +40,16 @@ MainWindow::MainWindow(QWidget *parent)
         ui->pushButton_SignLog_in->setText("ثبت نام");
         connect(ui->pushButton_SignLog_in, SIGNAL(clicked()), this, SLOT(signin()));
     }
-//    setUpChecksTable();
-//    setUpincomeChart();
+
     barSet_Poorsant = new QBarSet("پورسانت", this);
     barSet_Sood = new QBarSet("سود فروش", this);
     stackedBarSeries = new QStackedBarSeries(this);
     chart_Income = new QChart();
     chartView_Income = new QChartView(this);
 
+
+    setUpChecksTable();
+    setUpincomeChart();
 }
 MainWindow::~MainWindow()
 {
@@ -59,7 +61,7 @@ void MainWindow::setBackPageIndex(int value)
 }
 void MainWindow::displayCurrentDateTime()
 {
-    ui->label_CurrentDateTime->setText(QDateTime::currentDateTime().toString("h:m:s yy:m:d"));
+//    ui->label_CurrentDateTime->setText(QDateTime::currentDateTime().toString("h:m:s yy:m:d"));
 
 }
 void MainWindow::onBackButtonClicked()
@@ -124,27 +126,17 @@ void MainWindow::setUpChecksTable()
     foreach(QJsonValue x,checks_in_table_widget)
     {
         QJsonObject o = x.toObject();
-//        QString money,bank,shobe_bank,shenase;
-//        QDate date;
-//        money = (x.toObject())["money"].toString();
-//        bank = (x.toObject())["bank"].toString();
-//        shobe_bank = (x.toObject())["shobe bank"].toString();
-//        shenase = (x.toObject())["shenase check"].toString();
-//        date = dateFromJsonObject((x.toObject())["date"].toObject());
         addNewCheckRow(Checkinfo ( o["money"].toString(),
                                    o["bank"].toString(),
                                    o["shobe bank"].toString(),
                                    dateFromJsonObject(o["date"].toObject()),
                                    o["shenase check"].toString() ));
-
-
     }
 
 }
 void MainWindow::setUpincomeChart()
 {
-    barSet_Sood->setColor(Qt::red);
-    barSet_Poorsant->setColor(Qt::blue);
+
 
     foreach(QJsonValue v, Data::getIncomeInfo())
     {
@@ -156,7 +148,7 @@ void MainWindow::setUpincomeChart()
 
     chart_Income->addSeries(stackedBarSeries);
     chart_Income->setTitle("درآمد حاصل از پورسانت ها و سود ها");
-    chart_Income->setAnimationOptions(QChart::AllAnimations);
+    chart_Income->setAnimationOptions(QChart::SeriesAnimations);
 
     QStringList months;
 
@@ -178,6 +170,11 @@ void MainWindow::setUpincomeChart()
     chart_Income->legend()->setAlignment(Qt::AlignBottom);
     chart_Income->legend()->setVisible(true);
 
+    chart_Income->setTheme(QChart::ChartThemeDark);
+
+    barSet_Sood->setColor(Qt::red);
+    barSet_Poorsant->setColor(Qt::blue);
+
     chartView_Income->setChart(chart_Income);
     chartView_Income->setRenderHint(QPainter::Antialiasing);
 
@@ -191,10 +188,13 @@ void MainWindow::addIncome()
     Dialog_AddIncome * d = new Dialog_AddIncome(this);
     if(d->exec() == Dialog_AddIncome::Accepted)
     {
-        Data::addIncome(d->getPoorsant(),d->getSood(),d->getMonthIndex());
-    }
-//    setUpincomeChart();
+        int month_index = d->getMonthIndex();
+        int poorsant = d->getPoorsant();
+        int sood = d->getSood();
+        Data::addIncome(poorsant, sood, month_index);
+        addIncomeToChart(poorsant, sood, month_index);
 
+    }
 }
 
 void MainWindow::addNewCheck()
@@ -219,7 +219,13 @@ void MainWindow::addNewCheckRow(Checkinfo c)
     ui->tableWidget->setItem(temp_row_count,3,new QTableWidgetItem(c.getShobeBank()));
     ui->tableWidget->setItem(temp_row_count,4,new QTableWidgetItem(c.getShenase()));
 }
-void MainWindow::addIncomeToChart()
+void MainWindow::addIncomeToChart(int poorsant, int sood, int month_index)
 {
+    qreal current_poorsant = barSet_Poorsant->at(month_index);
+    qreal current_sood = barSet_Sood->at(month_index);
 
+    barSet_Poorsant->replace(month_index, current_poorsant + poorsant);
+    barSet_Sood->replace(month_index, current_sood + sood);
+
+    chartView_Income->repaint();
 }

@@ -120,7 +120,7 @@
 //    bool Data::jsonObjectExists(){}
     void Data::changeIncomeInfo(int poorsant,int sood, int index)
     {
-        if(index < 1 || index > 12) return;
+        if(index < 0 || index > 11) return;
         QJsonArray income =  load_jsonArray("income", "Documents/Income.json");
         if(income.empty())
         {
@@ -135,7 +135,7 @@
         QJsonObject o;
         o["poorsant"] = poorsant;
         o["sood"] = sood;
-        income[index - 1] = o;
+        income[index] = o;
         save_jsonArray(income, "income", "Documents/Income.json");
     }
     QJsonArray Data::getIncomeInfo()
@@ -144,8 +144,8 @@
     }
     void Data::addIncome(int poorsant, int sood, int index)
     {
-        if(index < 1 || index > 12) return;
-        QJsonObject obj = Data::getIncomeInfo()[index - 1].toObject();
+        if(index < 0 || index > 11) return;
+        QJsonObject obj = Data::getIncomeInfo()[index].toObject();
         Data::changeIncomeInfo(
                     obj["poorsant"].toInt() + poorsant,
                 obj["sood"].toInt() + sood,

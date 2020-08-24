@@ -55,7 +55,7 @@ private:
     void setUpincomeChart();
 
     void addNewCheckRow(Checkinfo check);
-    void addIncomeToChart();
+    void addIncomeToChart(int poorsant, int sood, int month_index);
 
     QBarSet * barSet_Poorsant;
     QBarSet * barSet_Sood;
