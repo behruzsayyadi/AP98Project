@@ -72,6 +72,7 @@ Dialog_Memorandum::Dialog_Memorandum(QJsonObject memorandum, QWidget *parent):
     ui->groupBox_buyer->setEnabled(false);
     ui->groupBox_seller->setEnabled(false);
     ui->groupBox_car_info->setEnabled(false);
+    ui->groupBox_memorandum_info->setEnabled(false);
 
     QJsonObject seller = memorandum["seller"].toObject(),
             buyer = memorandum["customer"].toObject(),
@@ -129,6 +130,11 @@ Dialog_Memorandum::~Dialog_Memorandum()
 
 void Dialog_Memorandum::on_buttonBox_accepted()
 {
+    if(ui->lineEdit_car_shomare_sanad->text().isEmpty())
+    {
+        QMessageBox::warning(this, "خطا", "شماره سند برای ثبت اطلاعات ماشین ضروری است");
+        return;
+    }
     QString car_model = ui->lineEdit_car_model->text(),
             car_brand = ui->lineEdit_car_brand->text(),
             car_year = ui->lineEdit_car_year->text(),

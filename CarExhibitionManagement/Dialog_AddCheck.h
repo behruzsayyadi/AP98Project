@@ -20,7 +20,7 @@ public:
     Checkinfo * getCheck();
 private:
     Ui::Dialog_AddCheck *ui;
-    bool validate();
+    QStringList validate();
     Checkinfo * check;
 private slots:
     void onAcceptClicked();

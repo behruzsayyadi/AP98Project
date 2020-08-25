@@ -12,6 +12,7 @@
         QString Data::default_crook_path =  "Documents/Crook.json";
 
         QString Data::default_all_memorandums_path = "Documents/Memorandums.json" ;
+        QString Data::default_important_customers_path = "Documents/important customers.json";
 
         QString Data::default_car_array_name = "cars";
         QString Data::default_suv_array_name = "suvs";
@@ -21,6 +22,7 @@
         QString Data::default_crook_array_name = "crook";
 
         QString Data::default_all_memorandums_array_name = "memorandums";
+        QString Data::default_important_customers_array_name = "important customers";
 
     QJsonArray Data::load_jsonArray(QString arrayName, QString filePath)
     {

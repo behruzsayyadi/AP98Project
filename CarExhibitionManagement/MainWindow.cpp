@@ -8,17 +8,28 @@
 #include <QObject>
 #include <QTime>
 #include <QMessageBox>
+#include <algorithm>
+#include <QRegExp>
 
+QBrush MainWindow::importantCustomerHighlight(QColor(10, 200, 10, 90));
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , backPageIndex(0)
-
 {
     ui->setupUi(this);
     ui->centralwidget->layout()->setMargin(0);
     ui->stackedWidget->setCurrentIndex(0);
     ui->pushButton_backPage->hide();
+
+    //TEST
+    QListWidget * vitrine = ui->listWidget_Vitrine;
+    QListWidgetItem * item = new QListWidgetItem("test item", vitrine);
+    vitrine->addItem(item);
+    vitrine->setItemWidget(item, new QPushButton("test item widget", vitrine));
+    //END TEST
+
+    connect(ui->page_Cars, SIGNAL(newCarAdded(Car)), this, SLOT(onNewCarAdded(Car)));
 
     connect(ui->pushButton_backPage, SIGNAL(clicked()), this, SLOT(onBackButtonClicked()));
     connect(this, SIGNAL(signinSuccessful()), this, SIGNAL(loginSuccessful()));
@@ -50,6 +61,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     setUpChecksTable();
     setUpincomeChart();
+    setUpImportantCustomersTable();
+
+
 }
 MainWindow::~MainWindow()
 {
@@ -120,7 +134,7 @@ void MainWindow::login()
 }
 void MainWindow::setUpChecksTable()
 {
-    ui->tableWidget->clearContents();
+    ui->tableWidget_checks->clearContents();
 
     QJsonArray checks_in_table_widget = checks_jsonArray_sort_by_date(loadChecks_jsonArray());
     foreach(QJsonValue x,checks_in_table_widget)
@@ -136,8 +150,6 @@ void MainWindow::setUpChecksTable()
 }
 void MainWindow::setUpincomeChart()
 {
-
-
     foreach(QJsonValue v, Data::getIncomeInfo())
     {
         *barSet_Poorsant << v.toObject()["poorsant"].toInt();
@@ -179,7 +191,59 @@ void MainWindow::setUpincomeChart()
     chartView_Income->setRenderHint(QPainter::Antialiasing);
 
     ui->layout_FinancePage->replaceWidget(ui->widget_ChartPlaceHolder, chartView_Income);
+}
 
+void MainWindow::setUpImportantCustomersTable()
+{
+    QList<qreal> car_prices_list;
+    for(auto v : loadCoupes_jsonArray())
+    {
+        car_prices_list << v.toObject()["gheymat"].toString().toULongLong();
+    }
+    for(auto v : loadCityCars_jsonArray())
+    {
+        car_prices_list << v.toObject()["gheymat"].toString().toULongLong();
+    }
+    for(auto v : loadCrooks_jsonArray())
+    {
+        car_prices_list << v.toObject()["gheymat"].toString().toULongLong();
+    }
+    for(auto v : loadVanets_jsonArray())
+    {
+        car_prices_list << v.toObject()["gheymat"].toString().toULongLong();
+    }
+    for(auto v : loadSUVs_jsonArray())
+    {
+        car_prices_list << v.toObject()["gheymat"].toString().toULongLong();
+    }
+    std::sort(car_prices_list.begin(), car_prices_list.end());
+    least_car_price = *car_prices_list.begin();
+    QTableWidget * table = ui->tableWidget_important_customers;
+    QJsonObject o;
+    int i = 0;
+
+    QTableWidgetItem * name, * phone_number, * money;
+    for(QJsonValue v : Data::load_jsonArray(Data::default_important_customers_array_name, Data::default_important_customers_path))
+    {
+        o = v.toObject();
+        table->insertRow(i);
+        name = new QTableWidgetItem(o["name"].toString());
+        phone_number = new QTableWidgetItem(o["phone number"].toString());
+        money = new QTableWidgetItem(o["money"].toString());
+        if(!car_prices_list.isEmpty())
+        {
+            if(o["money"].toString().toULongLong() > least_car_price)
+            {
+                name->setBackground(importantCustomerHighlight);
+                phone_number->setBackground(importantCustomerHighlight);
+                money->setBackground(importantCustomerHighlight);
+            }
+        }
+        table->setItem(i, 0, name);
+        table->setItem(i, 1, phone_number);
+        table->setItem(i, 2, money);
+        i++;
+    }
 
 }
 
@@ -197,6 +261,77 @@ void MainWindow::addIncome()
     }
 }
 
+void MainWindow::onNewCarAdded(Car c)
+{
+    QTableWidget * table = ui->tableWidget_important_customers;
+    int row_count = table->rowCount(), column_count = table->columnCount();
+    qreal gheymat = c.getGheymat();
+    if(gheymat < least_car_price) least_car_price = gheymat;
+    for(int i = 0; i < row_count; i++)
+    {
+        if(table->item(i, 2)->text().toULongLong() < gheymat)
+        {
+            for(int j = 0; j < column_count; j++)
+            {
+                table->item(i, j)->setBackground(importantCustomerHighlight);
+            }
+        }
+    }
+}
+
+void MainWindow::addNewImportantCustomerRow()
+{
+    QTableWidget * table = ui->tableWidget_important_customers;
+    int row_count = table->rowCount();
+    table->insertRow(row_count);
+    table->setItem(row_count, 0, new QTableWidgetItem);
+    table->setItem(row_count, 1, new QTableWidgetItem);
+    table->setItem(row_count, 2, new QTableWidgetItem);
+    ui->pushButton_saveImportantCustomerRow->setEnabled(true);
+    ui->pushButton_addImportantCustomerRow->setEnabled(false);
+
+}
+
+void MainWindow::saveNewImportantCustomerRow()
+{
+    QTableWidget * table = ui->tableWidget_important_customers;
+    int row_count = table->rowCount();
+    QString name = table->item(row_count - 1 , 0)->text();
+    QString phone_number  = table->item(row_count - 1, 1)->text();
+    QString money = table->item(row_count - 1, 2)->text();
+    if(money.isEmpty() || phone_number.isEmpty() || name.isEmpty())
+    {
+        QMessageBox::warning(this, "خطا", "تمام اطلاعات جدول ضروری هستند");
+        return;
+    }
+    QJsonObject o;
+    o["name"] = name;
+    o["phone number"] = phone_number;
+    o["money"] = money;
+
+    Data::add(o,
+            "name",
+            o["name"].toString(),
+            Data::default_important_customers_array_name,
+            Data::default_important_customers_path );
+    ui->pushButton_addImportantCustomerRow->setEnabled(true);
+    ui->pushButton_saveImportantCustomerRow->setEnabled(false);
+}
+
+void MainWindow::onImportantCustomersTableItemChanged(QTableWidgetItem * item)
+{
+    if(item->column() == 2)
+    {
+        if(item->text().toULongLong() > least_car_price)
+        {
+            int row = item->row();
+            item->setBackground(importantCustomerHighlight);
+            ui->tableWidget_important_customers->item(row, 0)->setBackground(importantCustomerHighlight);
+            ui->tableWidget_important_customers->item(row, 1)->setBackground(importantCustomerHighlight);
+        }
+    }
+}
+
 void MainWindow::addNewCheck()
 {
     Dialog_AddCheck * d = new Dialog_AddCheck(this);
@@ -210,14 +345,14 @@ void MainWindow::addNewCheck()
 }
 void MainWindow::addNewCheckRow(Checkinfo c)
 {
-    int temp_row_count;
-    temp_row_count = ui->tableWidget->rowCount();
-    ui->tableWidget->insertRow(ui->tableWidget->rowCount());
-    ui->tableWidget->setItem(temp_row_count,0,new QTableWidgetItem(c.getDate().toString("yyyy/MM/dd")));
-    ui->tableWidget->setItem(temp_row_count,1,new QTableWidgetItem(c.getMoney()));
-    ui->tableWidget->setItem(temp_row_count,2,new QTableWidgetItem(c.getBank()));
-    ui->tableWidget->setItem(temp_row_count,3,new QTableWidgetItem(c.getShobeBank()));
-    ui->tableWidget->setItem(temp_row_count,4,new QTableWidgetItem(c.getShenase()));
+    QTableWidget * table = ui->tableWidget_checks;
+    int temp_row_count = table->rowCount();
+    table->insertRow(temp_row_count);
+    table->setItem(temp_row_count,0,new QTableWidgetItem(c.getDate().toString("yyyy/MM/dd")));
+    table->setItem(temp_row_count,1,new QTableWidgetItem(c.getMoney()));
+    table->setItem(temp_row_count,2,new QTableWidgetItem(c.getBank()));
+    table->setItem(temp_row_count,3,new QTableWidgetItem(c.getShobeBank()));
+    table->setItem(temp_row_count,4,new QTableWidgetItem(c.getShenase()));
 }
 void MainWindow::addIncomeToChart(int poorsant, int sood, int month_index)
 {

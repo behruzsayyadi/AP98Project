@@ -176,22 +176,6 @@
  <connections>
   <connection>
    <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>Dialog_AddCar</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>257</x>
-     <y>371</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>157</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
    <signal>rejected()</signal>
    <receiver>Dialog_AddCar</receiver>
    <slot>reject()</slot>
@@ -206,8 +190,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>Dialog_AddCar</receiver>
+   <slot>on_buttonBox_accepted()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>202</x>
+     <y>365</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>359</x>
+     <y>354</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>AddCar()</slot>
+  <slot>on_buttonBox_accepted()</slot>
  </slots>
 </ui>

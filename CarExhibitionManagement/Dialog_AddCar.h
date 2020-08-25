@@ -23,7 +23,9 @@ public:
     Car *getCar();
 private:
     Ui::Dialog_AddCar *ui;
-
+    QStringList validate();
+public slots:
+    void on_buttonBox_accepted();
 };
 
 #endif // DIALOG_ADDCAR_H

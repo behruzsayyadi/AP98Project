@@ -1,11 +1,13 @@
 #include "Page_Cars.h"
 #include "ui_Page_Cars.h"
+#include "QRegExp"
 
 Page_Cars::Page_Cars(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Page_Cars)
 {
     ui->setupUi(this);
+    ui->pushButton_sellCar->hide();
     populateCarsTable();
     populateMemorandumsTable();
 }
@@ -94,12 +96,17 @@ void Page_Cars::addNewCar()
         {
             addNewRow(v, "وانت");
         }
-        else {}
+        else
+        {
+            qDebug() << "could not recognize type of car.";
+        }
         c->addCar();
+        emit newCarAdded(*c);
         delete c;
     }
     else
     {}
+
 }
 void Page_Cars::addNewMemorandum()
 {
@@ -124,8 +131,10 @@ void Page_Cars::addNewRow( Car* c, QString type)
     table->setItem(row_count, 3,new QTableWidgetItem(c->getYear()) );
     table->setItem(row_count, 4,new QTableWidgetItem(c->getColor()) );
     table->setItem(row_count, 5,new QTableWidgetItem(c->getInsideColor()) );
-    table->setItem(row_count, 6,new QTableWidgetItem(c->getGheymat()) );
-    table->setItem(row_count, 7,new QTableWidgetItem(c->getStatus()) );
+    table->setItem(row_count, 6,new QTableWidgetItem(QString::number(c->getGheymat())) );
+    table->setItem(row_count, 7,new QTableWidgetItem(c->getShomareShasi()) );
+    table->setItem(row_count, 8,new QTableWidgetItem(c->getShomareSanad()) );
+    table->setItem(row_count, 9,new QTableWidgetItem(c->getStatus()) );
 }
 
 void Page_Cars::addNewMemorandumRow(QString seller_name, QString buyer_name, QString car_info, QString poorsant, QDateTime time, QString shomare_sanad)
@@ -148,4 +157,48 @@ void Page_Cars::showMemorandum(QTableWidgetItem * item)
     QString shomare_sanad = table->item(row, 5 )->text();
     Dialog_Memorandum * d = new Dialog_Memorandum(findMemorandum(shomare_sanad), this);
     d->exec();
+}
+
+
+void Page_Cars::sellCar()
+{
+    Dialog_Memorandum * d = new Dialog_Memorandum(selectedCar, loadManager(), this);
+    connect(d, SIGNAL(memorandumCreated(QString, QString, QString, QString, QDateTime, QString)),
+            this, SLOT(addNewMemorandumRow(QString, QString, QString, QString, QDateTime, QString)));
+    if(d->exec() == Dialog_Memorandum::Accepted)
+    {
+    }
+}
+
+void Page_Cars::onCarSelected(QTableWidgetItem * item)
+{
+    ui->pushButton_sellCar->show();
+    int row = item->row();
+    QString type = ui->tableWidget_Cars->item(row, 0)->text();
+    QString shomare_sanad = ui->tableWidget_Cars->item(row, 8)->text();
+    if(type == "شاسی بلند")
+    {
+        selectedCar = new SUV(findSUV(shomare_sanad));
+    }
+    else if(type == "کروک")
+    {
+        selectedCar = new Crook(findCrook(shomare_sanad));
+    }
+    else if(type == "شهری")
+    {
+        selectedCar = new CityCar(findCityCar(shomare_sanad));
+    }
+    else if(type == "وانت")
+    {
+        selectedCar = new Vanet(findVanet(shomare_sanad));
+    }
+    else if(type == "کوپه")
+    {
+        selectedCar = new Coupe(findCoupe(shomare_sanad));
+    }
+    else
+    {
+
+    }
+
 }

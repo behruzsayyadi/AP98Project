@@ -4,9 +4,6 @@
 #include <QDate>
 #include <QDialog>
 
-#include <QValidator>
-#include <QIntValidator>
-#include <QRegularExpressionValidator>
 
 namespace Ui {
 class Dialog_managerSingIn;
@@ -38,7 +35,7 @@ private slots:
 
 private:
     Ui::Dialog_managerSingIn *ui;
-
+    QStringList validate();
 
 };
 

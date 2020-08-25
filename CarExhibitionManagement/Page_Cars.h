@@ -35,11 +35,16 @@ private:
     void populateCarsTable();
     void populateMemorandumsTable();
     void addNewRow(Car*, QString type);
+    Car * selectedCar;
 public slots:
     void addNewCar();
     void addNewMemorandum();
     void addNewMemorandumRow(QString seller_name, QString buyer_name, QString car_info, QString poorsant, QDateTime time, QString shomare_sanad);
     void showMemorandum(QTableWidgetItem *);
+    void sellCar();
+    void onCarSelected(QTableWidgetItem *);
+signals:
+    void newCarAdded(Car);
 };
 
 #endif // PAGE_CARS_H

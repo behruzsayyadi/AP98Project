@@ -14,74 +14,10 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QLabel" name="label_Cars">
-     <property name="text">
-      <string>ماشین های موجود</string>
-     </property>
-     <property name="buddy">
-      <cstring>tableWidget_Cars</cstring>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="2">
-    <widget class="QPushButton" name="pushButton">
-     <property name="text">
-      <string>فروش</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="2">
-    <widget class="QTableWidget" name="tableWidget_Memorandums">
-     <property name="selectionMode">
-      <enum>QAbstractItemView::SingleSelection</enum>
-     </property>
-     <property name="selectionBehavior">
-      <enum>QAbstractItemView::SelectRows</enum>
-     </property>
-     <column>
-      <property name="text">
-       <string>فروشنده</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>خریدار</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>اطلاعات ماشین</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>پورسانت</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>زمان</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>شماره سند</string>
-      </property>
-     </column>
-    </widget>
-   </item>
-   <item row="5" column="2">
+   <item row="9" column="0">
     <widget class="QPushButton" name="pushButton_AddCar">
      <property name="text">
       <string>اضافه کردن ماشین</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="2">
-    <widget class="QPushButton" name="pushButton_NewMemorandum">
-     <property name="text">
-      <string>قولنامه ی جدید</string>
      </property>
     </widget>
    </item>
@@ -136,9 +72,26 @@
      </column>
      <column>
       <property name="text">
+       <string>شماره شاسی</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>شماره سند</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
        <string>وضعیت</string>
       </property>
      </column>
+    </widget>
+   </item>
+   <item row="9" column="2">
+    <widget class="QPushButton" name="pushButton_NewMemorandum">
+     <property name="text">
+      <string>قولنامه ی جدید</string>
+     </property>
     </widget>
    </item>
    <item row="0" column="2">
@@ -146,9 +99,75 @@
      <property name="text">
       <string>قولنامه ها</string>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
      <property name="buddy">
       <cstring>tableWidget_Memorandums</cstring>
      </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_Cars">
+     <property name="text">
+      <string>ماشین های موجود</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="buddy">
+      <cstring>tableWidget_Cars</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0">
+    <widget class="QPushButton" name="pushButton_sellCar">
+     <property name="text">
+      <string>فروش ماشین</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2" rowspan="8">
+    <widget class="QTableWidget" name="tableWidget_Memorandums">
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <column>
+      <property name="text">
+       <string>فروشنده</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>خریدار</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>اطلاعات ماشین</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>پورسانت</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>زمان</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>شماره سند</string>
+      </property>
+     </column>
     </widget>
    </item>
   </layout>
@@ -162,8 +181,8 @@
    <slot>addNewCar()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>767</x>
-     <y>327</y>
+     <x>402</x>
+     <y>340</y>
     </hint>
     <hint type="destinationlabel">
      <x>724</x>
@@ -178,8 +197,8 @@
    <slot>addNewMemorandum()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>748</x>
-     <y>307</y>
+     <x>802</x>
+     <y>340</y>
     </hint>
     <hint type="destinationlabel">
      <x>640</x>
@@ -203,10 +222,44 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_sellCar</sender>
+   <signal>clicked()</signal>
+   <receiver>Page_Cars</receiver>
+   <slot>sellCar()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>276</x>
+     <y>298</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>381</x>
+     <y>346</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tableWidget_Cars</sender>
+   <signal>itemClicked(QTableWidgetItem*)</signal>
+   <receiver>Page_Cars</receiver>
+   <slot>onCarSelected(QTableWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>210</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>241</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addNewCar()</slot>
   <slot>addNewMemorandum()</slot>
   <slot>showMemorandum(QTableWidgetItem*)</slot>
+  <slot>sellCar()</slot>
+  <slot>onCarSelected(QTableWidgetItem*)</slot>
  </slots>
 </ui>

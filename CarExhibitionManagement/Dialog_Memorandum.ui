@@ -18,6 +18,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
   <property name="styleSheet">
    <string notr="true">QLineEdit 
 
@@ -554,6 +557,22 @@
     <hint type="destinationlabel">
      <x>471</x>
      <y>601</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>Dialog_Memorandum</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>741</x>
+     <y>614</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>818</x>
+     <y>590</y>
     </hint>
    </hints>
   </connection>

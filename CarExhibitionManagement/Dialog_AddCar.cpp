@@ -1,5 +1,6 @@
 #include "Dialog_AddCar.h"
 #include "ui_Dialog_AddCar.h"
+#include <QMessageBox>
 
 Dialog_AddCar::Dialog_AddCar(QWidget *parent) :
     QDialog(parent),
@@ -84,3 +85,31 @@ Car * Dialog_AddCar::getCar()
 
     return result;
 }
+QStringList Dialog_AddCar::validate()
+{
+    QStringList errors;
+    if(ui->lineEdit_ShomareSanad->text().isEmpty())
+    {
+        errors << "وارد کردن شماره سند ضروری است";
+    }
+    return errors;
+}
+
+void Dialog_AddCar::on_buttonBox_accepted()
+{
+    QString error;
+    for(auto s : validate())
+    {
+        error += s + '\n';
+    }
+    if(error.isEmpty())
+    {
+        accept();
+    }
+    else
+    {
+        QMessageBox::warning(this, "خطای کاربر", error);
+        return;
+    }
+}
+

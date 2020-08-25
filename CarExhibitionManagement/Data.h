@@ -21,6 +21,8 @@ struct Data
     static QString default_crook_path ;
 
     static QString default_all_memorandums_path ;
+    static QString default_important_customers_path ;
+
 
     static QString default_car_array_name ;
     static QString default_suv_array_name ;
@@ -30,6 +32,7 @@ struct Data
     static QString default_crook_array_name ;
 
     static QString default_all_memorandums_array_name ;
+    static QString default_important_customers_array_name ;
 
     static QJsonArray load_jsonArray(QString arrayName, QString filePath);
     static void save_jsonArray(QJsonArray array, QString arrayName, QString filePath);

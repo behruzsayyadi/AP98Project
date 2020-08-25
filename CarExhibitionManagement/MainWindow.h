@@ -4,9 +4,9 @@
 #include <QMainWindow>
 #include <QTimer>
 #include <QInputDialog>
-
+#include <QTableWidgetItem>
 #include <QCalendar>
-
+#include <QBrush>
 #include <QVector>
 
 #include <QtCharts/QChartView>
@@ -50,9 +50,11 @@ private:
     QTimer *timer;
     Manager *manager;
     int backPageIndex;
+    qreal least_car_price;
     void setBackPageIndex(int value);
     void setUpChecksTable();
     void setUpincomeChart();
+    void setUpImportantCustomersTable();
 
     void addNewCheckRow(Checkinfo check);
     void addIncomeToChart(int poorsant, int sood, int month_index);
@@ -62,11 +64,18 @@ private:
     QStackedBarSeries * stackedBarSeries;
     QChart * chart_Income;
     QChartView * chartView_Income;
+    static QBrush importantCustomerHighlight;
 private slots:
     void signin();
     void login();
+
     void addNewCheck();
     void addIncome();
+
+    void onNewCarAdded(Car);
+    void addNewImportantCustomerRow();
+    void saveNewImportantCustomerRow();
+    void onImportantCustomersTableItemChanged(QTableWidgetItem*);
 signals:
     void signinSuccessful();
     void loginSuccessful();

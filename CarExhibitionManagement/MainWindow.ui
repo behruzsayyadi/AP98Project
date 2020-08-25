@@ -34,7 +34,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page_Wellcome">
        <layout class="QGridLayout" name="layout_WelcomePage">
@@ -76,22 +76,87 @@ border-width:4;
       </widget>
       <widget class="QWidget" name="page_Home">
        <layout class="QGridLayout" name="layout_HomePage">
-        <item row="1" column="1">
+        <item row="5" column="0">
+         <widget class="QPushButton" name="pushButton_addImportantCustomerRow">
+          <property name="text">
+           <string>اضافه کردن ردیف</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/bitmap/icon/resources/icon_plus.png</normaloff>:/bitmap/icon/resources/icon_plus.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QPushButton" name="pushButton_saveImportantCustomerRow">
+          <property name="text">
+           <string>ثبت </string>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/bitmap/icon/resources/icon_save.png</normaloff>:/bitmap/icon/resources/icon_save.png</iconset>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_Important_Customers">
+          <property name="text">
+           <string>مشتریان مهم</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="buddy">
+           <cstring>tableWidget_important_customers</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
          <widget class="QPushButton" name="pushButton_Finance">
           <property name="text">
            <string>Finance</string>
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
+        <item row="6" column="1">
+         <widget class="QPushButton" name="pushButton_addEvent">
+          <property name="text">
+           <string>اضافه کردن رویداد</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/bitmap/icon/resources/icon_plus.png</normaloff>:/bitmap/icon/resources/icon_plus.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="label_Events">
+          <property name="text">
+           <string>رویداد های مهم</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="buddy">
+           <cstring>listWidget_Events</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
          <widget class="QPushButton" name="pushButton_Cars">
           <property name="text">
            <string>Cars</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
-         <widget class="QTableWidget" name="tableWidget_important_people">
+        <item row="2" column="1" rowspan="4">
+         <widget class="QListWidget" name="listWidget_Events"/>
+        </item>
+        <item row="2" column="0" rowspan="3">
+         <widget class="QTableWidget" name="tableWidget_important_customers">
           <column>
            <property name="text">
             <string>نام و نام خانوادگی</string>
@@ -108,6 +173,19 @@ border-width:4;
            </property>
           </column>
          </widget>
+        </item>
+        <item row="4" column="2">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
         </item>
        </layout>
       </widget>
@@ -135,7 +213,7 @@ border-width:4;
          <widget class="QWidget" name="widget_ChartPlaceHolder" native="true"/>
         </item>
         <item row="0" column="0" rowspan="3">
-         <widget class="QTableWidget" name="tableWidget">
+         <widget class="QTableWidget" name="tableWidget_checks">
           <property name="selectionMode">
            <enum>QAbstractItemView::SingleSelection</enum>
           </property>
@@ -173,44 +251,8 @@ border-width:4;
       </widget>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="pushButton_backPage">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>10</width>
-        <height>10</height>
-       </size>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="resources.qrc">
-        <normaloff>:/bitmap/icon/resources/back_button_icon.png</normaloff>:/bitmap/icon/resources/back_button_icon.png</iconset>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
     <item row="0" column="2">
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="label_title">
       <property name="font">
        <font>
         <family>Footlight MT Light</family>
@@ -252,6 +294,51 @@ border-radius:10px;
        <string/>
       </property>
      </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="pushButton_backPage">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/bitmap/icon/resources/icon_back.png</normaloff>:/bitmap/icon/resources/icon_back.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>35</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
     </item>
    </layout>
   </widget>
@@ -309,8 +396,8 @@ border-radius:10px;
    <slot>navigateToCarsPage()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>99</x>
-     <y>110</y>
+     <x>726</x>
+     <y>131</y>
     </hint>
     <hint type="destinationlabel">
      <x>450</x>
@@ -325,8 +412,8 @@ border-radius:10px;
    <slot>navigateToFinancePage()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>99</x>
-     <y>119</y>
+     <x>726</x>
+     <y>158</y>
     </hint>
     <hint type="destinationlabel">
      <x>457</x>
@@ -341,8 +428,8 @@ border-radius:10px;
    <slot>addNewCheck()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>600</x>
-     <y>551</y>
+     <x>99</x>
+     <y>122</y>
     </hint>
     <hint type="destinationlabel">
      <x>602</x>
@@ -357,12 +444,60 @@ border-radius:10px;
    <slot>addIncome()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>217</x>
-     <y>542</y>
+     <x>55</x>
+     <y>122</y>
     </hint>
     <hint type="destinationlabel">
      <x>225</x>
      <y>562</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_addImportantCustomerRow</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addNewImportantCustomerRow()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>262</x>
+     <y>515</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>362</x>
+     <y>568</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_saveImportantCustomerRow</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>saveNewImportantCustomerRow()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>180</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>388</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tableWidget_important_customers</sender>
+   <signal>itemChanged(QTableWidgetItem*)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onImportantCustomersTableItemChanged(QTableWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>285</x>
+     <y>279</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>775</x>
+     <y>238</y>
     </hint>
    </hints>
   </connection>
@@ -372,5 +507,8 @@ border-radius:10px;
   <slot>navigateToFinancePage()</slot>
   <slot>addNewCheck()</slot>
   <slot>addIncome()</slot>
+  <slot>saveNewImportantCustomerRow()</slot>
+  <slot>addNewImportantCustomerRow()</slot>
+  <slot>onImportantCustomersTableItemChanged(QTableWidgetItem*)</slot>
  </slots>
 </ui>
