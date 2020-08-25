@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , backPageIndex(0)
+    , least_car_price(99999999999)
 {
     ui->setupUi(this);
     ui->centralwidget->layout()->setMargin(0);
@@ -217,7 +218,7 @@ void MainWindow::setUpImportantCustomersTable()
         car_prices_list << v.toObject()["gheymat"].toString().toULongLong();
     }
     std::sort(car_prices_list.begin(), car_prices_list.end());
-    least_car_price = *car_prices_list.begin();
+    if(!car_prices_list.isEmpty()) least_car_price = *car_prices_list.begin();
     QTableWidget * table = ui->tableWidget_important_customers;
     QJsonObject o;
     int i = 0;

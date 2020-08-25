@@ -34,10 +34,8 @@ void Dialog_ManagerLogin::on_buttonBox_accepted()
     password = this->getPassword();
     if(managerLogin(username,password) == false)
     {
-        QMessageBox msg_box_loginFailed(this);
-        msg_box_loginFailed.warning(this,"WARNING","Username or Password wrong!");
-        msg_box_loginFailed.show();
-        reject();
+        QMessageBox::warning(this, "خطا", "اطلاعات ورودی صحیح نمی باشد");
+        return;
     }
     else
     {

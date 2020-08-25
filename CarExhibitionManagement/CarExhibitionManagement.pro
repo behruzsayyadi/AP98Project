@@ -25,7 +25,6 @@ SOURCES += \
     Dialog_AddCar.cpp \
     Dialog_AddCheck.cpp \
     Dialog_AddIncome.cpp \
-    Dialog_Check.cpp \
     Dialog_Memorandum.cpp \
     Memorandum.cpp \
     Page_Cars.cpp \
@@ -50,7 +49,6 @@ HEADERS += \
     Dialog_AddCar.h \
     Dialog_AddCheck.h \
     Dialog_AddIncome.h \
-    Dialog_Check.h \
     Dialog_Memorandum.h \
     Memorandum.h \
     Page_Cars.h \
@@ -69,7 +67,6 @@ FORMS += \
     Dialog_AddCar.ui \
     Dialog_AddCheck.ui \
     Dialog_AddIncome.ui \
-    Dialog_Check.ui \
     Dialog_ManagerLogin.ui \
     Dialog_Memorandum.ui \
     Dialog_managerSingIn.ui \

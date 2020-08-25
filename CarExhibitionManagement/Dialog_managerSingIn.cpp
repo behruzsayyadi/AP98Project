@@ -135,4 +135,5 @@ QStringList Dialog_managerSingIn::validate()
         ui->lineEdit_family->setStyleSheet("border-color : red");
         error_list << "نام خانوادگی نمیتواند خالی باشد";
     }
+    return error_list;
 }
