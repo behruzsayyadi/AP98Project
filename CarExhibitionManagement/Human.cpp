@@ -2,11 +2,12 @@
 
 
 Human::Human(QString name,
-             QString family)
+             QString family) :
+    name(name),
+    family(family)
 {
-    this->name = name;
-    this->family = family;
-
+//    this->name = name;
+//    this->family = family;
 }
 
 void Human::setName(QString name)

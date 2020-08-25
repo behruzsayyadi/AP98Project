@@ -16,21 +16,21 @@ private:
     QString username;
     QString password;
 public:
-    Manager(QString name,
-           QString family,
-           QDate birth_date,
-           QString ID,
-           QString shomare_shenasname,
-           QString phone_number,
-           QString job,
-           QString job_phone);
-    Manager()
-        : birth_date(QDate(0,0,0))
-        ,ID("")
-        ,shomare_shenasname("")
-        ,job("")
-        ,job_phone("")
-    {}
+    Manager( QString name = "",
+             QString family = "",
+             QDate birth_date = QDate(0,0,0),
+             QString ID = "",
+             QString shomare_shenasname = "",
+             QString phone_number = "",
+             QString job = "",
+             QString job_phone = "" );
+//    Manager()
+//        : birth_date(QDate(0,0,0))
+//        , ID("")
+//        , shomare_shenasname("")
+//        , job("")
+//        , job_phone("")
+//    {}
 
 
     Manager (Manager& a);
