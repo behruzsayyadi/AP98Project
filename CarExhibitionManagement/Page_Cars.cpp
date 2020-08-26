@@ -4,10 +4,11 @@
 
 Page_Cars::Page_Cars(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Page_Cars)
+    ui(new Ui::Page_Cars),
+    selected_car_row(-1)
 {
     ui->setupUi(this);
-    ui->pushButton_sellCar->hide();
+    ui->pushButton_sellCar->setEnabled(false);
     populateCarsTable();
     populateMemorandumsTable();
 }
@@ -162,39 +163,84 @@ void Page_Cars::showMemorandum(QTableWidgetItem * item)
 
 void Page_Cars::sellCar()
 {
-    Dialog_Memorandum * d = new Dialog_Memorandum(selectedCar, loadManager(), this);
+
+    QString status = selected_car->getStatus();
+    if(status == "sold" || status == "Sold" || status == "فروخته شده" || status == "فروخته شد")
+    {
+        QMessageBox::warning(this, "خطای فروش", "این ماشین قیلا به فروش رفته است");
+        ui->pushButton_sellCar->setEnabled(false);
+        return;
+    }
+
+    Dialog_Memorandum * d = new Dialog_Memorandum(selected_car, loadManager(), this);
     connect(d, SIGNAL(memorandumCreated(QString, QString, QString, QString, QDateTime, QString)),
             this, SLOT(addNewMemorandumRow(QString, QString, QString, QString, QDateTime, QString)));
     if(d->exec() == Dialog_Memorandum::Accepted)
     {
+        ui->tableWidget_Cars->item(selected_car_row, 9)->setText("فروخته شده");
+        if(selected_car_type == "شاسی بلند")
+        {
+            Data::changeJsonArrayItem("status", "فروخته شده", "shomare sanad", selected_car_shomare_sanad, Data::default_suv_array_name, Data::default_suv_path);
+        }
+        else if(selected_car_type == "کروک")
+        {
+            Data::changeJsonArrayItem("status", "فروخته شده", "shomare sanad", selected_car_shomare_sanad, Data::default_crook_array_name, Data::default_crook_path);
+        }
+        else if(selected_car_type == "شهری")
+        {
+            Data::changeJsonArrayItem("status", "فروخته شده", "shomare sanad", selected_car_shomare_sanad, Data::default_citycar_array_name, Data::default_citycar_path);
+        }
+        else if(selected_car_type == "وانت")
+        {
+            Data::changeJsonArrayItem("status", "فروخته شده", "shomare sanad", selected_car_shomare_sanad, Data::default_vanet_array_name, Data::default_vanet_path);
+        }
+        else if(selected_car_type == "کوپه")
+        {
+            Data::changeJsonArrayItem("status", "فروخته شده", "shomare sanad", selected_car_shomare_sanad, Data::default_coupe_array_name, Data::default_coupe_path);
+        }
+        else
+        {
+
+        }
     }
 }
 
 void Page_Cars::onCarSelected(QTableWidgetItem * item)
 {
-    ui->pushButton_sellCar->show();
     int row = item->row();
-    QString type = ui->tableWidget_Cars->item(row, 0)->text();
-    QString shomare_sanad = ui->tableWidget_Cars->item(row, 8)->text();
+    QTableWidget * table = ui->tableWidget_Cars;
+    QString status = table->item(row, 9)->text();
+    if(status == "sold" || status == "Sold" || status == "فروخته شده" || status == "فروخته شد")
+    {
+        ui->pushButton_sellCar->setEnabled(false);
+        return;
+    }
+    ui->pushButton_sellCar->setEnabled(true);
+    selected_car_row = row;
+    QString type = table->item(row, 0)->text();
+    selected_car_type = type;
+    QString shomare_sanad = table->item(row, 8)->text();
+    selected_car_shomare_sanad = shomare_sanad;
+
     if(type == "شاسی بلند")
     {
-        selectedCar = new SUV(findSUV(shomare_sanad));
+        selected_car = new SUV(findSUV(shomare_sanad));
     }
     else if(type == "کروک")
     {
-        selectedCar = new Crook(findCrook(shomare_sanad));
+        selected_car = new Crook(findCrook(shomare_sanad));
     }
     else if(type == "شهری")
     {
-        selectedCar = new CityCar(findCityCar(shomare_sanad));
+        selected_car = new CityCar(findCityCar(shomare_sanad));
     }
     else if(type == "وانت")
     {
-        selectedCar = new Vanet(findVanet(shomare_sanad));
+        selected_car = new Vanet(findVanet(shomare_sanad));
     }
     else if(type == "کوپه")
     {
-        selectedCar = new Coupe(findCoupe(shomare_sanad));
+        selected_car = new Coupe(findCoupe(shomare_sanad));
     }
     else
     {

@@ -55,10 +55,12 @@ private:
     void setUpChecksTable();
     void setUpincomeChart();
     void setUpImportantCustomersTable();
+    void setUpEventsColumnView();
 
     void addNewCheckRow(Checkinfo check);
     void addIncomeToChart(int poorsant, int sood, int month_index);
 
+    void updateChecksTable();
     QBarSet * barSet_Poorsant;
     QBarSet * barSet_Sood;
     QStackedBarSeries * stackedBarSeries;
@@ -71,6 +73,7 @@ private slots:
 
     void addNewCheck();
     void addIncome();
+
 
     void onNewCarAdded(Car);
     void addNewImportantCustomerRow();

@@ -115,10 +115,41 @@
             save_jsonArray(a,array_name,filePath);
         }
     }
-//    void changeJsonArrayItem(QString key, QString newValue, QString keyToFind, QString valueToFind, QString array_name, QString filePath)
-//    {
-//        find(key, value, array_name, filePath);
-//    }
+    void Data::changeJsonArrayItem(QString key, QString newValue, QString keyToFind, QString valueToFind, QString array_name, QString filePath)
+    {
+        int i = findIndex(keyToFind, valueToFind, array_name, filePath);
+        QJsonArray arr = load_jsonArray(array_name, filePath);
+        QJsonObject o = arr.takeAt(i).toObject();
+        o[key] = newValue;
+        arr.insert(i, o);
+        save_jsonArray(arr, array_name, filePath);
+
+    }
+
+
+    int Data::findIndex(QString primary_key, QJsonValue value, QString arrayName, QString filePath)
+    {
+        QJsonArray array = load_jsonArray(arrayName, filePath);
+        if(array.isEmpty())
+        {
+            qDebug() << "No objects found in file:" + filePath;
+        }
+        else
+        {
+            int result = 0;
+            QJsonObject object;
+            foreach(QJsonValue v, array)
+            {
+                object = v.toObject();
+                if(object[ primary_key ] == value)
+                {
+                       return result;
+                }
+                result ++;
+            }
+        }
+        return -1;
+    }
 //    bool Data::jsonObjectExists(){}
     void Data::changeIncomeInfo(int poorsant,int sood, int index)
     {

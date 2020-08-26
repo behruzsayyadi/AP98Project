@@ -8,8 +8,7 @@ Crook::Crook( QString status,
           QString inside_color,
           QString shomare_shasi,
           QString shomare_sanad,
-          quint64 gheymat ,
-              double poorsant) :
+          quint64 gheymat) :
     Car( status,
          model,
          brand,

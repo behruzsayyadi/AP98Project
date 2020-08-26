@@ -34,7 +34,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page_Wellcome">
        <layout class="QGridLayout" name="layout_WelcomePage">
@@ -46,12 +46,7 @@
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.517413 rgba(0, 85, 127, 255));
-border-color: rgb(255, 255, 0);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-width:4;
-</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>Log(Sign) In</string>
@@ -76,86 +71,7 @@ border-width:4;
       </widget>
       <widget class="QWidget" name="page_Home">
        <layout class="QGridLayout" name="layout_HomePage">
-        <item row="5" column="0">
-         <widget class="QPushButton" name="pushButton_addImportantCustomerRow">
-          <property name="text">
-           <string>اضافه کردن ردیف</string>
-          </property>
-          <property name="icon">
-           <iconset resource="resources.qrc">
-            <normaloff>:/bitmap/icon/resources/icon_plus.png</normaloff>:/bitmap/icon/resources/icon_plus.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="0">
-         <widget class="QPushButton" name="pushButton_saveImportantCustomerRow">
-          <property name="text">
-           <string>ثبت </string>
-          </property>
-          <property name="icon">
-           <iconset resource="resources.qrc">
-            <normaloff>:/bitmap/icon/resources/icon_save.png</normaloff>:/bitmap/icon/resources/icon_save.png</iconset>
-          </property>
-          <property name="flat">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="label_Important_Customers">
-          <property name="text">
-           <string>مشتریان مهم</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="buddy">
-           <cstring>tableWidget_important_customers</cstring>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="2">
-         <widget class="QPushButton" name="pushButton_Finance">
-          <property name="text">
-           <string>Finance</string>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="1">
-         <widget class="QPushButton" name="pushButton_addEvent">
-          <property name="text">
-           <string>اضافه کردن رویداد</string>
-          </property>
-          <property name="icon">
-           <iconset resource="resources.qrc">
-            <normaloff>:/bitmap/icon/resources/icon_plus.png</normaloff>:/bitmap/icon/resources/icon_plus.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="label_Events">
-          <property name="text">
-           <string>رویداد های مهم</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="buddy">
-           <cstring>listWidget_Events</cstring>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <widget class="QPushButton" name="pushButton_Cars">
-          <property name="text">
-           <string>Cars</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1" rowspan="4">
-         <widget class="QListWidget" name="listWidget_Events"/>
-        </item>
-        <item row="2" column="0" rowspan="3">
+        <item row="2" column="0" rowspan="6">
          <widget class="QTableWidget" name="tableWidget_important_customers">
           <column>
            <property name="text">
@@ -174,6 +90,33 @@ border-width:4;
           </column>
          </widget>
         </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_Important_Customers">
+          <property name="text">
+           <string>مشتریان مهم</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="buddy">
+           <cstring>tableWidget_important_customers</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QPushButton" name="pushButton_saveImportantCustomerRow">
+          <property name="text">
+           <string>ثبت </string>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/bitmap/icon/resources/icon_save.png</normaloff>:/bitmap/icon/resources/icon_save.png</iconset>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
         <item row="4" column="2">
          <spacer name="verticalSpacer">
           <property name="orientation">
@@ -186,6 +129,79 @@ border-width:4;
            </size>
           </property>
          </spacer>
+        </item>
+        <item row="9" column="0">
+         <widget class="QPushButton" name="pushButton_addImportantCustomerRow">
+          <property name="text">
+           <string>اضافه کردن ردیف</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/bitmap/icon/resources/icon_plus.png</normaloff>:/bitmap/icon/resources/icon_plus.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QPushButton" name="pushButton_Finance">
+          <property name="text">
+           <string>Finance</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QPushButton" name="pushButton_Cars">
+          <property name="text">
+           <string>Cars</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="label_Events">
+          <property name="text">
+           <string>رویداد های مهم</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="buddy">
+           <cstring>tableWidget_Events</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QPushButton" name="pushButton_addEvent">
+          <property name="text">
+           <string>اضافه کردن رویداد</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/bitmap/icon/resources/icon_plus.png</normaloff>:/bitmap/icon/resources/icon_plus.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1" rowspan="7">
+         <widget class="QTableWidget" name="tableWidget_Events">
+          <column>
+           <property name="text">
+            <string>روز</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>دسته</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>موضوع</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>توضیحات</string>
+           </property>
+          </column>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -412,8 +428,8 @@ border-radius:10px;
    <slot>navigateToFinancePage()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>726</x>
-     <y>158</y>
+     <x>759</x>
+     <y>181</y>
     </hint>
     <hint type="destinationlabel">
      <x>457</x>
@@ -428,8 +444,8 @@ border-radius:10px;
    <slot>addNewCheck()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>99</x>
-     <y>122</y>
+     <x>156</x>
+     <y>551</y>
     </hint>
     <hint type="destinationlabel">
      <x>602</x>
@@ -444,8 +460,8 @@ border-radius:10px;
    <slot>addIncome()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>55</x>
-     <y>122</y>
+     <x>64</x>
+     <y>551</y>
     </hint>
     <hint type="destinationlabel">
      <x>225</x>

@@ -17,8 +17,8 @@ public:
          QString inside_color = "",
          QString shomare_shasi = "",
          QString shomare_sanad = "",
-         quint64 gheymat = 0,
-         double poorsant = 0.01);
+         quint64 gheymat = 0
+         );
 
 
     virtual quint64 getPoorsant() override;

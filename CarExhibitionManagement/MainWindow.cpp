@@ -63,7 +63,8 @@ MainWindow::MainWindow(QWidget *parent)
     setUpChecksTable();
     setUpincomeChart();
     setUpImportantCustomersTable();
-
+    setUpEventsColumnView();
+    ui->pushButton_saveImportantCustomerRow->setEnabled(false);
 
 }
 MainWindow::~MainWindow()
@@ -76,7 +77,7 @@ void MainWindow::setBackPageIndex(int value)
 }
 void MainWindow::displayCurrentDateTime()
 {
-//    ui->label_CurrentDateTime->setText(QDateTime::currentDateTime().toString("h:m:s yy:m:d"));
+    ui->label_CurrentDateTime->setText(QDateTime::currentDateTime().toString());
 
 }
 void MainWindow::onBackButtonClicked()
@@ -96,6 +97,8 @@ void MainWindow::navigateToFinancePage()
 {
     ui->stackedWidget->setCurrentIndex(3);
     ui->pushButton_backPage->show();
+    updateChecksTable();
+
 }
 void MainWindow::navigateToHomePage()
 {
@@ -135,7 +138,6 @@ void MainWindow::login()
 }
 void MainWindow::setUpChecksTable()
 {
-    ui->tableWidget_checks->clearContents();
 
     QJsonArray checks_in_table_widget = checks_jsonArray_sort_by_date(loadChecks_jsonArray());
     foreach(QJsonValue x,checks_in_table_widget)
@@ -245,7 +247,17 @@ void MainWindow::setUpImportantCustomersTable()
         table->setItem(i, 2, money);
         i++;
     }
+}
 
+void MainWindow::setUpEventsColumnView()
+{
+    QJsonArray arr = Data::load_jsonArray("events", "Documents/Events.json");
+    QTableWidget * table = ui->tableWidget_Events;
+    int row = 0;
+    for( auto x : arr )
+    {
+
+    }
 }
 
 void MainWindow::addIncome()
@@ -362,6 +374,24 @@ void MainWindow::addIncomeToChart(int poorsant, int sood, int month_index)
 
     barSet_Poorsant->replace(month_index, current_poorsant + poorsant);
     barSet_Sood->replace(month_index, current_sood + sood);
-
+    chart_Income->childrenChanged();
     chartView_Income->repaint();
+}
+
+void MainWindow::updateChecksTable()
+{
+    QTableWidget * table = ui->tableWidget_checks;
+    QJsonArray checks_array = checks_jsonArray_sort_by_date(loadChecks_jsonArray());
+    int number_of_new_checks = checks_array.size() - table->rowCount();
+    if(number_of_new_checks > 0)
+    {
+        int index_of_last_check = table->rowCount();
+        for(int i = 0 ; i < number_of_new_checks ; i++)
+        {
+            QJsonObject o = checks_array[index_of_last_check].toObject();
+            addNewCheckRow(findCheck(o["shenase check"].toString()));
+            index_of_last_check ++;
+        }
+    }
+
 }

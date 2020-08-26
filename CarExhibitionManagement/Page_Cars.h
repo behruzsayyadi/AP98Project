@@ -35,7 +35,10 @@ private:
     void populateCarsTable();
     void populateMemorandumsTable();
     void addNewRow(Car*, QString type);
-    Car * selectedCar;
+    Car * selected_car;
+    int selected_car_row;
+    QString selected_car_type;
+    QString selected_car_shomare_sanad;
 public slots:
     void addNewCar();
     void addNewMemorandum();
@@ -45,6 +48,7 @@ public slots:
     void onCarSelected(QTableWidgetItem *);
 signals:
     void newCarAdded(Car);
+    void newCheckAdded(Checkinfo);
 };
 
 #endif // PAGE_CARS_H

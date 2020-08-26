@@ -9,8 +9,9 @@
 #include <QJsonValue>
 #include <QDebug>
 
-struct Data
+class Data
 {
+public:
     static QDir dir_root, dir_documents, dir_memorandums;
 
     static QString default_car_path ;
@@ -38,7 +39,8 @@ struct Data
     static void save_jsonArray(QJsonArray array, QString arrayName, QString filePath);
     static QJsonObject find(QString primary_key, QJsonValue value, QString arrayName, QString filePath);
     static void add(QJsonObject object, QString primary_key, QJsonValue unique_value, QString array_name, QString filePath);
-
+    static void changeJsonArrayItem(QString key, QString newValue, QString keyToFind, QString valueToFind, QString array_name, QString filePath);
+    static int findIndex(QString primary_key, QJsonValue value, QString arrayName, QString filePath);
 //    static bool jsonObjectExists();
     static QJsonArray getIncomeInfo();
     static void changeIncomeInfo(int poorsant,int sood, int index);

@@ -41,7 +41,6 @@ int main(int argc, char *argv[])
         Data::dir_root.mkdir("Documents");
     if( !Data::dir_memorandums.exists() )
         Data::dir_documents.mkdir("Memorandums");
-
     MainWindow w;
     w.show();
     return a.exec();
