@@ -9,7 +9,7 @@
 #include <QBrush>
 #include <QVector>
 
-
+#include <QPropertyAnimation>
 
 #include <QtCharts/QChartView>
 #include <QtCharts/QStackedBarSeries>

@@ -84,11 +84,28 @@ void MainWindow::onBackButtonClicked()
     {
         ui->pushButton_backPage->hide();
     }
+
+    QWidget * page = ui->stackedWidget->widget(1);
+    QPropertyAnimation * animation = new QPropertyAnimation(page, "geometry");
+    animation->setEasingCurve(QEasingCurve::InOutSine);
+    animation->setDuration(750);
+    animation->setStartValue(QRect(page->width() * 2,0, page->width(), page->height()));
+    animation->setEndValue(QRect(0, 0,page->width(), page->height()));
+    animation->start(QPropertyAnimation::DeleteWhenStopped);
+
 }
 void MainWindow::navigateToCarsPage()
 {
     ui->stackedWidget->setCurrentIndex(2);
     ui->pushButton_backPage->show();
+
+    QWidget * page = ui->stackedWidget->widget(2);
+    QPropertyAnimation * animation = new QPropertyAnimation(page, "geometry");
+    animation->setEasingCurve(QEasingCurve::InOutSine);
+    animation->setDuration(750);
+    animation->setStartValue(QRect(-page->width(),0, page->width(), page->height()));
+    animation->setEndValue(QRect(0, 0,page->width(), page->height()));
+    animation->start(QPropertyAnimation::DeleteWhenStopped);
 }
 void MainWindow::navigateToFinancePage()
 {
@@ -96,12 +113,28 @@ void MainWindow::navigateToFinancePage()
     ui->pushButton_backPage->show();
     updateChecksTable();
 
+    QWidget * page = ui->stackedWidget->widget(3);
+    QPropertyAnimation * animation = new QPropertyAnimation(page, "geometry");
+    animation->setEasingCurve(QEasingCurve::InOutSine);
+    animation->setDuration(750);
+    animation->setStartValue(QRect(-page->width(),0, page->width(), page->height()));
+    animation->setEndValue(QRect(0, 0,page->width(), page->height()));
+    animation->start(QPropertyAnimation::DeleteWhenStopped);
 }
 void MainWindow::navigateToHomePage()
 {
     ui->stackedWidget->setCurrentIndex(1);
     this->setBackPageIndex(1);
     ui->pushButton_backPage->hide();
+
+    QWidget * page = ui->stackedWidget->widget(1);
+    QPropertyAnimation * animation = new QPropertyAnimation(page, "geometry");
+    animation->setEasingCurve(QEasingCurve::InOutSine);
+    animation->setDuration(750);
+    animation->setStartValue(QRect(-page->width(),0, page->width(), page->height()));
+    animation->setEndValue(QRect(0, 0,page->width(), page->height()));
+    animation->start(QPropertyAnimation::DeleteWhenStopped);
+
 }
 void MainWindow::signin()
 {
@@ -260,13 +293,14 @@ void MainWindow::addNewEventRow(QString day, QString title, QString description)
     QTableWidget * table = ui->tableWidget_Events;
     int row = table->rowCount();
     table->insertRow(row);
-    table->setItem(row, 0, new QTableWidgetItem(day));
-    table->setItem(row, 1, new QTableWidgetItem(title));
-    table->setItem(row, 2, new QTableWidgetItem(description));
+    QTableWidgetItem * item_day = new QTableWidgetItem(day),
+                     * item_title = new QTableWidgetItem(title),
+                     * item_description = new QTableWidgetItem(description);
+    table->setItem(row, 0, item_day);
+    table->setItem(row, 1, item_title);
+    table->setItem(row, 2, item_description);
+
 }
-
-
-
 
 void MainWindow::addIncome()
 {
