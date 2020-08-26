@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog_AddIncome</class>
+ <widget class="QDialog" name="Dialog_AddIncome">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>184</width>
+    <height>123</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
+  <layout class="QFormLayout" name="formLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_Month">
+     <property name="text">
+      <string>ماه</string>
+     </property>
+     <property name="buddy">
+      <cstring>comboBox_Month</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QComboBox" name="comboBox_Month"/>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label_Sood">
+     <property name="text">
+      <string>سود</string>
+     </property>
+     <property name="buddy">
+      <cstring>lineEdit_Sood</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="lineEdit_Sood"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_Poorsant">
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="text">
+      <string>پورسانت</string>
+     </property>
+     <property name="buddy">
+      <cstring>lineEdit_Poorsant</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLineEdit" name="lineEdit_Poorsant"/>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>Dialog_AddIncome</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>174</x>
+     <y>113</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>Dialog_AddIncome</receiver>
+   <slot>onAcceptClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>134</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>150</x>
+     <y>121</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>onAcceptClicked()</slot>
+ </slots>
+</ui>

@@ -13,21 +13,21 @@ private:
     QString job_phone;
 
 public:
-    Seller(QString name,
-           QString family,
-           QDate birth_date,
-           QString ID,
-           QString shomare_shenasname,
-           QString phone_number,
-           QString job,
-           QString job_phone);
-    Seller()
-        : birth_date(QDate(0,0,0))
-        ,ID("")
-        ,shomare_shenasname("")
-        ,job("")
-        ,job_phone("")
-    {}
+    Seller( QString name = "",
+             QString family = "",
+             QDate birth_date = QDate(0,0,0),
+             QString ID = "",
+             QString shomare_shenasname = "",
+             QString phone_number = "",
+             QString job = "",
+             QString job_phone = "" );
+//    Seller()
+//        : birth_date(QDate(0,0,0))
+//        ,ID("")
+//        ,shomare_shenasname("")
+//        ,job("")
+//        ,job_phone("")
+//    {}
 
 
     Seller (Seller& a);

@@ -3,6 +3,13 @@
 
 #include <QDialog>
 
+<<<<<<< HEAD
+=======
+#include <QValidator>
+#include <QIntValidator>
+#include <QRegularExpressionValidator>
+
+>>>>>>> Development
 namespace Ui {
 class Dialog_ManagerLogin;
 }
@@ -15,7 +22,11 @@ public:
     QString getUsername();
     QString getPassword();
 
+<<<<<<< HEAD
     explicit Dialog_ManagerLogin(QWidget *parent = nullptr);
+=======
+    explicit Dialog_ManagerLogin(QString title /*= "ورود"*/, QWidget *parent = nullptr);
+>>>>>>> Development
     ~Dialog_ManagerLogin();
 
 private slots:

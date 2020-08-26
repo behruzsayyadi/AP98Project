@@ -7,20 +7,28 @@ Manager::Manager(QString name,
                QString shomare_shenasname,
                QString phone_number,
                QString job,
-               QString job_phone)
+               QString job_phone) :
+    Human(name, family),
+    birth_date(birth_date),
+    ID(ID),
+    shomare_shenasname(shomare_shenasname),
+    phone_number(phone_number),
+    job(job),
+    job_phone(job_phone)
 {
-    this->setName(name);
-    this->setFamily(family);
-    this->job = job;
-    this->birth_date = birth_date;
-    this->ID = ID;
-    this->shomare_shenasname = shomare_shenasname;
-    this->phone_number = phone_number;
-    this->job_phone = job_phone;
+//    this->setName(name);
+//    this->setFamily(family);
+//    this->job = job;
+//    this->birth_date = birth_date;
+//    this->ID = ID;
+//    this->shomare_shenasname = shomare_shenasname;
+//    this->phone_number = phone_number;
+//    this->job_phone = job_phone;
 
 }
 
-Manager::Manager(Manager &a)
+Manager::Manager(Manager &a) :
+    Human(a.getName(), a.getFamily())
 {
     this->setName(a.getName());
     this->setFamily(a.getFamily());
@@ -47,6 +55,21 @@ Manager::Manager(Manager &&a)
     this->setPhoneNum(a.getPhoneNum());
     this->setUsername(a.getUsername());
     this->setPassword(a.getPassword());
+}
+
+Manager Manager::operator= (const Manager& other)
+{
+    this->setName(other.getName());
+    this->setFamily(other.getFamily());
+    this->setID(other.getID());
+    this->setJob(other.getJob());
+    this->setJobPhone(other.getPhoneNum());
+    this->setBirthDate(other.getBirthDate());
+    this->setShShenasname(other.getShShenasname());
+    this->setPhoneNum(other.getPhoneNum());
+    this->setUsername(other.getUsername());
+    this->setPassword(other.getPassword());
+    return *this;
 }
 
 void Manager::setBirthDate(QDate birth_date)
@@ -104,7 +127,7 @@ void Manager::setUsername(QString username)
     this->username = username;
 }
 
-QString Manager::getUsername()
+QString Manager::getUsername() const
 {
     return this->username;
 }
@@ -114,7 +137,7 @@ void Manager::setPassword(QString password)
     this->password = password;
 }
 
-QString Manager::getPassword()
+QString Manager::getPassword() const
 {
     return this->password;
 }

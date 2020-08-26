@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog_Memorandum</class>
+ <widget class="QDialog" name="Dialog_Memorandum">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>824</width>
+    <height>634</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QLineEdit 
+
+{ 
+	font: 10pt &quot;MS Shell Dlg 2&quot;;
+}
+</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="0">
+    <widget class="QGroupBox" name="groupBox_seller">
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="title">
+      <string>فروشنده</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_seller_name">
+        <property name="text">
+         <string>نام</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_seller_name</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit_seller_name"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_seller_family">
+        <property name="text">
+         <string>نام خانوادگی</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_seller_family</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEdit_seller_family"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_seller_date_of_birth">
+        <property name="text">
+         <string>تاریخ تولد</string>
+        </property>
+        <property name="buddy">
+         <cstring>dateEdit_seller_date_of_birth</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QDateEdit" name="dateEdit_seller_date_of_birth"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_seller_id">
+        <property name="text">
+         <string>کد ملی</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_seller_id</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="lineEdit_seller_id"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_seller_shomare_shenasname">
+        <property name="text">
+         <string>شماره شناسنامه</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_seller_shomare_shenasname</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="lineEdit_seller_shomare_shenasname"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_seller_phone_number">
+        <property name="text">
+         <string>شماره تلفن</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_seller_phone_number</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="lineEdit_seller_phone_number"/>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_seller_job">
+        <property name="text">
+         <string>شغل</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_seller_job</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLineEdit" name="lineEdit_seller_job"/>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="label_seller_job_phone_number">
+        <property name="text">
+         <string>تلفن محل کار</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_seller_job_phone_number</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QLineEdit" name="lineEdit_seller_job_phone_number"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QGroupBox" name="groupBox_car_info">
+     <property name="title">
+      <string>مشخصات ماشین</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_car_type">
+        <property name="text">
+         <string>نوع ماشین</string>
+        </property>
+        <property name="buddy">
+         <cstring>comboBox_car_type</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="comboBox_car_type">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <item>
+         <property name="text">
+          <string>شهری</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>کوپه</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>شاسی بلند</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>وانت</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>کروک</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_car_model">
+        <property name="text">
+         <string>مدل</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_car_model</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEdit_car_model"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_car_brand">
+        <property name="text">
+         <string>برند</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_car_brand</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="lineEdit_car_brand"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_car_year">
+        <property name="text">
+         <string>سال تولید</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_car_year</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="lineEdit_car_year"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_car_color">
+        <property name="text">
+         <string>رنگ</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_car_color</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="lineEdit_car_color"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_car_inside_color">
+        <property name="text">
+         <string>رنگ داخل</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_car_inside_color</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="lineEdit_car_inside_color"/>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_car_shomare_shasi">
+        <property name="text">
+         <string>شماره شاسی</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_car_shomare_shasi</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLineEdit" name="lineEdit_car_shomare_shasi"/>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="label_car_shomare_sanad">
+        <property name="text">
+         <string>شماره سند</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_car_shomare_sanad</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QLineEdit" name="lineEdit_car_shomare_sanad"/>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="label_car_gheymat">
+        <property name="text">
+         <string>قیمت</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_car_gheymat</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLineEdit" name="lineEdit_car_gheymat"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QGroupBox" name="groupBox_buyer">
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="title">
+      <string>خریدار</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout_3">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_buyer_name">
+        <property name="text">
+         <string>نام</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_buyer_name</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit_buyer_name"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_buyer_family">
+        <property name="text">
+         <string>نام خانوادگی</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_buyer_family</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEdit_buyer_family"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_buyer_date_of_birth">
+        <property name="text">
+         <string>تاریخ تولد</string>
+        </property>
+        <property name="buddy">
+         <cstring>dateEdit_buyer_date_of_birth</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QDateEdit" name="dateEdit_buyer_date_of_birth"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_buyer_id">
+        <property name="text">
+         <string>کد ملی</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_buyer_id</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="lineEdit_buyer_id"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_buyer_shomare_shenasname">
+        <property name="text">
+         <string>شماره شناسنامه</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_buyer_shomare_shenasname</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="lineEdit_buyer_shomare_shenasname"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_buyer_phone_number">
+        <property name="text">
+         <string>شماره تلفن</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_buyer_phone_number</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="lineEdit_buyer_phone_number"/>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_buyer_job">
+        <property name="text">
+         <string>شغل</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_buyer_job</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLineEdit" name="lineEdit_buyer_job"/>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="label_buyer_job_phone_number">
+        <property name="text">
+         <string>تلفن محل کار</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_buyer_job_phone_number</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QLineEdit" name="lineEdit_buyer_job_phone_number"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QGroupBox" name="groupBox_memorandum_info">
+     <property name="title">
+      <string>اطلاعات قولنامه</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_money_cash">
+        <property name="text">
+         <string>نقد</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_money_cash</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="3">
+       <widget class="QLineEdit" name="lineEdit_money_check"/>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLabel" name="label_money_check">
+        <property name="text">
+         <string>چک</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_money_check</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="lineEdit_money_cash"/>
+      </item>
+      <item row="2" column="2" colspan="2">
+       <widget class="QLineEdit" name="lineEdit_money_total"/>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="QLabel" name="label_money_total">
+        <property name="text">
+         <string>مبلغ کل</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_money_total</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2" colspan="2">
+       <widget class="QLineEdit" name="lineEdit_money_income"/>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QLabel" name="label__money_income">
+        <property name="text">
+         <string>میزان درآمد از قولنامه</string>
+        </property>
+        <property name="buddy">
+         <cstring>lineEdit_money_income</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2" colspan="2">
+       <widget class="QDateTimeEdit" name="dateTimeEdit_dateTime_of_purchase"/>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QLabel" name="label_dateTime_of_purchase">
+        <property name="text">
+         <string>تاریخ و زمان معامله</string>
+        </property>
+        <property name="buddy">
+         <cstring>dateTimeEdit_dateTime_of_purchase</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" colspan="2">
+       <widget class="QLabel" name="label_checks">
+        <property name="text">
+         <string>چک های دریافت شده</string>
+        </property>
+        <property name="buddy">
+         <cstring>tableWidget_checks</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0" colspan="2">
+       <widget class="QPushButton" name="pushButton_add_check">
+        <property name="text">
+         <string>اضافه کردن چک</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2" rowspan="2" colspan="2">
+       <widget class="QTableWidget" name="tableWidget_checks">
+        <column>
+         <property name="text">
+          <string>مبلغ</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>تاریخ پرداخت</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>شناسه</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton_add_check</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog_Memorandum</receiver>
+   <slot>getNewCheck()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>460</x>
+     <y>572</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>471</x>
+     <y>601</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>Dialog_Memorandum</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>741</x>
+     <y>614</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>818</x>
+     <y>590</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>getNewCheck()</slot>
+ </slots>
+</ui>

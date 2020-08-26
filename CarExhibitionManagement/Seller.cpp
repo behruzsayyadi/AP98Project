@@ -11,20 +11,28 @@ Seller::Seller(QString name,
                QString shomare_shenasname,
                QString phone_number,
                QString job,
-               QString job_phone)
+               QString job_phone) :
+    Human(name, family),
+    birth_date(birth_date),
+    ID(ID),
+    shomare_shenasname(shomare_shenasname),
+    phone_number(phone_number),
+    job(job),
+    job_phone(job_phone)
 {
-    this->setName(name);
-    this->setFamily(family);
-    this->job = job;
-    this->birth_date = birth_date;
-    this->ID = ID;
-    this->shomare_shenasname = shomare_shenasname;
-    this->phone_number = phone_number;
-    this->job_phone = job_phone;
+//    this->setName(name);
+//    this->setFamily(family);
+//    this->job = job;
+//    this->birth_date = birth_date;
+//    this->ID = ID;
+//    this->shomare_shenasname = shomare_shenasname;
+//    this->phone_number = phone_number;
+//    this->job_phone = job_phone;
 
 }
 
-Seller::Seller(Seller &a)
+Seller::Seller(Seller &a) :
+    Human(a.getName(), a.getFamily())
 {
     this->setName(a.getName());
     this->setFamily(a.getFamily());

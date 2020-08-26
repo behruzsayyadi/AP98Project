@@ -71,3 +71,11 @@ Thumbs.db
 *.dll
 *.exe
 
+<<<<<<< HEAD
+=======
+*.exe
+*.o
+*.exe
+*.o
+*.o
+>>>>>>> Development

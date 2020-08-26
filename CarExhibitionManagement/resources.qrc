@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/bitmap/icon">
+        <file>resources/icon_back.png</file>
+        <file>resources/icon_plus.png</file>
+        <file>resources/icon_save.png</file>
+    </qresource>
+</RCC>

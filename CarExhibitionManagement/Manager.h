@@ -16,25 +16,27 @@ private:
     QString username;
     QString password;
 public:
-    Manager(QString name,
-           QString family,
-           QDate birth_date,
-           QString ID,
-           QString shomare_shenasname,
-           QString phone_number,
-           QString job,
-           QString job_phone);
-    Manager()
-        : birth_date(QDate(0,0,0))
-        ,ID("")
-        ,shomare_shenasname("")
-        ,job("")
-        ,job_phone("")
-    {}
+    Manager( QString name = "",
+             QString family = "",
+             QDate birth_date = QDate(0,0,0),
+             QString ID = "",
+             QString shomare_shenasname = "",
+             QString phone_number = "",
+             QString job = "",
+             QString job_phone = "" );
+//    Manager()
+//        : birth_date(QDate(0,0,0))
+//        , ID("")
+//        , shomare_shenasname("")
+//        , job("")
+//        , job_phone("")
+//    {}
 
 
     Manager (Manager& a);
     Manager (Manager&& a);
+
+    Manager operator=( const Manager& Other);
 
     void setBirthDate(QDate birth_date);
     QDate getBirthDate() const;
@@ -61,11 +63,11 @@ public:
 
 
     void setUsername(QString username);
-    QString getUsername();
+    QString getUsername() const;
 
 
     void setPassword(QString password);
-    QString getPassword();
+    QString getPassword() const;
 
     void addManager(QString managersFileAddress = "Documents/Managers.json");
 

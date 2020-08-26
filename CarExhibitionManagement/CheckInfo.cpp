@@ -1,5 +1,6 @@
 #include "CheckInfo.h"
 #include<QString>
+<<<<<<< HEAD
 Checkinfo::Checkinfo()
     : money("")
     , date(QDate(0,0,0))
@@ -49,6 +50,76 @@ void Checkinfo:: setShenase(QString shenase)
 QString Checkinfo::getMoney()
 {
     return this->money;
+=======
+//Checkinfo::Checkinfo()
+//    : money("")
+//    , date(QDate(0,0,0))
+//    , shenase("")
+//{}
+
+Checkinfo::Checkinfo(Checkinfo &other) :
+    money(other.money),
+    bank(other.bank),
+    shobe_bank(other.shobe_bank),
+    date(other.date),
+    shenase(other.shenase)
+{}
+
+Checkinfo::Checkinfo(Checkinfo &&other):
+    money(other.money),
+    bank(other.bank),
+    shobe_bank(other.shobe_bank),
+    date(other.date),
+    shenase(other.shenase)
+{}
+
+Checkinfo::Checkinfo(QString money,QString bank,QString shobe_bank,QDate date,QString shenase) :
+    money(money),
+    bank(bank),
+    shobe_bank(shobe_bank),
+    date(date),
+    shenase(shenase)
+{}
+
+void Checkinfo::setMoney(QString money)
+{
+    this->money=money;
+}
+
+void Checkinfo:: setDate(QDate date)
+{
+    this->date=date;
+}
+
+void Checkinfo:: setShenase(QString shenase)
+{
+    this->shenase=shenase;
+}
+
+QString Checkinfo::getMoney()
+{
+    return this->money;
+}
+
+void Checkinfo::setBank(QString bank)
+{
+    this->bank = bank;
+}
+
+QString Checkinfo::getBank()
+{
+    return this->bank;
+}
+
+void Checkinfo::setShobeBank(QString shobe_bank)
+{
+    this->shobe_bank = shobe_bank;
+}
+
+QString Checkinfo::getShobeBank()
+{
+    return this->shobe_bank;
+>>>>>>> Development
 }
 
 QDate Checkinfo::getDate()
@@ -72,6 +143,11 @@ void Checkinfo::addCheck(QString checksFileAddress)
         QJsonObject a_check_obj;
         a_check_obj["money"] = this->getMoney();
         a_check_obj["shenase check"] = this->getShenase();
+<<<<<<< HEAD
+=======
+        a_check_obj["bank"] = this->getBank();
+        a_check_obj["shobe bank"] = this->getShobeBank();
+>>>>>>> Development
         QJsonObject a_check_date_obj;
         a_check_date_obj["year"] = this->getDate().year();
         a_check_date_obj["month"]= this->getDate().month();
@@ -99,6 +175,11 @@ void Checkinfo::addCheck(QString checksFileAddress)
         QJsonObject a_check_obj;
         a_check_obj["money"] = this->getMoney();
         a_check_obj["shenase check"] = this->getShenase();
+<<<<<<< HEAD
+=======
+        a_check_obj["bank"] = this->getBank();
+        a_check_obj["shobe bank"] = this->getShobeBank();
+>>>>>>> Development
         QJsonObject a_check_date_obj;
         a_check_date_obj["year"] = this->getDate().year();
         a_check_date_obj["month"]= this->getDate().month();
@@ -145,6 +226,11 @@ Checkinfo findCheck(QString shenase, QString checksFileAddress)
         {
             found.setMoney(x.toObject()["money"].toString());
             found.setShenase(x.toObject()["shenase check"].toString());
+<<<<<<< HEAD
+=======
+            found.setBank(x.toObject()["bank"].toString());
+            found.setShobeBank(x.toObject()["shobe bank"].toString());
+>>>>>>> Development
             QJsonObject date_obj = x.toObject()["date"].toObject();
             int year,month,day;
             year = date_obj["year"].toInt();
@@ -157,3 +243,58 @@ Checkinfo findCheck(QString shenase, QString checksFileAddress)
     }
     return found;
 }
+<<<<<<< HEAD
+=======
+
+QJsonArray checks_jsonArray_sort_by_date(QJsonArray a)
+{
+    QJsonArray b = a;
+//    int size_of_array = a.size();
+    for(int i = 0; i < b.size() ; i++)
+    {
+        int swaps = 0;
+        for(int j = 0;j < b.size()-i-1;j++)
+        {
+            QJsonObject j_date_obj = (b[j].toObject())["date"].toObject();
+            QJsonObject jnext_date_obj = (b[j+1].toObject())["date"].toObject();
+//            qDebug() << b[i].toObject() << endl << b[j].toObject();
+            QJsonObject temp;
+            int i_year,i_month,i_day,j_year,j_month,j_day;
+            i_year = j_date_obj["year"].toInt();
+            i_month = j_date_obj["month"].toInt();
+            i_day = j_date_obj["day"].toInt();
+
+
+            j_year = jnext_date_obj["year"].toInt();
+            j_month = jnext_date_obj["month"].toInt();
+            j_day = jnext_date_obj["day"].toInt();
+
+            if(QDate(i_year,i_month,i_day) > QDate(j_year,j_month,j_day))
+            {
+//                qDebug() << b << endl << "**********************" << endl;
+                temp = b[j].toObject();
+                b.replace(j,b[j+1].toObject());
+                b.replace(j+1,temp);
+                swaps = 1;
+//                qDebug() << b;
+
+            }
+            if(!swaps)
+                break;
+
+
+        }
+    }
+    return b;
+}
+
+QDate dateFromJsonObject(QJsonObject a)
+{
+    int year,month,day;
+    year = a["year"].toInt();
+    month = a["month"].toInt();
+    day = a["day"].toInt();
+    return QDate(year,month,day);
+
+}
+>>>>>>> Development

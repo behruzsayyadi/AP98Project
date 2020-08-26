@@ -2,6 +2,10 @@
 #include "ui_Dialog_managerSingIn.h"
 #include "Manager.h"
 #include <QMessageBox>
+<<<<<<< HEAD
+=======
+#include <QRegExp>
+>>>>>>> Development
 QString Dialog_managerSingIn::getName()
 {
     return  ui->lineEdit_name->text();
@@ -52,11 +56,20 @@ QDate Dialog_managerSingIn::getBirthDate()
     return  ui->dateEdit->date();
 }
 
+<<<<<<< HEAD
 Dialog_managerSingIn::Dialog_managerSingIn(QWidget *parent) :
+=======
+Dialog_managerSingIn::Dialog_managerSingIn(QString title, QWidget *parent) :
+>>>>>>> Development
     QDialog(parent),
     ui(new Ui::Dialog_managerSingIn)
 {
     ui->setupUi(this);
+<<<<<<< HEAD
+=======
+    this->setWindowTitle( title );
+
+>>>>>>> Development
 }
 
 Dialog_managerSingIn::~Dialog_managerSingIn()
@@ -66,6 +79,7 @@ Dialog_managerSingIn::~Dialog_managerSingIn()
 
 void Dialog_managerSingIn::on_buttonBox_accepted()
 {
+<<<<<<< HEAD
     Manager mngr(getName(),getFamily(),getBirthDate(),getID(),getShShenas(),getPhoneNum(),getJob(),getJob());
     mngr.setUsername(getUsername());
     mngr.setPassword(getPassword());
@@ -75,6 +89,26 @@ void Dialog_managerSingIn::on_buttonBox_accepted()
     msg_box_signedIn.show();
     accept();
 
+=======
+    QStringList errors = validate();
+    if(errors.isEmpty()){
+        Manager mngr(getName(),getFamily(),getBirthDate(),getID(),getShShenas(),getPhoneNum(),getJob(),getJobPhone());
+        mngr.setUsername(getUsername());
+        mngr.setPassword(getPassword());
+        mngr.addManager();
+        accept();
+    }
+    else
+    {
+        QString error;
+        for(auto s : errors)
+        {
+            error += s + '\n';
+        }
+        QMessageBox::warning(this, "خطا", error);
+    }
+//    reject();
+>>>>>>> Development
 }
 
 void Dialog_managerSingIn::on_buttonBox_rejected()
@@ -84,3 +118,47 @@ void Dialog_managerSingIn::on_buttonBox_rejected()
     msg_box_signFaild.show();
     reject();
 }
+<<<<<<< HEAD
+=======
+QStringList Dialog_managerSingIn::validate()
+{
+    QString username = getUsername(), password = getPassword(), name = getName(), family = getFamily(), id = getID();
+    QStringList error_list;
+    if(username.isEmpty())
+    {
+        ui->lineEdit_username->setStyleSheet("border-color : red");
+        error_list << "نام کاربری نمیتواند خالی باشد";
+    }
+    if(username.length() < 2 || username.length() > 30)
+    {
+        ui->lineEdit_username->setStyleSheet("border-color : red");
+        error_list << "نام کاربری باید بین دو تا سی کاراکتر باشد";
+    }
+    if(password.isEmpty())
+    {
+        ui->lineEdit_password->setStyleSheet("border-color : red");
+        error_list << "رمز عبور نمیتواند خالی باشد";
+    }
+    if(password.length() < 2 || password.length() > 30)
+    {
+        ui->lineEdit_password->setStyleSheet("border-color : red");
+        error_list << "رمز عبور باید بین دو تا سی کاراکتر باشد";
+    }
+    if(id.isEmpty())
+    {
+        ui->lineEdit_ID->setStyleSheet("border-color : red");
+        error_list << "شماره شناسنامه نمیتواند خالی باشد";
+    }
+    if(name.isEmpty())
+    {
+        ui->lineEdit_name->setStyleSheet("border-color : red");
+        error_list << "نام نمیتواند خالی باشد";
+    }
+    if(family.isEmpty())
+    {
+        ui->lineEdit_family->setStyleSheet("border-color : red");
+        error_list << "نام خانوادگی نمیتواند خالی باشد";
+    }
+    return error_list;
+}
+>>>>>>> Development

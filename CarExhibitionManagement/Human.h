@@ -12,28 +12,24 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-class Human : public QObject
+class Human
 {
 private:
     QString name;
     QString family;
 
 public:
-    Human(QString name,
-          QString family);
-    Human()
-        : name(""),family("")
-    {}
-
+    Human(QString name = "",
+          QString family = "");
+//    Human()
+//        : name(""),family("")
+//    {}
 
     void setName(QString name);
     QString getName() const;
 
-
     void setFamily(QString family);
     QString getFamily() const;
-
-
 };
 
 
