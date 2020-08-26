@@ -18,10 +18,12 @@ QStringList Dialog_AddCheck::validate()
     QStringList errors;
     if (!QRegExp("^\\d+$").exactMatch(ui->lineEdit_Money->text()))
     {
+        ui->lineEdit_Money->setStyleSheet("border: 2px solid red");
         errors << "مبلغ چک باید به عدد وارد شود و نباید هالی باشد";
     }
     if (!QRegExp("^\\d+$").exactMatch(ui->lineEdit_Shenase->text()))
     {
+        ui->lineEdit_Shenase->setStyleSheet("border: 2px solid red");
         errors << "شناسه ی چک باید به عدد وارد شود و نباید خالی باشد";
     }
     return errors;

@@ -132,6 +132,7 @@ void Dialog_Memorandum::on_buttonBox_accepted()
 {
     if(ui->lineEdit_car_shomare_sanad->text().isEmpty())
     {
+        ui->lineEdit_car_shomare_sanad->setStyleSheet("border: 2px solid red");
         QMessageBox::warning(this, "خطا", "شماره سند برای ثبت اطلاعات ماشین ضروری است");
         return;
     }

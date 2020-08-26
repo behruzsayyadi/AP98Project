@@ -90,6 +90,7 @@ QStringList Dialog_AddCar::validate()
     QStringList errors;
     if(ui->lineEdit_ShomareSanad->text().isEmpty())
     {
+        ui->lineEdit_ShomareSanad->setStyleSheet("border: 2px solid red");
         errors << "وارد کردن شماره سند ضروری است";
     }
     return errors;

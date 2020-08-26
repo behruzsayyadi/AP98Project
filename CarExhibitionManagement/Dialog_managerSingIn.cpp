@@ -102,37 +102,37 @@ QStringList Dialog_managerSingIn::validate()
     QStringList error_list;
     if(username.isEmpty())
     {
-        ui->lineEdit_username->setStyleSheet("border-color : red");
+        ui->lineEdit_username->setStyleSheet("border: 2px solid red");
         error_list << "نام کاربری نمیتواند خالی باشد";
     }
     if(username.length() < 2 || username.length() > 30)
     {
-        ui->lineEdit_username->setStyleSheet("border-color : red");
+        ui->lineEdit_username->setStyleSheet("border: 2px solid red");
         error_list << "نام کاربری باید بین دو تا سی کاراکتر باشد";
     }
     if(password.isEmpty())
     {
-        ui->lineEdit_password->setStyleSheet("border-color : red");
+        ui->lineEdit_password->setStyleSheet("border: 2px solid red");
         error_list << "رمز عبور نمیتواند خالی باشد";
     }
     if(password.length() < 2 || password.length() > 30)
     {
-        ui->lineEdit_password->setStyleSheet("border-color : red");
+        ui->lineEdit_password->setStyleSheet("border: 2px solid red");
         error_list << "رمز عبور باید بین دو تا سی کاراکتر باشد";
     }
     if(id.isEmpty())
     {
-        ui->lineEdit_ID->setStyleSheet("border-color : red");
+        ui->lineEdit_ID->setStyleSheet("border: 2px solid red");
         error_list << "شماره شناسنامه نمیتواند خالی باشد";
     }
     if(name.isEmpty())
     {
-        ui->lineEdit_name->setStyleSheet("border-color : red");
+        ui->lineEdit_name->setStyleSheet("border: 2px solid red");
         error_list << "نام نمیتواند خالی باشد";
     }
     if(family.isEmpty())
     {
-        ui->lineEdit_family->setStyleSheet("border-color : red");
+        ui->lineEdit_family->setStyleSheet("border: 2px solid red");
         error_list << "نام خانوادگی نمیتواند خالی باشد";
     }
     return error_list;
