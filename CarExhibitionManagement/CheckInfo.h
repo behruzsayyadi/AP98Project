@@ -15,13 +15,6 @@ class Checkinfo
 {
 private:
     QString money;
-<<<<<<< HEAD
-    QDate date;
-    QString shenase;
-public:
-    Checkinfo(QString money,QDate date,QString shenase);
-    Checkinfo();
-=======
     QString bank;
     QString shobe_bank;
     QDate date;
@@ -29,7 +22,6 @@ public:
 public:
     Checkinfo(QString money = "",QString bank = "",QString shobe_bank = "",QDate date = QDate(),QString shenase = "");
 //    Checkinfo();
->>>>>>> Development
     Checkinfo(Checkinfo &a);
     Checkinfo(Checkinfo &&a);
 
@@ -37,15 +29,12 @@ public:
     void setMoney(QString money);
     QString getMoney();
 
-<<<<<<< HEAD
-=======
     void setBank(QString bank);
     QString getBank();
 
     void setShobeBank(QString shobe_bank);
     QString getShobeBank();
 
->>>>>>> Development
     void setDate(QDate date);
     QDate getDate();
 
@@ -59,11 +48,8 @@ QJsonArray loadChecks_jsonArray(QString checksFileAddress = "Documents/Checks.js
 
 Checkinfo findCheck(QString shenase,QString checksFileAddress = "Documents/Checks.json");
 
-<<<<<<< HEAD
-=======
 QJsonArray checks_jsonArray_sort_by_date(QJsonArray a);
 
 QDate dateFromJsonObject(QJsonObject a);
->>>>>>> Development
 
 #endif // CHECKINFO_H

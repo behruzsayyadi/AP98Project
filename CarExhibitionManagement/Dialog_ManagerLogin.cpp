@@ -14,19 +14,12 @@ QString Dialog_ManagerLogin::getPassword()
     return ui->lineEdit_password->text();
 }
 
-<<<<<<< HEAD
-Dialog_ManagerLogin::Dialog_ManagerLogin(QWidget *parent) :
-=======
 Dialog_ManagerLogin::Dialog_ManagerLogin(QString title,QWidget *parent) :
->>>>>>> Development
     QDialog(parent),
     ui(new Ui::Dialog_ManagerLogin)
 {
     ui->setupUi(this);
-<<<<<<< HEAD
-=======
     this->setWindowTitle(title);
->>>>>>> Development
 }
 
 Dialog_ManagerLogin::~Dialog_ManagerLogin()
@@ -41,15 +34,8 @@ void Dialog_ManagerLogin::on_buttonBox_accepted()
     password = this->getPassword();
     if(managerLogin(username,password) == false)
     {
-<<<<<<< HEAD
-        QMessageBox msg_box_loginFailed(this);
-        msg_box_loginFailed.warning(this,"WARNING","Username or Password wrong!");
-        msg_box_loginFailed.show();
-        reject();
-=======
         QMessageBox::warning(this, "خطا", "اطلاعات ورودی صحیح نمی باشد");
         return;
->>>>>>> Development
     }
     else
     {

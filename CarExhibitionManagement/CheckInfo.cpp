@@ -1,56 +1,5 @@
 #include "CheckInfo.h"
 #include<QString>
-<<<<<<< HEAD
-Checkinfo::Checkinfo()
-    : money("")
-    , date(QDate(0,0,0))
-    , shenase("")
-{
-
-}
-
-Checkinfo::Checkinfo(Checkinfo &a)
-{
-    this->date  = a.getDate();
-    this->money = a.getMoney();
-    this->date  = a.getDate();
-
-}
-
-Checkinfo::Checkinfo(Checkinfo &&a)
-{
-    this->date  = a.getDate();
-    this->money = a.getMoney();
-    this->date  = a.getDate();
-
-}
-
-Checkinfo::Checkinfo(QString money,QDate date,QString shenase)
-{
-    this->money=money;
-    this->date=date;
-    this->shenase=shenase;
-}
-
-void Checkinfo::setMoney(QString money)
-{
-    this->money=money;
-}
-
-void Checkinfo:: setDate(QDate date)
-{
-    this->date=date;
-}
-
-void Checkinfo:: setShenase(QString shenase)
-{
-    this->shenase=shenase;
-}
-
-QString Checkinfo::getMoney()
-{
-    return this->money;
-=======
 //Checkinfo::Checkinfo()
 //    : money("")
 //    , date(QDate(0,0,0))
@@ -119,7 +68,6 @@ void Checkinfo::setShobeBank(QString shobe_bank)
 QString Checkinfo::getShobeBank()
 {
     return this->shobe_bank;
->>>>>>> Development
 }
 
 QDate Checkinfo::getDate()
@@ -143,11 +91,8 @@ void Checkinfo::addCheck(QString checksFileAddress)
         QJsonObject a_check_obj;
         a_check_obj["money"] = this->getMoney();
         a_check_obj["shenase check"] = this->getShenase();
-<<<<<<< HEAD
-=======
         a_check_obj["bank"] = this->getBank();
         a_check_obj["shobe bank"] = this->getShobeBank();
->>>>>>> Development
         QJsonObject a_check_date_obj;
         a_check_date_obj["year"] = this->getDate().year();
         a_check_date_obj["month"]= this->getDate().month();
@@ -175,11 +120,8 @@ void Checkinfo::addCheck(QString checksFileAddress)
         QJsonObject a_check_obj;
         a_check_obj["money"] = this->getMoney();
         a_check_obj["shenase check"] = this->getShenase();
-<<<<<<< HEAD
-=======
         a_check_obj["bank"] = this->getBank();
         a_check_obj["shobe bank"] = this->getShobeBank();
->>>>>>> Development
         QJsonObject a_check_date_obj;
         a_check_date_obj["year"] = this->getDate().year();
         a_check_date_obj["month"]= this->getDate().month();
@@ -226,11 +168,8 @@ Checkinfo findCheck(QString shenase, QString checksFileAddress)
         {
             found.setMoney(x.toObject()["money"].toString());
             found.setShenase(x.toObject()["shenase check"].toString());
-<<<<<<< HEAD
-=======
             found.setBank(x.toObject()["bank"].toString());
             found.setShobeBank(x.toObject()["shobe bank"].toString());
->>>>>>> Development
             QJsonObject date_obj = x.toObject()["date"].toObject();
             int year,month,day;
             year = date_obj["year"].toInt();
@@ -243,8 +182,6 @@ Checkinfo findCheck(QString shenase, QString checksFileAddress)
     }
     return found;
 }
-<<<<<<< HEAD
-=======
 
 QJsonArray checks_jsonArray_sort_by_date(QJsonArray a)
 {
@@ -297,4 +234,3 @@ QDate dateFromJsonObject(QJsonObject a)
     return QDate(year,month,day);
 
 }
->>>>>>> Development

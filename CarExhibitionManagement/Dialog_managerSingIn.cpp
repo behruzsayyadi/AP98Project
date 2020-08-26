@@ -2,10 +2,7 @@
 #include "ui_Dialog_managerSingIn.h"
 #include "Manager.h"
 #include <QMessageBox>
-<<<<<<< HEAD
-=======
 #include <QRegExp>
->>>>>>> Development
 QString Dialog_managerSingIn::getName()
 {
     return  ui->lineEdit_name->text();
@@ -56,20 +53,13 @@ QDate Dialog_managerSingIn::getBirthDate()
     return  ui->dateEdit->date();
 }
 
-<<<<<<< HEAD
-Dialog_managerSingIn::Dialog_managerSingIn(QWidget *parent) :
-=======
 Dialog_managerSingIn::Dialog_managerSingIn(QString title, QWidget *parent) :
->>>>>>> Development
     QDialog(parent),
     ui(new Ui::Dialog_managerSingIn)
 {
     ui->setupUi(this);
-<<<<<<< HEAD
-=======
     this->setWindowTitle( title );
 
->>>>>>> Development
 }
 
 Dialog_managerSingIn::~Dialog_managerSingIn()
@@ -79,17 +69,6 @@ Dialog_managerSingIn::~Dialog_managerSingIn()
 
 void Dialog_managerSingIn::on_buttonBox_accepted()
 {
-<<<<<<< HEAD
-    Manager mngr(getName(),getFamily(),getBirthDate(),getID(),getShShenas(),getPhoneNum(),getJob(),getJob());
-    mngr.setUsername(getUsername());
-    mngr.setPassword(getPassword());
-    mngr.addManager();
-    QMessageBox msg_box_signedIn(this);
-    msg_box_signedIn.information(this,"Done","Signed In!");
-    msg_box_signedIn.show();
-    accept();
-
-=======
     QStringList errors = validate();
     if(errors.isEmpty()){
         Manager mngr(getName(),getFamily(),getBirthDate(),getID(),getShShenas(),getPhoneNum(),getJob(),getJobPhone());
@@ -108,7 +87,6 @@ void Dialog_managerSingIn::on_buttonBox_accepted()
         QMessageBox::warning(this, "خطا", error);
     }
 //    reject();
->>>>>>> Development
 }
 
 void Dialog_managerSingIn::on_buttonBox_rejected()
@@ -118,8 +96,6 @@ void Dialog_managerSingIn::on_buttonBox_rejected()
     msg_box_signFaild.show();
     reject();
 }
-<<<<<<< HEAD
-=======
 QStringList Dialog_managerSingIn::validate()
 {
     QString username = getUsername(), password = getPassword(), name = getName(), family = getFamily(), id = getID();
@@ -161,4 +137,3 @@ QStringList Dialog_managerSingIn::validate()
     }
     return error_list;
 }
->>>>>>> Development

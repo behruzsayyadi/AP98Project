@@ -4,10 +4,7 @@
 #include <QDate>
 #include <QDialog>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> Development
 namespace Ui {
 class Dialog_managerSingIn;
 }
@@ -28,11 +25,7 @@ public:
     QString getPassword();
     QDate getBirthDate();
 
-<<<<<<< HEAD
-    explicit Dialog_managerSingIn(QWidget *parent = nullptr);
-=======
     explicit Dialog_managerSingIn(QString title /*= "ثبت نام"*/, QWidget *parent = nullptr);
->>>>>>> Development
     ~Dialog_managerSingIn();
 
 private slots:
@@ -42,11 +35,8 @@ private slots:
 
 private:
     Ui::Dialog_managerSingIn *ui;
-<<<<<<< HEAD
-=======
     QStringList validate();
 
->>>>>>> Development
 };
 
 #endif // DIALOG_MANAGERSINGIN_H
