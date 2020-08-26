@@ -9,6 +9,8 @@
 #include <QBrush>
 #include <QVector>
 
+
+
 #include <QtCharts/QChartView>
 #include <QtCharts/QStackedBarSeries>
 #include <QtCharts/QBarSet>
@@ -55,7 +57,7 @@ private:
     void setUpChecksTable();
     void setUpincomeChart();
     void setUpImportantCustomersTable();
-    void setUpEventsColumnView();
+    void setUpVitrine();
 
     void addNewCheckRow(Checkinfo check);
     void addIncomeToChart(int poorsant, int sood, int month_index);

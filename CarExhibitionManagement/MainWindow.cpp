@@ -23,12 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->setCurrentIndex(0);
     ui->pushButton_backPage->hide();
 
-    //TEST
-    QListWidget * vitrine = ui->listWidget_Vitrine;
-    QListWidgetItem * item = new QListWidgetItem("test item", vitrine);
-    vitrine->addItem(item);
-    vitrine->setItemWidget(item, new QPushButton("test item widget", vitrine));
-    //END TEST
+
 
     connect(ui->page_Cars, SIGNAL(newCarAdded(Car)), this, SLOT(onNewCarAdded(Car)));
 
@@ -63,8 +58,8 @@ MainWindow::MainWindow(QWidget *parent)
     setUpChecksTable();
     setUpincomeChart();
     setUpImportantCustomersTable();
-    setUpEventsColumnView();
     ui->pushButton_saveImportantCustomerRow->setEnabled(false);
+
 
 }
 MainWindow::~MainWindow()
@@ -249,16 +244,8 @@ void MainWindow::setUpImportantCustomersTable()
     }
 }
 
-void MainWindow::setUpEventsColumnView()
-{
-    QJsonArray arr = Data::load_jsonArray("events", "Documents/Events.json");
-    QTableWidget * table = ui->tableWidget_Events;
-    int row = 0;
-    for( auto x : arr )
-    {
 
-    }
-}
+
 
 void MainWindow::addIncome()
 {

@@ -34,7 +34,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page_Wellcome">
        <layout class="QGridLayout" name="layout_WelcomePage">
@@ -54,18 +54,7 @@
          </widget>
         </item>
         <item row="0" column="0">
-         <widget class="QListWidget" name="listWidget_Vitrine">
-          <item>
-           <property name="text">
-            <string>ماشین 1</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>ماشین 2</string>
-           </property>
-          </item>
-         </widget>
+         <widget class="QListWidget" name="listWidget_Vitrine"/>
         </item>
        </layout>
       </widget>

@@ -12,7 +12,7 @@
 class Data
 {
 public:
-    static QDir dir_root, dir_documents, dir_memorandums;
+    static QDir dir_root, dir_documents, dir_memorandums, dir_vitrine;
 
     static QString default_car_path ;
     static QString default_suv_path ;

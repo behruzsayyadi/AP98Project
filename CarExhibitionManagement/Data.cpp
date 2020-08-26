@@ -2,7 +2,7 @@
 
 
 
-        QDir Data::dir_root, Data::dir_documents("Documents"), Data::dir_memorandums("Documents/Memorandums/");
+        QDir Data::dir_root, Data::dir_documents("Documents"), Data::dir_memorandums("Documents/Memorandums/"), Data::dir_vitrine("Documents/Vitrine/");
 
         QString Data::default_car_path = "Documents/Car.json";
         QString Data::default_suv_path = "Documents/SUV.json";
