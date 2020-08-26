@@ -58,7 +58,9 @@ private:
     void setUpincomeChart();
     void setUpImportantCustomersTable();
     void setUpVitrine();
+    void setUpEventsTable();
 
+    void addNewEventRow(QString day, QString title, QString description);
     void addNewCheckRow(Checkinfo check);
     void addIncomeToChart(int poorsant, int sood, int month_index);
 
@@ -75,7 +77,7 @@ private slots:
 
     void addNewCheck();
     void addIncome();
-
+    void addNewEvent();
 
     void onNewCarAdded(Car);
     void addNewImportantCustomerRow();

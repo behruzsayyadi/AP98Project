@@ -2,6 +2,7 @@
 #include "ui_MainWindow.h"
 #include "Dialog_ManagerLogin.h"
 #include "Dialog_managerSingIn.h"
+#include "Dialog_AddEvent.h"
 
 #include <QFile>
 #include <QDebug>
@@ -58,6 +59,7 @@ MainWindow::MainWindow(QWidget *parent)
     setUpChecksTable();
     setUpincomeChart();
     setUpImportantCustomersTable();
+    setUpEventsTable();
     ui->pushButton_saveImportantCustomerRow->setEnabled(false);
 
 
@@ -244,6 +246,25 @@ void MainWindow::setUpImportantCustomersTable()
     }
 }
 
+void MainWindow::setUpEventsTable()
+{
+    for(auto x : Data::load_jsonArray("events", "Documents/Events.json"))
+    {
+        QJsonObject o = x.toObject();
+        addNewEventRow(o["day"].toString(), o["title"].toString(), o["description"].toString());
+    }
+}
+
+void MainWindow::addNewEventRow(QString day, QString title, QString description)
+{
+    QTableWidget * table = ui->tableWidget_Events;
+    int row = table->rowCount();
+    table->insertRow(row);
+    table->setItem(row, 0, new QTableWidgetItem(day));
+    table->setItem(row, 1, new QTableWidgetItem(title));
+    table->setItem(row, 2, new QTableWidgetItem(description));
+}
+
 
 
 
@@ -258,6 +279,21 @@ void MainWindow::addIncome()
         Data::addIncome(poorsant, sood, month_index);
         addIncomeToChart(poorsant, sood, month_index);
 
+    }
+}
+
+void MainWindow::addNewEvent()
+{
+    Dialog_AddEvent * d = new Dialog_AddEvent(this);
+    if(d->exec() == Dialog_AddEvent::Accepted)
+    {
+        QJsonObject o;
+        QString day = d->getDay(), title = d->getTitle(), description = d->getDescription();
+        o["day"] = day;
+        o["title"] = title;
+        o["description"] = description;
+        Data::add(o, "description", o["description"], "events", "Documents/Events.json");
+        addNewEventRow(day, title, description);
     }
 }
 

@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="layout_CentralWidget">
     <item row="2" column="0" colspan="3">
@@ -34,7 +37,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page_Wellcome">
        <layout class="QGridLayout" name="layout_WelcomePage">
@@ -147,7 +150,7 @@
         <item row="1" column="1">
          <widget class="QLabel" name="label_Events">
           <property name="text">
-           <string>رویداد های مهم</string>
+           <string>رویداد های هفته</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -173,11 +176,6 @@
           <column>
            <property name="text">
             <string>روز</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>دسته</string>
            </property>
           </column>
           <column>
@@ -433,8 +431,8 @@ border-radius:10px;
    <slot>addNewCheck()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>156</x>
-     <y>551</y>
+     <x>99</x>
+     <y>139</y>
     </hint>
     <hint type="destinationlabel">
      <x>602</x>
@@ -449,8 +447,8 @@ border-radius:10px;
    <slot>addIncome()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>64</x>
-     <y>551</y>
+     <x>55</x>
+     <y>139</y>
     </hint>
     <hint type="destinationlabel">
      <x>225</x>
@@ -465,8 +463,8 @@ border-radius:10px;
    <slot>addNewImportantCustomerRow()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>262</x>
-     <y>515</y>
+     <x>280</x>
+     <y>551</y>
     </hint>
     <hint type="destinationlabel">
      <x>362</x>
@@ -481,8 +479,8 @@ border-radius:10px;
    <slot>saveNewImportantCustomerRow()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>180</x>
-     <y>541</y>
+     <x>198</x>
+     <y>521</y>
     </hint>
     <hint type="destinationlabel">
      <x>388</x>
@@ -506,6 +504,22 @@ border-radius:10px;
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_addEvent</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addNewEvent()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>493</x>
+     <y>534</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>722</x>
+     <y>568</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>navigateToCarsPage()</slot>
@@ -515,5 +529,6 @@ border-radius:10px;
   <slot>saveNewImportantCustomerRow()</slot>
   <slot>addNewImportantCustomerRow()</slot>
   <slot>onImportantCustomersTableItemChanged(QTableWidgetItem*)</slot>
+  <slot>addNewEvent()</slot>
  </slots>
 </ui>
