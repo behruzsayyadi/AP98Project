@@ -397,8 +397,8 @@ void MainWindow::addIncomeToChart(int poorsant, int sood, int month_index)
 
     barSet_Poorsant->replace(month_index, current_poorsant + poorsant);
     barSet_Sood->replace(month_index, current_sood + sood);
-    chart_Income->childrenChanged();
-    chartView_Income->repaint();
+
+    chart_Income->update(chart_Income->rect());
 }
 
 void MainWindow::updateChecksTable()
