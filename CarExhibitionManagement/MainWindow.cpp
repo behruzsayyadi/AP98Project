@@ -23,8 +23,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->centralwidget->layout()->setMargin(0);
     ui->stackedWidget->setCurrentIndex(0);
     ui->pushButton_backPage->hide();
-
-
+    this->setWindowTitle("نمایشگاه اتومبیل تسخیر");
+//    this->setWindowIcon(QIcon(":/resources/icon_car_2.png"));
 
     connect(ui->page_Cars, SIGNAL(newCarAdded(Car)), this, SLOT(onNewCarAdded(Car)));
 
@@ -76,7 +76,7 @@ void MainWindow::setBackPageIndex(int value)
 }
 void MainWindow::displayCurrentDateTime()
 {
-    ui->label_CurrentDateTime->setText(QDateTime::currentDateTime().toString());
+    ui->label_CurrentDateTime->setText(QDateTime::currentDateTime().toString("dddd dd/MM/yyyy hh:mm:ss"));
 
 }
 void MainWindow::onBackButtonClicked()

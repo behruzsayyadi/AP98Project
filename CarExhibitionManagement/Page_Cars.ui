@@ -19,6 +19,10 @@
      <property name="text">
       <string>اضافه کردن ماشین</string>
      </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/bitmap/icon/resources/icon_car.png</normaloff>:/bitmap/icon/resources/icon_car.png</iconset>
+     </property>
     </widget>
    </item>
    <item row="1" column="0" rowspan="7">
@@ -172,7 +176,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>pushButton_AddCar</sender>

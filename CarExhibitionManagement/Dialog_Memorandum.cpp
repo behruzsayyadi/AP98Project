@@ -19,7 +19,7 @@ Dialog_Memorandum::Dialog_Memorandum(Car * car, Manager manager, QWidget *parent
     ui(new Ui::Dialog_Memorandum)
 {
     ui->setupUi(this);
-    this->setWindowTitle("قولنامه ی جدید");
+    this->setWindowTitle("فروش ماشین");
 
     ui->label_money_income->setText("درآمد");
 
