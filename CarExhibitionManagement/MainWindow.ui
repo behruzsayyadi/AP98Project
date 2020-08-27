@@ -126,7 +126,7 @@ border-radius:10px;
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="page_Wellcome">
        <layout class="QGridLayout" name="layout_WelcomePage">
@@ -306,8 +306,11 @@ border-radius:10px;
         </item>
         <item row="0" column="0" rowspan="3">
          <widget class="QTableWidget" name="tableWidget_checks">
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
           <property name="selectionMode">
-           <enum>QAbstractItemView::SingleSelection</enum>
+           <enum>QAbstractItemView::NoSelection</enum>
           </property>
           <property name="selectionBehavior">
            <enum>QAbstractItemView::SelectRows</enum>

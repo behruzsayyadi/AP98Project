@@ -7,6 +7,8 @@ Dialog_AddCheck::Dialog_AddCheck(QWidget *parent) :
     check()
 {
     ui->setupUi(this);
+    this->setWindowTitle("چک جدید");
+
 }
 
 Dialog_AddCheck::~Dialog_AddCheck()

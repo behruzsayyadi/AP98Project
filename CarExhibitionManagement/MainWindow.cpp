@@ -185,8 +185,8 @@ void MainWindow::setUpincomeChart()
 {
     foreach(QJsonValue v, Data::getIncomeInfo())
     {
-        *barSet_Poorsant << v.toObject()["poorsant"].toInt();
-        *barSet_Sood << v.toObject()["sood"].toInt();
+        *barSet_Poorsant << v.toObject()["poorsant"].toString().toULongLong();
+        *barSet_Sood << v.toObject()["sood"].toString().toULongLong();
     }
     stackedBarSeries->append(barSet_Sood);
     stackedBarSeries->append(barSet_Poorsant);
@@ -208,6 +208,12 @@ void MainWindow::setUpincomeChart()
     chart_Income->addAxis(axisX, Qt::AlignBottom);
     stackedBarSeries->attachAxis(axisX);
     QValueAxis *axisY = new QValueAxis(this);
+
+    if(Data::areAllIncomesEmpty())
+    {
+        axisY->setMax(1000000000);
+    }
+
     chart_Income->addAxis(axisY, Qt::AlignLeft);
     stackedBarSeries->attachAxis(axisY);
 
@@ -307,8 +313,8 @@ void MainWindow::addIncome()
     if(d->exec() == Dialog_AddIncome::Accepted)
     {
         int month_index = d->getMonthIndex();
-        int poorsant = d->getPoorsant();
-        int sood = d->getSood();
+        quint64 poorsant = d->getPoorsant();
+        quint64 sood = d->getSood();
         Data::addIncome(poorsant, sood, month_index);
         addIncomeToChart(poorsant, sood, month_index);
 
@@ -423,15 +429,15 @@ void MainWindow::addNewCheckRow(Checkinfo c)
     table->setItem(temp_row_count,3,new QTableWidgetItem(c.getShobeBank()));
     table->setItem(temp_row_count,4,new QTableWidgetItem(c.getShenase()));
 }
-void MainWindow::addIncomeToChart(int poorsant, int sood, int month_index)
+void MainWindow::addIncomeToChart(quint64 poorsant, quint64 sood, int month_index)
 {
-    qreal current_poorsant = barSet_Poorsant->at(month_index);
-    qreal current_sood = barSet_Sood->at(month_index);
+    quint64 current_poorsant = barSet_Poorsant->at(month_index);
+    quint64 current_sood = barSet_Sood->at(month_index);
 
     barSet_Poorsant->replace(month_index, current_poorsant + poorsant);
     barSet_Sood->replace(month_index, current_sood + sood);
 
-    chart_Income->update(chart_Income->rect());
+    chart_Income->update(chart_Income->geometry());
 }
 
 void MainWindow::updateChecksTable()

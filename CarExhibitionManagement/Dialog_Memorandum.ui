@@ -307,7 +307,11 @@
        </widget>
       </item>
       <item row="8" column="1">
-       <widget class="QLineEdit" name="lineEdit_car_gheymat"/>
+       <widget class="QLineEdit" name="lineEdit_car_gheymat">
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -551,8 +555,8 @@
    <slot>getNewCheck()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>460</x>
-     <y>572</y>
+     <x>411</x>
+     <y>585</y>
     </hint>
     <hint type="destinationlabel">
      <x>471</x>
@@ -576,8 +580,41 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>comboBox_car_type</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>Dialog_Memorandum</receiver>
+   <slot>showIncome()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>613</x>
+     <y>333</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>818</x>
+     <y>314</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit_car_gheymat</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>Dialog_Memorandum</receiver>
+   <slot>showIncome()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>679</x>
+     <y>566</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>818</x>
+     <y>522</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>getNewCheck()</slot>
+  <slot>showIncome()</slot>
  </slots>
 </ui>

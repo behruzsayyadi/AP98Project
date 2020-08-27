@@ -6,6 +6,8 @@ Dialog_AddIncome::Dialog_AddIncome(QWidget *parent) :
     ui(new Ui::Dialog_AddIncome)
 {
     ui->setupUi(this);
+    this->setWindowTitle("ثبت درامد");
+
     QLocale c(QLocale::English);
     for( int i = 1, max_months = QDate::currentDate().month(); i <= max_months; i++ )
     {
@@ -20,15 +22,15 @@ Dialog_AddIncome::~Dialog_AddIncome()
 void Dialog_AddIncome::onAcceptClicked()
 {
     month_index = ui->comboBox_Month->currentIndex();
-    poorsant = ui->lineEdit_Poorsant->text().toInt();
-    sood = ui->lineEdit_Sood->text().toInt();
+    poorsant = ui->lineEdit_Poorsant->text().toULongLong();
+    sood = ui->lineEdit_Sood->text().toULongLong();
     accept();
 }
-int Dialog_AddIncome::getSood()
+quint64 Dialog_AddIncome::getSood()
 {
     return sood;
 }
-int Dialog_AddIncome::getPoorsant()
+quint64 Dialog_AddIncome::getPoorsant()
 {
     return  poorsant;
 }

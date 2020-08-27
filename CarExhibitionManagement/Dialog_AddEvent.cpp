@@ -6,6 +6,8 @@ Dialog_AddEvent::Dialog_AddEvent(QWidget *parent) :
     ui(new Ui::Dialog_AddEvent)
 {
     ui->setupUi(this);
+    this->setWindowTitle("رویداد جدید");
+
 }
 
 Dialog_AddEvent::~Dialog_AddEvent()

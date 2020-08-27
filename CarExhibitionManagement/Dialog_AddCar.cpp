@@ -7,6 +7,8 @@ Dialog_AddCar::Dialog_AddCar(QWidget *parent) :
     ui(new Ui::Dialog_AddCar)
 {
     ui->setupUi(this);
+    connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(on_buttonBox_accepted()), Qt::UniqueConnection);
+    this->setWindowTitle("ماشین جدید");
 }
 
 Dialog_AddCar::~Dialog_AddCar()

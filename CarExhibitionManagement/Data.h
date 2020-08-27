@@ -43,7 +43,8 @@ public:
     static int findIndex(QString primary_key, QJsonValue value, QString arrayName, QString filePath);
 //    static bool jsonObjectExists();
     static QJsonArray getIncomeInfo();
-    static void changeIncomeInfo(int poorsant,int sood, int index);
-    static void addIncome(int poorsant, int sood, int index);
+    static void changeIncomeInfo(quint64 poorsant,quint64 sood, int index);
+    static void addIncome(quint64 poorsant, quint64 sood, int index);
+    static bool areAllIncomesEmpty();
 };
 #endif //DATA_H

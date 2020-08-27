@@ -151,7 +151,7 @@
         return -1;
     }
 //    bool Data::jsonObjectExists(){}
-    void Data::changeIncomeInfo(int poorsant,int sood, int index)
+    void Data::changeIncomeInfo(quint64 poorsant,quint64 sood, int index)
     {
         if(index < 0 || index > 11) return;
         QJsonArray income =  load_jsonArray("income", "Documents/Income.json");
@@ -166,23 +166,54 @@
             }
         }
         QJsonObject o;
-        o["poorsant"] = poorsant;
-        o["sood"] = sood;
+        o["poorsant"] = QString::number(poorsant);
+        o["sood"] = QString::number(sood);
         income[index] = o;
         save_jsonArray(income, "income", "Documents/Income.json");
     }
     QJsonArray Data::getIncomeInfo()
     {
-        return load_jsonArray("income", "Documents/Income.json");
+        QJsonArray income =  load_jsonArray("income", "Documents/Income.json");
+        if(income.empty())
+        {
+            for(int i = 0; i <12; i++)
+            {
+                QJsonObject O;
+                O["poorsant"] = 0;
+                O["sood"] = 0;
+                income.append(O);
+            }
+            save_jsonArray(income, "income", "Documents/Income.json");
+        }
+
+        return income;
     }
-    void Data::addIncome(int poorsant, int sood, int index)
+    void Data::addIncome(quint64 poorsant, quint64 sood, int index)
     {
         if(index < 0 || index > 11) return;
         QJsonObject obj = Data::getIncomeInfo()[index].toObject();
         Data::changeIncomeInfo(
-                    obj["poorsant"].toInt() + poorsant,
-                obj["sood"].toInt() + sood,
+                    obj["poorsant"].toString().toULongLong() + poorsant,
+                obj["sood"].toString().toULongLong() + sood,
                 index );
 
+    }
+    bool Data::areAllIncomesEmpty()
+    {
+        bool result = true;
+        for( auto x : getIncomeInfo())
+        {
+            QJsonObject o = x.toObject();
+            if(o["poorsant"].toString().toULongLong() != 0 )
+            {
+                result = false;
+            }
+            if(o["sood"].toString().toULongLong() != 0 )
+            {
+                result = false;
+            }
+        }
+
+        return result;
     }
 

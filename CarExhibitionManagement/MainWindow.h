@@ -61,7 +61,7 @@ private:
 
     void addNewEventRow(QString day, QString title, QString description);
     void addNewCheckRow(Checkinfo check);
-    void addIncomeToChart(int poorsant, int sood, int month_index);
+    void addIncomeToChart(quint64 poorsant, quint64 sood, int month_index);
 
     void updateChecksTable();
     QBarSet * barSet_Poorsant;

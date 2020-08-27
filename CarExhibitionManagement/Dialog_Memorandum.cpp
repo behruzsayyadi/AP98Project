@@ -8,6 +8,8 @@ Dialog_Memorandum::Dialog_Memorandum(QWidget *parent) :
     ui(new Ui::Dialog_Memorandum)
 {
     ui->setupUi(this);
+    this->setWindowTitle("قولنامه ی جدید");
+
 }
 
 Dialog_Memorandum::Dialog_Memorandum(Car * car, Manager manager, QWidget *parent):
@@ -228,5 +230,38 @@ void Dialog_Memorandum::addNewCheck(Checkinfo check)
     table->setItem(row_count, 0, new QTableWidgetItem(check.getMoney()));
     table->setItem(row_count, 1, new QTableWidgetItem(check.getDate().toString("yyyy/M/d")));
     table->setItem(row_count, 2, new QTableWidgetItem(check.getShenase()));
+}
+
+void Dialog_Memorandum::showIncome()
+{
+    QString newGheymat = ui->lineEdit_car_gheymat->text();
+    Car * car = nullptr;
+    if(ui->comboBox_car_type->currentText() == "کوپه")
+    {
+        car = new Coupe();
+    }
+    else if(ui->comboBox_car_type->currentText() == "شاسی بلند")
+    {
+        car = new SUV();
+    }
+    else if(ui->comboBox_car_type->currentText() == "شهری")
+    {
+        car = new CityCar();
+    }
+    else if(ui->comboBox_car_type->currentText() == "کروک")
+    {
+        car = new Crook();
+    }
+    else if(ui->comboBox_car_type->currentText() == "وانت")
+    {
+        car = new Vanet();
+    }
+    else
+    {
+
+    }
+    car->setGheymat(newGheymat.toULongLong());
+
+    ui->lineEdit_money_income->setText(QString::number(car->getPoorsant()));
 }
 

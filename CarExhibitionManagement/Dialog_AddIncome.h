@@ -15,8 +15,8 @@ class Dialog_AddIncome : public QDialog
 public:
     explicit Dialog_AddIncome(QWidget *parent = nullptr);
     ~Dialog_AddIncome();
-    int getSood();
-    int getPoorsant();
+    quint64 getSood();
+    quint64 getPoorsant();
     int getMonthIndex();
 private:
     Ui::Dialog_AddIncome *ui;

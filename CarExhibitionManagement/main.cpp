@@ -43,7 +43,6 @@ int main(int argc, char *argv[])
         Data::dir_documents.mkdir("Memorandums");
     if( !Data::dir_vitrine.exists() )
         Data::dir_documents.mkdir("Vitrine");
-
     MainWindow w;
     w.show();
     return a.exec();

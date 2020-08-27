@@ -46,6 +46,8 @@ private:
     QVector<Checkinfo*> checks_vector;;
 signals:
     void memorandumCreated(QString seller_name, QString buyer_name, QString car_info, QString poorsant, QDateTime time, QString shomare_sanad);
+private slots:
+    void showIncome();
 };
 
 #endif // DIALOG_MEMORANDUM_H
