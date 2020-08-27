@@ -46,19 +46,19 @@ Dialog_Memorandum::Dialog_Memorandum(Car * car, Manager manager, QWidget *parent
     {
         ui->comboBox_car_type->setCurrentText("شهری");
     }
-    if (dynamic_cast<Coupe*>(car))
+    else if (dynamic_cast<Coupe*>(car))
     {
         ui->comboBox_car_type->setCurrentText("کوپه");
     }
-    if (dynamic_cast<SUV*>(car))
+    else if (dynamic_cast<SUV*>(car))
     {
         ui->comboBox_car_type->setCurrentText("شاسی بلند");
     }
-    if (dynamic_cast<Crook*>(car))
+    else if (dynamic_cast<Crook*>(car))
     {
         ui->comboBox_car_type->setCurrentText("کروک");
     }
-    if (dynamic_cast<Vanet*>(car))
+    else if (dynamic_cast<Vanet*>(car))
     {
         ui->comboBox_car_type->setCurrentText("وانت");
     }
@@ -211,11 +211,11 @@ void Dialog_Memorandum::on_buttonBox_accepted()
     {
         if(ui->label_money_income->text() == "درآمد")
         {
-            emit newIncome(0, ui->lineEdit_money_income->text(), date_time_of_purchase.date().month());
+            emit newIncome("0", ui->lineEdit_money_income->text(), date_time_of_purchase.date().month());
         }
         else
         {
-            emit newIncome(ui->lineEdit_money_income->text(), 0, date_time_of_purchase.date().month());
+            emit newIncome(ui->lineEdit_money_income->text(), "0", date_time_of_purchase.date().month());
         }
     }
 

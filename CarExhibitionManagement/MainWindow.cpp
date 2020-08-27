@@ -325,7 +325,6 @@ void MainWindow::addIncome()
 
 void MainWindow::addIncome(QString poorsant, QString sood, int month_index)
 {
-    if(month_index < 0) return;
     Data::addIncome(poorsant.toULongLong(), sood.toULongLong(), month_index);
     addIncomeToChart(poorsant.toULongLong(), sood.toULongLong(), month_index);
 }
