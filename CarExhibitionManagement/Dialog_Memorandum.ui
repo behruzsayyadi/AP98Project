@@ -483,7 +483,7 @@
        <widget class="QLineEdit" name="lineEdit_money_income"/>
       </item>
       <item row="1" column="0" colspan="2">
-       <widget class="QLabel" name="label__money_income">
+       <widget class="QLabel" name="label_money_income">
         <property name="text">
          <string>میزان درآمد از قولنامه</string>
         </property>
@@ -612,9 +612,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>lineEdit_money_cash</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>Dialog_Memorandum</receiver>
+   <slot>setMaxCkeckMoney()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>322</x>
+     <y>426</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>821</x>
+     <y>416</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>getNewCheck()</slot>
   <slot>showIncome()</slot>
+  <slot>setMaxCkeckMoney()</slot>
  </slots>
 </ui>

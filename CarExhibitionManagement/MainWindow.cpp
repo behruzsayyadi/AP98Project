@@ -32,6 +32,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(signinSuccessful()), this, SIGNAL(loginSuccessful()));
     connect(this, SIGNAL(loginSuccessful()), this, SLOT(navigateToHomePage()));
 
+    connect(ui->page_Cars, SIGNAL(newIncome(QString, QString, int)), this, SLOT(addIncome(QString, QString, int)));
+
     timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(displayCurrentDateTime()));
     timer->start(1000);
@@ -319,6 +321,13 @@ void MainWindow::addIncome()
         addIncomeToChart(poorsant, sood, month_index);
 
     }
+}
+
+void MainWindow::addIncome(QString poorsant, QString sood, int month_index)
+{
+    if(month_index < 0) return;
+    Data::addIncome(poorsant.toULongLong(), sood.toULongLong(), month_index);
+    addIncomeToChart(poorsant.toULongLong(), sood.toULongLong(), month_index);
 }
 
 void MainWindow::addNewEvent()

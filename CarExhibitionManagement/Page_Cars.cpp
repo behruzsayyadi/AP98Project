@@ -114,6 +114,7 @@ void Page_Cars::addNewMemorandum()
     Dialog_Memorandum * d = new Dialog_Memorandum(this);
     connect(d, SIGNAL(memorandumCreated(QString, QString, QString, QString, QDateTime, QString)),
             this, SLOT(addNewMemorandumRow(QString, QString, QString, QString, QDateTime, QString)));
+    connect(d, SIGNAL(newIncome(QString, QString, int)), this, SIGNAL(newIncome(QString, QString, int)));
     if(d->exec() == Dialog_Memorandum::Accepted)
     {
 

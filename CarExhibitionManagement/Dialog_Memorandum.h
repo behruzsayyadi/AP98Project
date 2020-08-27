@@ -46,8 +46,10 @@ private:
     QVector<Checkinfo*> checks_vector;;
 signals:
     void memorandumCreated(QString seller_name, QString buyer_name, QString car_info, QString poorsant, QDateTime time, QString shomare_sanad);
+    void newIncome(QString poorsant, QString sood, int month_index);
 private slots:
     void showIncome();
+    void setMaxCkeckMoney();
 };
 
 #endif // DIALOG_MEMORANDUM_H

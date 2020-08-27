@@ -49,6 +49,7 @@ public slots:
 signals:
     void newCarAdded(Car);
     void newCheckAdded(Checkinfo);
+    void newIncome(QString poorsant, QString sood, int month_index);
 };
 
 #endif // PAGE_CARS_H

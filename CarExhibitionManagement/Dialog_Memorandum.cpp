@@ -9,7 +9,9 @@ Dialog_Memorandum::Dialog_Memorandum(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle("قولنامه ی جدید");
-
+    ui->dateTimeEdit_dateTime_of_purchase->setDateTime(QDateTime::currentDateTime());
+    ui->dateTimeEdit_dateTime_of_purchase->setMaximumDateTime(QDateTime::currentDateTime());
+    ui->label_money_income->setText("پورسانت");
 }
 
 Dialog_Memorandum::Dialog_Memorandum(Car * car, Manager manager, QWidget *parent):
@@ -17,6 +19,10 @@ Dialog_Memorandum::Dialog_Memorandum(Car * car, Manager manager, QWidget *parent
     ui(new Ui::Dialog_Memorandum)
 {
     ui->setupUi(this);
+    this->setWindowTitle("قولنامه ی جدید");
+
+    ui->label_money_income->setText("درآمد");
+
 
     ui->lineEdit_seller_name->setText(manager.getName());
     ui->lineEdit_seller_family->setText(manager.getFamily());
@@ -34,7 +40,8 @@ Dialog_Memorandum::Dialog_Memorandum(Car * car, Manager manager, QWidget *parent
     ui->lineEdit_car_shomare_shasi->setText(car->getShomareShasi());
     ui->lineEdit_car_shomare_sanad->setText(car->getShomareSanad());
     ui->lineEdit_car_gheymat->setText( QString::number( car->getGheymat() ) );
-
+    ui->dateTimeEdit_dateTime_of_purchase->setDateTime(QDateTime::currentDateTime());
+    ui->dateTimeEdit_dateTime_of_purchase->setMaximumDateTime(QDateTime::currentDateTime());
     if (dynamic_cast<CityCar*>(car))
     {
         ui->comboBox_car_type->setCurrentText("شهری");
@@ -200,6 +207,19 @@ void Dialog_Memorandum::on_buttonBox_accepted()
                             QString::number(car->getPoorsant()),
                             date_time_of_purchase,
                             car->getShomareSanad() );
+    if(date_time_of_purchase.date().year() == QDate::currentDate().year())
+    {
+        if(ui->label_money_income->text() == "درآمد")
+        {
+            emit newIncome(0, ui->lineEdit_money_income->text(), date_time_of_purchase.date().month());
+        }
+        else
+        {
+            emit newIncome(ui->lineEdit_money_income->text(), 0, date_time_of_purchase.date().month());
+        }
+    }
+
+
     delete car;
 
     accept();
@@ -235,33 +255,60 @@ void Dialog_Memorandum::addNewCheck(Checkinfo check)
 void Dialog_Memorandum::showIncome()
 {
     QString newGheymat = ui->lineEdit_car_gheymat->text();
-    Car * car = nullptr;
+    QString income = "0";
     if(ui->comboBox_car_type->currentText() == "کوپه")
     {
-        car = new Coupe();
+        Coupe c;
+        c.setGheymat(newGheymat.toULongLong());
+        income = QString::number(c.getPoorsant());
     }
     else if(ui->comboBox_car_type->currentText() == "شاسی بلند")
     {
-        car = new SUV();
+        SUV c;
+        c.setGheymat(newGheymat.toULongLong());
+        income = QString::number(c.getPoorsant());
     }
     else if(ui->comboBox_car_type->currentText() == "شهری")
     {
-        car = new CityCar();
+        CityCar c;
+        c.setGheymat(newGheymat.toULongLong());
+        income = QString::number(c.getPoorsant());
     }
     else if(ui->comboBox_car_type->currentText() == "کروک")
     {
-        car = new Crook();
+        Crook c;
+        c.setGheymat(newGheymat.toULongLong());
+        income = QString::number(c.getPoorsant());
     }
     else if(ui->comboBox_car_type->currentText() == "وانت")
     {
-        car = new Vanet();
+        Vanet c;
+        c.setGheymat(newGheymat.toULongLong());
+        income = QString::number(c.getPoorsant());
     }
     else
     {
 
     }
-    car->setGheymat(newGheymat.toULongLong());
 
-    ui->lineEdit_money_income->setText(QString::number(car->getPoorsant()));
+    ui->lineEdit_money_income->setText(income);
+    ui->lineEdit_money_total->setText( QString::number(newGheymat.toULongLong() + income.toULongLong()) );
+
+    if(ui->label_money_income->text() == "درآمد")
+    {
+        ui->lineEdit_money_income->setText(newGheymat);
+        ui->lineEdit_money_total->setText(newGheymat);
+    }
+}
+void Dialog_Memorandum::setMaxCkeckMoney()
+{
+    quint64 cash = ui->lineEdit_money_cash->text().toULongLong(),
+            total = ui->lineEdit_money_total->text().toULongLong();
+    if(cash > total)
+    {
+        ui->lineEdit_money_cash->setText(ui->lineEdit_money_total->text());
+        return;
+    }
+    ui->lineEdit_money_check->setText(QString::number(total - cash));
 }
 

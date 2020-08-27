@@ -76,12 +76,14 @@ private slots:
 
     void addNewCheck();
     void addIncome();
+    void addIncome(QString poorsant, QString sood, int month_index);
     void addNewEvent();
 
     void onNewCarAdded(Car);
     void addNewImportantCustomerRow();
     void saveNewImportantCustomerRow();
     void onImportantCustomersTableItemChanged(QTableWidgetItem*);
+
 signals:
     void signinSuccessful();
     void loginSuccessful();
