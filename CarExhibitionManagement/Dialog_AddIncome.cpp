@@ -6,11 +6,10 @@ Dialog_AddIncome::Dialog_AddIncome(QWidget *parent) :
     ui(new Ui::Dialog_AddIncome)
 {
     ui->setupUi(this);
-    QCalendar cal;
     QLocale c(QLocale::English);
     for( int i = 1, max_months = QDate::currentDate().month(); i <= max_months; i++ )
     {
-        ui->comboBox_Month->addItem(cal.monthName(c, i));
+        ui->comboBox_Month->addItem(c.monthName(i));
     }
 }
 

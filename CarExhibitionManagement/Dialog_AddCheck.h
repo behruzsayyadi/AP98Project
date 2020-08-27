@@ -2,7 +2,7 @@
 #define DIALOG_ADDCHECK_H
 
 #include <QDialog>
-#include <QRegularExpression>
+#include <QRegExp>
 
 #include "CheckInfo.h"
 

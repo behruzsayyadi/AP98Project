@@ -3,7 +3,6 @@
 
 #include <QDialog>
 #include <QDate>
-#include <QCalendar>
 #include <QLocale>
 namespace Ui {
 class Dialog_AddIncome;

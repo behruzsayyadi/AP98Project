@@ -5,7 +5,6 @@
 #include <QTimer>
 #include <QInputDialog>
 #include <QTableWidgetItem>
-#include <QCalendar>
 #include <QBrush>
 #include <QVector>
 

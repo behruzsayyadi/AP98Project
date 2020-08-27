@@ -5,7 +5,6 @@
 
 #include <QDialog>
 #include "CheckInfo.h"
-//#include "Dialog_Check.h"
 #include "Dialog_AddCheck.h"
 
 #include "Car.h"

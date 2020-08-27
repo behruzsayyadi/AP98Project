@@ -197,11 +197,10 @@ void MainWindow::setUpincomeChart()
 
     QStringList months;
 
-    QCalendar cal;
     QLocale c(QLocale::English);
     for( int i = 1, max_months = QDate::currentDate().month(); i <= max_months; i++ )
     {
-        months << cal.monthName(c, i, QCalendar::Unspecified, QLocale::ShortFormat);
+        months << c.monthName(i);
     }
 
     QBarCategoryAxis *axisX = new QBarCategoryAxis(this);
